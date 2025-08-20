@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import CounterAnimation from "@/components/CounterAnimation";
 
 const Hero = () => {
   return (
@@ -33,15 +34,24 @@ const Hero = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 py-6">
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold gradient-text">150+</div>
+                <CounterAnimation
+                  value="150+"
+                  className="text-2xl md:text-3xl font-bold gradient-text"
+                />
                 <div className="text-sm text-gray-200">Projects Completed</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">98%</div>
+                <CounterAnimation
+                  value="98%"
+                  className="text-2xl md:text-3xl font-bold text-white"
+                />
                 <div className="text-sm text-gray-200">Client Satisfaction</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">5+</div>
+                <CounterAnimation
+                  value="5+"
+                  className="text-2xl md:text-3xl font-bold text-white"
+                />
                 <div className="text-sm text-gray-200">Years Experience</div>
               </div>
             </div>

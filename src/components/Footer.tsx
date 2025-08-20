@@ -77,6 +77,18 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Company Description Banner */}
+        <div className="text-center mb-16 pb-12 border-b border-gray-800">
+          <p className="text-gray-300 text-base leading-relaxed max-w-5xl mx-auto">
+            Established in 2024, WebDev Agency is a trustworthy web design company with a
+            highly motivated team of innovative web design professionals that make us stand out from our competitors.
+            Our expertise and skill set include professional specialization in web development, mobile app development,
+            e-commerce solutions, digital marketing, and UI/UX design. As a leading company, we put forward all
+            digital services under one roof for growing your business. Transforming ideas into digital reality,
+            we create stunning, high-performance websites and applications that drive business success.
+            Our team of experts is dedicated to delivering exceptional results that exceed expectations.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
@@ -87,9 +99,8 @@ const Footer = () => {
               <span className="text-xl font-bold">WebDev Agency</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Transforming ideas into digital reality. We create stunning, high-performance
-              websites and applications that drive business success. Our team of experts
-              is dedicated to delivering exceptional results that exceed expectations.
+              Your trusted partner for innovative web solutions. We specialize in creating
+              custom digital experiences that help businesses thrive in the modern marketplace.
             </p>
 
             {/* Newsletter Signup */}

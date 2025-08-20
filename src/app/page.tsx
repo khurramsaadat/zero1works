@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import FeaturesCarousel from "@/components/FeaturesCarousel";
 import PartnerScroll from "@/components/PartnerScroll";
 import ContactUs from "@/components/ContactUs";
@@ -11,7 +11,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <Services />
+      <WhyChooseUs />
       <FeaturesCarousel />
       <PartnerScroll />
       <ContactUs />

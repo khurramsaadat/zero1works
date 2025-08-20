@@ -38,6 +38,8 @@
 - [x] **Multi-Page Structure** - Dedicated pages for Services, About, Blog, Process
 - [x] **Process Page** - Story-driven methodology with illustrations and visual storytelling
 - [x] **Background Images** - Hero sections with professional imagery on all pages
+- [x] **Why Choose Us Section** - Updated to match consistent color theme and typography
+- [ ] **Client Testimonials Section** - "What Our Clients Say" carousel with navigation controls
 
 ### 1.4 Content & Assets
 - [x] **Copywriting** - All website content
