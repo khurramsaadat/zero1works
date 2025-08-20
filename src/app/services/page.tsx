@@ -108,13 +108,21 @@ const Services = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-16 pb-12 bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100 dark:from-gray-950 dark:via-slate-950 dark:to-gray-900">
+      <section
+        className="pt-16 pb-12 relative overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop&crop=center')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Our Services
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-lg text-gray-100 max-w-3xl mx-auto mb-8">
               We offer comprehensive digital solutions to help your business thrive in the digital world. 
               From web development to digital marketing, we've got you covered.
             </p>

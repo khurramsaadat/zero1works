@@ -86,54 +86,50 @@ const PartnerScroll = () => {
           {/* Scrolling Animation */}
           <div className="flex animate-scroll">
             {/* First set of logos */}
-            <div className="flex space-x-8 animate-scroll-left">
+            <div className="flex space-x-12 animate-scroll-left">
               {partners.map((partner, index) => (
                 <div
                   key={`first-${index}`}
-                  className="flex-shrink-0 w-32 h-20 bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center group overflow-hidden"
+                  className="flex-shrink-0 flex items-center justify-center"
                 >
-                  <div className="w-16 h-16 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:contrast-125 group-hover:brightness-110">
-                    <img
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const fallback = target.nextElementSibling as HTMLElement;
-                        if (fallback) fallback.style.display = 'flex';
-                      }}
-                    />
-                    <div className="hidden w-full h-full bg-gradient-to-r from-gray-500 to-gray-700 rounded-lg items-center justify-center text-white font-bold text-lg">
-                      {partner.fallback}
-                    </div>
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="h-12 w-auto object-contain opacity-60"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden h-12 w-16 bg-gray-400 rounded items-center justify-center text-white font-bold text-sm">
+                    {partner.fallback}
                   </div>
                 </div>
               ))}
             </div>
             
             {/* Duplicate set for seamless loop */}
-            <div className="flex space-x-8 animate-scroll-left ml-8">
+            <div className="flex space-x-12 animate-scroll-left ml-12">
               {partners.map((partner, index) => (
                 <div
                   key={`second-${index}`}
-                  className="flex-shrink-0 w-32 h-20 bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center group overflow-hidden"
+                  className="flex-shrink-0 flex items-center justify-center"
                 >
-                  <div className="w-16 h-16 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:contrast-125 group-hover:brightness-110">
-                    <img
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const fallback = target.nextElementSibling as HTMLElement;
-                        if (fallback) fallback.style.display = 'flex';
-                      }}
-                    />
-                    <div className="hidden w-full h-full bg-gradient-to-r from-gray-500 to-gray-700 rounded-lg items-center justify-center text-white font-bold text-lg">
-                      {partner.fallback}
-                    </div>
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="h-12 w-auto object-contain opacity-60"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden h-12 w-16 bg-gray-400 rounded items-center justify-center text-white font-bold text-sm">
+                    {partner.fallback}
                   </div>
                 </div>
               ))}
@@ -174,10 +170,6 @@ const PartnerScroll = () => {
         
         .animate-scroll-left {
           animation: scroll-left 30s linear infinite;
-        }
-        
-        .animate-scroll-left:hover {
-          animation-play-state: paused;
         }
       `}</style>
     </section>
