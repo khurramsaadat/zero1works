@@ -48,4 +48,4 @@ alwaysApply: true
 - Always follow and keep the PRD.md and Plan.md updated.
 - For configuration errors (like next.config.ts), address them before proceeding with feature work
 - Git is main not master.
-- When user mention save, please update all md files push all codes and files to Git and GitHub.
+- When user mention save, please update all md files.

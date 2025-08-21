@@ -32,11 +32,11 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "Financial App",
-      description: "Offers professional course management and educational resources.",
-      image: "/images/portfolio/finance-platform.jpg",
-      category: "Finance",
-      link: "https://taimur-finance.netlify.app/"
+      title: "Personality360",
+      description: "Comprehensive psychological assessment platform with Big Five, empathy, and cognitive tests.",
+      image: "/images/portfolio/personality-app.jpg",
+      category: "Psychology",
+      link: "https://personalityapp.netlify.app/"
     },
     {
       id: 4,
@@ -462,10 +462,10 @@ const Portfolio = () => {
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+                          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">
                             {project.title}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-400 text-base line-clamp-2">
+                          <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
                             {project.description}
                           </p>
                         </div>
@@ -513,10 +513,10 @@ const Portfolio = () => {
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+                          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">
                             {project.title}
                           </h3>
-                          <p className="text-gray-400 text-base line-clamp-2">
+                          <p className="text-gray-400 text-sm line-clamp-2">
                             {project.description}
                           </p>
                         </div>

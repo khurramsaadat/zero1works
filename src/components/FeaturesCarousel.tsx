@@ -19,38 +19,19 @@ const FeaturesCarousel = () => {
     },
     {
       id: 2,
-      title: "Healthcare Dashboard",
-      description: "Comprehensive patient management system with real-time analytics.",
-      image: "",
-      category: "Healthcare"
+      title: "PDF Tools Platform",
+      description: "All-in-one PDF manipulation suite with merge, convert, and edit capabilities.",
+      image: "/images/portfolio/pdf-tools.jpg",
+      category: "PDF Tools",
+      link: "https://pdfs-tools.netlify.app/"
     },
     {
       id: 3,
-      title: "Financial App",
-      description: "Secure banking application with advanced security features.",
-      image: "",
-      category: "Finance"
-    },
-    {
-      id: 4,
-      title: "Educational Platform",
-      description: "Interactive learning management system for online education.",
-      image: "",
-      category: "Education"
-    },
-    {
-      id: 5,
-      title: "Real Estate Portal",
-      description: "Property listing platform with advanced search and filters.",
-      image: "",
-      category: "Real Estate"
-    },
-    {
-      id: 6,
-      title: "Social Media App",
-      description: "Modern social networking platform with real-time messaging.",
-      image: "",
-      category: "Social Media"
+      title: "Personality360",
+      description: "Comprehensive psychological assessment platform with Big Five, empathy, and cognitive tests.",
+      image: "/images/portfolio/personality-app.jpg",
+      category: "Psychology",
+      link: "https://personalityapp.netlify.app/"
     }
   ];
 

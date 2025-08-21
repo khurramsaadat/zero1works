@@ -22,6 +22,10 @@
 - **Synchronized card design** between portfolio page and featured projects carousel
 - **Added conditional image display** - shows local images when available, CSS placeholders when not
 - **Implemented clickable functionality** for linked projects
+- **Featured Projects Showcase** - Now displays 3 best projects:
+  - Financial App (Finance)
+  - PDF Tools Platform (PDF Tools)
+  - Personality360 (Psychology)
 
 ### Technical Improvements
 - **Fixed CounterAnimation runtime error** - moved `animateCounter` function before `useEffect` hook
@@ -50,6 +54,17 @@
   - Updated title and description to match actual project
   - Integrated local image `pdf-tools.jpg`
   - Changed category to "PDF Tools"
+- **Updated 3rd portfolio card** to showcase Personality360 Platform
+  - Added live link to [https://personalityapp.netlify.app/](https://personalityapp.netlify.app/)
+  - Updated title and description to match actual project
+  - Integrated local image `personality-app.jpg`
+  - Changed category to "Psychology"
+
+### Typography Improvements
+- **Reduced portfolio card title font size** from `text-xl` to `text-lg` for better proportions
+- **Reduced portfolio card description font size** from `text-base` to `text-sm` for improved balance
+- **Better visual hierarchy** between title, description, and category elements
+- **More professional appearance** with refined text sizing
 
 ### Deployment Status
 - **Netlify deployment** - Fixed Node.js version configuration (changed from `20.11.0` to `20`)
