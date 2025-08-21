@@ -2,24 +2,16 @@
 
 const WhyChooseUs = () => {
   return (
-    <section
-      className="py-20 relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&crop=center')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+    <section className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Why <span className="text-blue-300">Choose Us?</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+              Why <span className="text-blue-600 dark:text-blue-300">Choose Us?</span>
             </h2>
 
-            <div className="space-y-4 text-gray-100 leading-relaxed">
+            <div className="space-y-4 text-gray-700 dark:text-gray-100 leading-relaxed">
               <p>
                 You've been burned before. Or you're trying not to be. Building a digital presence
                 as a business owner is challenging enough. It's worse when your developers
@@ -28,9 +20,9 @@ const WhyChooseUs = () => {
 
               <p>
                 We've seen it all and built a model that fixes it. Our agency is the web development
-                partner built for business trust. Multidisciplinary, <span className="text-blue-300 font-semibold">full-time dedicated teams</span>. Clear
+                partner built for business trust. Multidisciplinary, <span className="text-blue-600 dark:text-blue-300 font-semibold">full-time dedicated teams</span>. Clear
                 communication. A mission to make your web development experience
-                enjoyable. We're a <span className="text-blue-300 font-semibold">team that feels like it's yours, wholly committed to your
+                enjoyable. We're a <span className="text-blue-600 dark:text-blue-300 font-semibold">team that feels like it's yours, wholly committed to your
                 success.</span>
               </p>
             </div>
@@ -45,9 +37,9 @@ const WhyChooseUs = () => {
                 className="rounded-2xl shadow-2xl"
               />
               {/* Floating Elements - Using your theme colors */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-300 rounded-full opacity-80"></div>
-              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gray-300 rounded-full opacity-60"></div>
-              <div className="absolute top-1/2 -right-8 w-12 h-12 bg-white rounded-full opacity-70"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-600 dark:bg-blue-300 rounded-full opacity-80"></div>
+              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gray-400 dark:bg-gray-300 rounded-full opacity-60"></div>
+              <div className="absolute top-1/2 -right-8 w-12 h-12 bg-gray-600 dark:bg-white rounded-full opacity-70"></div>
             </div>
           </div>
         </div>
