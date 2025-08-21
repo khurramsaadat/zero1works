@@ -1,18 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/portfolio" },
+    { name: "Services", href: "/services" },
     { name: "Process", href: "/process" },
-    { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
+    { name: "About", href: "/about" },
   ];
 
   return (
@@ -21,26 +23,39 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">WD</span>
-              </div>
-              <span className="text-2xl font-bold gradient-text">WebDev Agency</span>
+            <a href="/" className="flex items-center space-x-3">
+              <img 
+                src="/images/ZeroOne logo.png" 
+                alt="ZERO ONE WORKS LTD" 
+                className="h-18 w-auto invert"
+              />
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || pathname === link.href + '/' || (link.href !== '/' && pathname.startsWith(link.href));
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`px-3 py-2 text-sm font-medium transition-all duration-200 relative group ${
+                      isActive 
+                        ? 'text-gray-900 dark:text-gray-100' 
+                        : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
+                    }`}
+                  >
+                    {link.name}
+                    <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ${
+                      isActive 
+                        ? 'w-full bg-gray-900 dark:bg-gray-100' 
+                        : 'w-0 bg-gray-900 dark:bg-gray-100 group-hover:w-full'
+                    }`}></span>
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -76,16 +91,28 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-gray-800">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || pathname === link.href + '/' || (link.href !== '/' && pathname.startsWith(link.href));
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`block px-3 py-2 text-base font-medium transition-all duration-200 relative group ${
+                    isActive 
+                      ? 'text-gray-900 dark:text-gray-100' 
+                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                  <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ${
+                    isActive 
+                      ? 'w-full bg-gray-900 dark:bg-gray-100' 
+                      : 'w-0 bg-gray-900 dark:bg-gray-100 group-hover:w-full'
+                  }`}></span>
+                </a>
+              );
+            })}
             <div className="px-3 py-2">
               <Button className="w-full btn-hover-effect btn-primary-hover">
                 Get Started

@@ -66,6 +66,31 @@
 - **Better visual hierarchy** between title, description, and category elements
 - **More professional appearance** with refined text sizing
 
+### Branding & Logo Integration
+- **Integrated ZERO ONE WORKS LTD logo** throughout the website
+  - Updated navbar with company logo (inverted colors for better contrast)
+  - Updated footer with company logo
+  - Replaced "WebDev Agency" branding with "ZERO ONE WORKS LTD"
+  - Updated company descriptions and copyright notices
+- **Logo Specifications**
+  - Navbar: `h-16 w-auto invert` (64px height, inverted colors)
+  - Footer: `h-16 w-auto` (64px height, original colors)
+  - Responsive sizing with proper aspect ratios
+
+### Navigation & User Experience Improvements
+- **Updated navbar hover effects**
+  - Replaced box background hover with elegant underline animation
+  - Underline grows from left to right on hover
+  - Active page shows permanent underline for clear navigation
+- **Improved active state detection**
+  - Fixed path matching to handle trailing slashes
+  - Portfolio link now properly shows as active on portfolio pages
+  - Better user orientation and navigation clarity
+- **Reordered navigation links**
+  - Home → Portfolio → Services → Process → Blog → About
+  - Portfolio moved to second position for better prominence
+  - About moved to last position following common UX patterns
+
 ### Deployment Status
 - **Netlify deployment** - Fixed Node.js version configuration (changed from `20.11.0` to `20`)
 - **Build process** - All ESLint errors resolved, build completes successfully
