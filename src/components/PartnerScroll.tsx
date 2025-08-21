@@ -176,30 +176,30 @@ const PartnerScroll = () => {
           <div className="text-center">
             <CounterAnimation
               value="50+"
-              className="text-3xl font-bold gradient-text mb-2"
+              className="text-3xl font-bold text-gray-800 dark:text-white drop-shadow-lg mb-2"
             />
-            <div className="text-sm text-gray-600 dark:text-gray-400">Happy Clients</div>
+            <div className="text-sm text-gray-700 dark:text-white font-medium">Happy Clients</div>
           </div>
           <div className="text-center">
             <CounterAnimation
               value="150+"
-              className="text-3xl font-bold gradient-text mb-2"
+              className="text-3xl font-bold text-gray-800 dark:text-white drop-shadow-lg mb-2"
             />
-            <div className="text-sm text-gray-600 dark:text-gray-400">Projects Delivered</div>
+            <div className="text-sm text-gray-700 dark:text-white font-medium">Projects Delivered</div>
           </div>
           <div className="text-center">
             <CounterAnimation
               value="99%"
-              className="text-3xl font-bold gradient-text mb-2"
+              className="text-3xl font-bold text-gray-800 dark:text-white drop-shadow-lg mb-2"
             />
-            <div className="text-sm text-gray-600 dark:text-gray-400">Success Rate</div>
-          </div>
+            <div className="text-sm text-gray-700 dark:text-white font-medium">Success Rate</div>
+            </div>
           <div className="text-center">
             <CounterAnimation
               value="24/7"
-              className="text-3xl font-bold gradient-text mb-2"
+              className="text-3xl font-bold text-gray-800 dark:text-white drop-shadow-lg mb-2"
             />
-            <div className="text-sm text-gray-600 dark:text-gray-400">Support</div>
+            <div className="text-sm text-gray-700 dark:text-white font-medium">Support</div>
           </div>
         </div>
 

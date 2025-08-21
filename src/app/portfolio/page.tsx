@@ -24,10 +24,11 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: "Healthcare Dashboard",
-      description: "Comprehensive patient management system with real-time analytics.",
-      image: "",
-      category: "Healthcare"
+      title: "PDF Tools Platform",
+      description: "All-in-one PDF manipulation suite with merge, convert, and edit capabilities.",
+      image: "/images/portfolio/pdf-tools.jpg",
+      category: "PDF Tools",
+      link: "https://pdfs-tools.netlify.app/"
     },
     {
       id: 3,

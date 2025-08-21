@@ -37,23 +37,23 @@ const Hero = () => {
               <div className="text-center">
                 <CounterAnimation
                   value="150+"
-                  className="text-2xl md:text-3xl font-bold gradient-text"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
                 />
-                <div className="text-sm text-gray-200">Projects Completed</div>
+                <div className="text-sm text-white font-medium">Projects Completed</div>
               </div>
               <div className="text-center">
                 <CounterAnimation
                   value="98%"
-                  className="text-2xl md:text-3xl font-bold text-white"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
                 />
-                <div className="text-sm text-gray-200">Client Satisfaction</div>
+                <div className="text-sm text-white font-medium">Client Satisfaction</div>
               </div>
               <div className="text-center">
                 <CounterAnimation
                   value="5+"
-                  className="text-2xl md:text-3xl font-bold text-white"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
                 />
-                <div className="text-sm text-gray-200">Years Experience</div>
+                <div className="text-sm text-white font-medium">Years Experience</div>
               </div>
             </div>
 
