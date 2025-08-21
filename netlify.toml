@@ -1,0 +1,34 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20.11.0"
+  NPM_VERSION = "10.2.4"
+
+# Production context
+[context.production]
+  command = "npm run build"
+
+# Deploy Preview context
+[context.deploy-preview]
+  command = "npm run build"
+
+# Redirects and headers
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' *.placehold.co; img-src 'self' data: blob: *.placehold.co;"
+
+# Environment variables placeholder (actual values should be set in Netlify UI)
+[template.environment]
+  NEXT_PUBLIC_SITE_URL = "Production site URL"
