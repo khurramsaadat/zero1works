@@ -27,7 +27,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-                    Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: blob:;"
+                    Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: blob: https://images.unsplash.com https://cdn.jsdelivr.net https://upload.wikimedia.org https://assets.stickpng.com;"
 
 # Environment variables placeholder (actual values should be set in Netlify UI)
 [template.environment]
