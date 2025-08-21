@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,42 +17,42 @@ const Portfolio = () => {
       id: 1,
       title: "E-Commerce Platform",
       description: "Modern online store with advanced features and seamless checkout experience.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=E-Commerce+Platform",
+      image: "",
       category: "E-Commerce"
     },
     {
       id: 2,
       title: "Healthcare Dashboard",
       description: "Comprehensive patient management system with real-time analytics.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Healthcare+Dashboard",
+      image: "",
       category: "Healthcare"
     },
     {
       id: 3,
       title: "Financial App",
       description: "Secure banking application with advanced security features.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Financial+App",
+      image: "",
       category: "Finance"
     },
     {
       id: 4,
       title: "Educational Platform",
       description: "Interactive learning management system for online education.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Educational+Platform",
+      image: "",
       category: "Education"
     },
     {
       id: 5,
       title: "Real Estate Portal",
       description: "Property listing platform with advanced search and filters.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Real+Estate+Portal",
+      image: "",
       category: "Real Estate"
     },
     {
       id: 6,
       title: "Social Media App",
       description: "Modern social networking platform with real-time messaging.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Social+Media+App",
+      image: "",
       category: "Social Media"
     },
     // Additional 18 projects to fill 4x6 grid
@@ -61,42 +60,42 @@ const Portfolio = () => {
       id: 7,
       title: "Restaurant Management",
       description: "Complete restaurant POS system with inventory and staff management.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Restaurant+Management",
+      image: "",
       category: "Restaurant"
     },
     {
       id: 8,
       title: "Fitness Tracking App",
       description: "Personal fitness tracker with workout plans and nutrition guidance.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Fitness+Tracking+App",
+      image: "",
       category: "Health & Fitness"
     },
     {
       id: 9,
       title: "Travel Booking Platform",
       description: "Comprehensive travel booking system for flights, hotels, and activities.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Travel+Booking+Platform",
+      image: "",
       category: "Travel"
     },
     {
       id: 10,
       title: "Event Management System",
       description: "Complete event planning and management platform with ticketing.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Event+Management+System",
+      image: "",
       category: "Events"
     },
     {
       id: 11,
       title: "Inventory Management",
       description: "Advanced warehouse and inventory tracking system for businesses.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Inventory+Management",
+      image: "",
       category: "Business"
     },
     {
       id: 12,
       title: "Music Streaming App",
       description: "High-quality music streaming platform with personalized playlists.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Music+Streaming+App",
+      image: "",
       category: "Entertainment"
     },
     {
@@ -432,16 +431,13 @@ const Portfolio = () => {
             {currentProjects.map((project, index) => (
               <Card key={project.id} className="card-hover-effect overflow-hidden group">
                 <div className="relative h-[300px] overflow-hidden rounded-t-xl">
-                  {/* Image Display */}
-                  <Image 
-                    src={project.image} 
-                    alt={project.title}
-                    width={800}
-                    height={520}
-                    className="w-full h-full object-cover"
-                    priority={index < 4} // Load first 4 images immediately
-                    loading={index < 4 ? "eager" : "lazy"}
-                  />
+                  {/* CSS-based Placeholder */}
+                  <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                    <div className="text-center text-white p-4">
+                      <div className="text-2xl font-bold mb-2">{project.title}</div>
+                      <div className="text-sm opacity-90">{project.category}</div>
+                    </div>
+                  </div>
                   
                   <div className="absolute top-4 right-4">
                     <span className="bg-white/90 dark:bg-slate-800/90 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full text-xs font-medium">

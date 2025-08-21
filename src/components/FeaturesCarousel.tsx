@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -13,42 +12,42 @@ const FeaturesCarousel = () => {
       id: 1,
       title: "E-Commerce Platform",
       description: "Modern online store with advanced features and seamless checkout experience.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=E-Commerce+Platform",
+      image: "",
       category: "E-Commerce"
     },
     {
       id: 2,
       title: "Healthcare Dashboard",
       description: "Comprehensive patient management system with real-time analytics.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Healthcare+Dashboard",
+      image: "",
       category: "Healthcare"
     },
     {
       id: 3,
       title: "Financial App",
       description: "Secure banking application with advanced security features.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Financial+App",
+      image: "",
       category: "Finance"
     },
     {
       id: 4,
       title: "Educational Platform",
       description: "Interactive learning management system for online education.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Educational+Platform",
+      image: "",
       category: "Education"
     },
     {
       id: 5,
       title: "Real Estate Portal",
       description: "Property listing platform with advanced search and filters.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Real+Estate+Portal",
+      image: "",
       category: "Real Estate"
     },
     {
       id: 6,
       title: "Social Media App",
       description: "Modern social networking platform with real-time messaging.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Social+Media+App",
+      image: "",
       category: "Social Media"
     }
   ];
@@ -113,16 +112,13 @@ const FeaturesCarousel = () => {
                     {projects.slice(slideIndex * 3, slideIndex * 3 + 3).map((project) => (
                       <Card key={project.id} className="card-hover-effect overflow-hidden group">
                         <div className="relative h-[260px] overflow-hidden rounded-t-xl">
-                          {/* Image Display */}
-                          <Image 
-                            src={project.image} 
-                            alt={project.title}
-                            width={800}
-                            height={520}
-                            className="w-full h-full object-cover"
-                            priority={slideIndex === 0}
-                            loading={slideIndex === 0 ? "eager" : "lazy"}
-                          />
+                          {/* CSS-based Placeholder */}
+                          <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                            <div className="text-center text-white p-4">
+                              <div className="text-xl font-bold mb-1">{project.title}</div>
+                              <div className="text-xs opacity-90">{project.category}</div>
+                            </div>
+                          </div>
                           
                           <div className="absolute top-4 right-4">
                             <span className="bg-white/90 dark:bg-slate-800/90 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full text-xs font-medium">
