@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -10,10 +11,11 @@ const FeaturesCarousel = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "Modern online store with advanced features and seamless checkout experience.",
-      image: "",
-      category: "E-Commerce"
+      title: "Financial App",
+      description: "Offers professional course management and educational resources.",
+      image: "/images/portfolio/finance-platform.jpg",
+      category: "Finance",
+      link: "https://taimur-finance.netlify.app/"
     },
     {
       id: 2,
@@ -111,42 +113,107 @@ const FeaturesCarousel = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.slice(slideIndex * 3, slideIndex * 3 + 3).map((project) => (
                       <Card key={project.id} className="card-hover-effect overflow-hidden group">
-                        <div className="relative h-[260px] overflow-hidden rounded-t-xl">
-                          {/* CSS-based Placeholder */}
-                          <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                            <div className="text-center text-white p-4">
-                              <div className="text-xl font-bold mb-1">{project.title}</div>
-                              <div className="text-xs opacity-90">{project.category}</div>
+                        {project.link ? (
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
+                            <div className="relative h-[260px] overflow-hidden rounded-t-xl">
+                              {/* Conditional Image Display */}
+                              {project.image ? (
+                                <Image 
+                                  src={project.image} 
+                                  alt={project.title}
+                                  width={800}
+                                  height={520}
+                                  className="w-full h-full object-cover"
+                                  priority={slideIndex === 0}
+                                  loading={slideIndex === 0 ? "eager" : "lazy"}
+                                />
+                              ) : (
+                                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                                  <div className="text-center text-white p-4">
+                                    <div className="text-xl font-bold mb-1">{project.title}</div>
+                                    <div className="text-xs opacity-90">{project.category}</div>
+                                  </div>
+                                </div>
+                              )}
                             </div>
-                          </div>
-                          
-                          <div className="absolute top-4 right-4">
-                            <span className="bg-white/90 dark:bg-slate-800/90 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full text-xs font-medium">
-                              {project.category}
-                            </span>
-                          </div>
-                        </div>
-                        
-                        <CardContent className="p-4">
-                          <div className="flex items-center justify-between">
-                            <div className="flex-1">
-                              <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
-                                {project.title}
-                              </h3>
-                              <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
-                                {project.description}
-                              </p>
+                            
+                            <CardContent className="p-4">
+                              <div className="flex items-center justify-between">
+                                <div className="flex-1">
+                                  <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
+                                    {project.title}
+                                  </h3>
+                                  <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+                                    {project.description}
+                                  </p>
+                                </div>
+                                <div className="flex flex-col items-end space-y-2">
+                                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                                    {project.category}
+                                  </span>
+                                  <svg 
+                                    className="w-6 h-6 text-gray-600 dark:text-gray-400 transition-transform group-hover:translate-x-1" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                  </svg>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </a>
+                        ) : (
+                          <>
+                            <div className="relative h-[260px] overflow-hidden rounded-t-xl">
+                              {/* Conditional Image Display */}
+                              {project.image ? (
+                                <Image 
+                                  src={project.image} 
+                                  alt={project.title}
+                                  width={800}
+                                  height={520}
+                                  className="w-full h-full object-cover"
+                                  priority={slideIndex === 0}
+                                  loading={slideIndex === 0 ? "eager" : "lazy"}
+                                />
+                              ) : (
+                                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                                  <div className="text-center text-white p-4">
+                                    <div className="text-xl font-bold mb-1">{project.title}</div>
+                                    <div className="text-xs opacity-90">{project.category}</div>
+                                  </div>
+                                </div>
+                              )}
                             </div>
-                            <svg 
-                              className="w-6 h-6 text-gray-600 dark:text-gray-400 transition-transform group-hover:translate-x-1 ml-4 flex-shrink-0" 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                          </div>
-                        </CardContent>
+                            
+                            <CardContent className="p-4">
+                              <div className="flex items-center justify-between">
+                                <div className="flex-1">
+                                  <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
+                                    {project.title}
+                                  </h3>
+                                  <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+                                    {project.description}
+                                  </p>
+                                </div>
+                                <div className="flex flex-col items-end space-y-2">
+                                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                                    {project.category}
+                                  </span>
+                                  <svg 
+                                    className="w-6 h-6 text-gray-600 dark:text-gray-400 transition-transform group-hover:translate-x-1" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                  </svg>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </>
+                        )}
                       </Card>
                     ))}
                   </div>
