@@ -65,7 +65,7 @@ const FeaturesCarousel = () => {
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [nextSlide]);
 
   return (
     <section id="portfolio" className="py-20 bg-white dark:bg-slate-900">
@@ -76,7 +76,7 @@ const FeaturesCarousel = () => {
             Our Featured Projects
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Discover our latest work and see how we've helped businesses transform their digital presence
+            Discover our latest work and see how we&apos;ve helped businesses transform their digital presence
           </p>
         </div>
 

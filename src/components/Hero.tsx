@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import CounterAnimation from "@/components/CounterAnimation";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -27,7 +28,7 @@ const Hero = () => {
               </h1>
               <p className="text-lg md:text-xl text-gray-100 max-w-2xl">
                 We craft stunning, high-performance websites and web applications that drive results. 
-                From concept to launch, we're your trusted partner in digital success.
+                From concept to launch, we&apos;re your trusted partner in digital success.
               </p>
             </div>
 
@@ -61,11 +62,11 @@ const Hero = () => {
               <Button size="lg" className="btn-hover-effect btn-primary-hover">
                 Start Your Project
               </Button>
-              <a href="/portfolio">
+              <Link href="/portfolio">
                 <Button size="lg" variant="outline" className="btn-hover-effect btn-outline-hover">
                   View Our Work
                 </Button>
-              </a>
+              </Link>
             </div>
 
             {/* Trust Indicators */}

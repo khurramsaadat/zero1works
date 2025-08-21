@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
 const Process = () => {
   const processSteps = [
@@ -144,7 +145,7 @@ const Process = () => {
 
             {/* Process Overview */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {processSteps.map((step, index) => (
+              {processSteps.map((step) => (
                 <div key={step.id} className="text-center">
                   <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-3 backdrop-blur-sm border border-white/30">
                     {step.id}
@@ -258,20 +259,20 @@ const Process = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
           <p className="text-gray-100 mb-8 text-lg">
-            Let's work together to bring your vision to life through our proven process. 
+            Let&apos;s work together to bring your vision to life through our proven process. 
             Contact us today to discuss your project requirements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/#contact">
+            <Link href="/#contact">
               <button className="bg-white text-gray-800 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 btn-hover-effect">
                 Start Your Project
               </button>
-            </a>
-            <a href="/portfolio">
+            </Link>
+            <Link href="/portfolio">
               <button className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors duration-200 btn-hover-effect">
                 View Our Work
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -109,7 +109,7 @@ const PartnerScroll = () => {
             Trusted by Leading Companies
           </h2>
           <p className="text-gray-600 dark:text-gray-400">
-            We've partnered with amazing companies to deliver exceptional results
+            We&apos;ve partnered with amazing companies to deliver exceptional results
           </p>
         </div>
 
@@ -208,10 +208,10 @@ const PartnerScroll = () => {
           <div className="bg-gray-800 dark:bg-gray-900 rounded-2xl p-8 md:p-12 relative overflow-hidden">
             {/* Quote Icon */}
             <div className="absolute top-6 left-8 text-6xl text-gray-600 opacity-30">
-              "
+              &ldquo;
             </div>
             <div className="absolute bottom-6 right-8 text-6xl text-gray-600 opacity-30 rotate-180">
-              "
+              &rdquo;
             </div>
 
             {/* Testimonial Content */}

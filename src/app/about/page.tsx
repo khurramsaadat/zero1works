@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import CounterAnimation from "@/components/CounterAnimation";
+import Link from "next/link";
 
 const About = () => {
   const team = [
@@ -348,19 +349,19 @@ const About = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4 text-white">Ready to Work Together?</h2>
           <p className="text-gray-100 mb-8 text-lg">
-            We'd love to hear about your project and discuss how we can help you achieve your digital goals.
+            We would love to hear about your project and discuss how we can help you achieve your digital goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/#contact" className="inline-block">
+            <Link href="/#contact" className="inline-block">
               <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 btn-hover-effect">
                 Get Started Today
               </button>
-            </a>
-            <a href="/portfolio" className="inline-block">
+            </Link>
+            <Link href="/portfolio" className="inline-block">
               <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-gray-800 transition-all duration-200">
                 View Our Work
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

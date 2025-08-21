@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
 const Services = () => {
   const services = [
@@ -114,22 +115,22 @@ const Services = () => {
           <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
             <p className="text-gray-100 mb-6 max-w-2xl mx-auto">
-              Let's discuss your project and see how we can help bring your vision to life. 
+              Let&apos;s discuss your project and see how we can help bring your vision to life. 
               Contact us today for a free consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <Link 
                 href="#contact" 
                 className="bg-white text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors duration-200 btn-hover-effect"
               >
                 Get Free Consultation
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/portfolio"
                 className="border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors duration-200 btn-hover-effect"
               >
                 View Our Work
-              </a>
+              </Link>
             </div>
           </div>
         </div>

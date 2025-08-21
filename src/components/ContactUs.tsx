@@ -34,7 +34,7 @@ const ContactUs = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
-            Let's Start Your Project
+            Let&apos;s Start Your Project
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Ready to transform your ideas into reality? Get in touch with us today for a free consultation.

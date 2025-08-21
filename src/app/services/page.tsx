@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Services = () => {
   const services = [
@@ -124,7 +125,7 @@ const Services = () => {
             </h1>
             <p className="text-lg text-gray-100 max-w-3xl mx-auto mb-8">
               We offer comprehensive digital solutions to help your business thrive in the digital world. 
-              From web development to digital marketing, we've got you covered.
+              From web development to digital marketing, we&apos;ve got you covered.
             </p>
           </div>
         </div>
@@ -225,20 +226,20 @@ const Services = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-gray-100 mb-8 text-lg">
-            Let's discuss your project and see how we can help bring your vision to life. 
+            Let&apos;s discuss your project and see how we can help bring your vision to life. 
             Contact us today for a free consultation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/#contact">
+            <Link href="/#contact">
               <Button size="lg" className="bg-white text-gray-800 hover:bg-gray-100 btn-hover-effect">
                 Get Free Consultation
               </Button>
-            </a>
-            <a href="/portfolio">
+            </Link>
+            <Link href="/portfolio">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 btn-hover-effect">
                 View Our Work
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

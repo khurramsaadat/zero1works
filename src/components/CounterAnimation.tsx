@@ -31,7 +31,7 @@ const CounterAnimation = ({ value, duration = 2000, className = "" }: CounterAni
     }
 
     return () => observer.disconnect();
-  }, [hasAnimated]);
+  }, [hasAnimated, animateCounter]);
 
   const animateCounter = () => {
     // Handle special cases like "24/7" that shouldn't be animated

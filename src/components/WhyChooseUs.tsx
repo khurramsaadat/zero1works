@@ -13,16 +13,16 @@ const WhyChooseUs = () => {
 
             <div className="space-y-4 text-gray-700 dark:text-gray-100 leading-relaxed">
               <p>
-                You've been burned before. Or you're trying not to be. Building a digital presence
-                as a business owner is challenging enough. It's worse when your developers
+                You&apos;ve been burned before. Or you&apos;re trying not to be. Building a digital presence
+                as a business owner is challenging enough. It&apos;s worse when your developers
                 disappear, your designer ghosts, or your timeline keeps slipping into vapor.
               </p>
 
               <p>
-                We've seen it all and built a model that fixes it. Our agency is the web development
+                We&apos;ve seen it all and built a model that fixes it. Our agency is the web development
                 partner built for business trust. Multidisciplinary, <span className="text-blue-600 dark:text-blue-300 font-semibold">full-time dedicated teams</span>. Clear
                 communication. A mission to make your web development experience
-                enjoyable. We're a <span className="text-blue-600 dark:text-blue-300 font-semibold">team that feels like it's yours, wholly committed to your
+                enjoyable. We&apos;re a <span className="text-blue-600 dark:text-blue-300 font-semibold">team that feels like it&apos;s yours, wholly committed to your
                 success.</span>
               </p>
             </div>
@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
                 </h3>
 
                 <p className="text-gray-600 leading-relaxed">
-                  We don't rent talent. We build founding squads.
+                  We don&apos;t rent talent. We build founding squads.
                 </p>
 
                 <div className="space-y-4 text-gray-700">
