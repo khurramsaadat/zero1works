@@ -1,5 +1,5 @@
 # Product Requirements Document (PRD)
-## WebDev Agency Website
+## Zero One Works Ltd Website
 
 ### Document Information
 - **Version**: 2.0 (Updated)
@@ -11,7 +11,7 @@
 
 ## Executive Summary
 
-The WebDev Agency website has been **fully implemented** and is now production-ready. All core requirements have been met, including responsive design, portfolio management, and deployment optimization. The website successfully showcases the agency's services, portfolio, and expertise with a professional, modern design.
+The Zero One Works Ltd website has been **fully implemented** and is now production-ready. All core requirements have been met, including responsive design, portfolio management, and deployment optimization. The website successfully showcases the agency's services, portfolio, and expertise with a professional, modern design.
 
 ---
 
@@ -210,7 +210,7 @@ The WebDev Agency website has been **fully implemented** and is now production-r
 
 ## Conclusion
 
-The WebDev Agency website has been **successfully implemented** according to all specified requirements. The project is production-ready with:
+The Zero One Works Ltd website has been **successfully implemented** according to all specified requirements. The project is production-ready with:
 
 - ✅ **Complete functionality** across all 6 pages
 - ✅ **Professional design** with consistent branding

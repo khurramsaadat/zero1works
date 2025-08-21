@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -20,17 +21,14 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="/" className="flex items-center space-x-3">
-              <img 
-                src="/images/ZeroOne logo.png" 
-                alt="ZERO ONE WORKS LTD" 
-                className="h-18 w-auto invert"
-              />
-            </a>
-          </div>
+        <div className="flex items-center justify-between w-full">
+          <Link href="/" className="flex items-center space-x-3">
+            <img
+              src="/images/ZeroOne logo.png"
+              alt="Zero One Works Ltd"
+              className="h-16 w-auto invert"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
@@ -38,7 +36,7 @@ const Navbar = () => {
               {navLinks.map((link) => {
                 const isActive = pathname === link.href || pathname === link.href + '/' || (link.href !== '/' && pathname.startsWith(link.href));
                 return (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
                     className={`px-3 py-2 text-sm font-medium transition-all duration-200 relative group ${
@@ -53,7 +51,7 @@ const Navbar = () => {
                         ? 'w-full bg-gray-900 dark:bg-gray-100' 
                         : 'w-0 bg-gray-900 dark:bg-gray-100 group-hover:w-full'
                     }`}></span>
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -94,7 +92,7 @@ const Navbar = () => {
             {navLinks.map((link) => {
               const isActive = pathname === link.href || pathname === link.href + '/' || (link.href !== '/' && pathname.startsWith(link.href));
               return (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className={`block px-3 py-2 text-base font-medium transition-all duration-200 relative group ${
@@ -110,7 +108,7 @@ const Navbar = () => {
                       ? 'w-full bg-gray-900 dark:bg-gray-100' 
                       : 'w-0 bg-gray-900 dark:bg-gray-100 group-hover:w-full'
                   }`}></span>
-                </a>
+                </Link>
               );
             })}
             <div className="px-3 py-2">

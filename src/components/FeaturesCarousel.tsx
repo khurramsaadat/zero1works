@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Link from 'next/link';
 
 const FeaturesCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -221,11 +222,11 @@ const FeaturesCarousel = () => {
 
         {/* View All Projects Button */}
         <div className="text-center mt-12">
-          <a href="/portfolio">
+          <Link href="/portfolio">
             <Button size="lg" className="btn-hover-effect btn-primary-hover">
               View All Projects
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

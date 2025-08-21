@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const Footer = () => {
   const navLinks = [
     { name: "Home", href: "/" },
@@ -80,7 +82,7 @@ const Footer = () => {
         {/* Company Description Banner */}
         <div className="text-center mb-16 pb-12 border-b border-gray-800">
           <p className="text-gray-300 text-base leading-relaxed max-w-5xl mx-auto">
-            Established in 2024, ZERO ONE WORKS LTD is a trustworthy web design company with a
+            Established in 2024, Zero One Works Ltd is a trustworthy web design company with a
             highly motivated team of innovative web design professionals that make us stand out from our competitors.
             Our expertise and skill set include professional specialization in web development, mobile app development,
             e-commerce solutions, digital marketing, and UI/UX design. As a leading company, we put forward all
@@ -92,14 +94,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-2">
-              <a href="/" className="hover:opacity-80 transition-opacity duration-200">
-                <img 
-                  src="/images/ZeroOne logo.png" 
-                  alt="ZERO ONE WORKS LTD" 
+            <div className="flex flex-col items-center md:items-start space-y-4">
+              <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
+                <img
+                  src="/images/ZeroOne logo.png"
+                  alt="Zero One Works Ltd"
                   className="h-16 w-auto"
                 />
-              </a>
+              </Link>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Your trusted partner for innovative web solutions. We specialize in creating

@@ -67,10 +67,10 @@
 - **More professional appearance** with refined text sizing
 
 ### Branding & Logo Integration
-- **Integrated ZERO ONE WORKS LTD logo** throughout the website
+- **Integrated Zero One Works Ltd logo** throughout the website
   - Updated navbar with company logo (inverted colors for better contrast)
   - Updated footer with company logo
-  - Replaced "WebDev Agency" branding with "ZERO ONE WORKS LTD"
+  - Replaced "WebDev Agency" branding with "Zero One Works Ltd"
   - Updated company descriptions and copyright notices
 - **Logo Specifications**
   - Navbar: `h-16 w-auto invert` (64px height, inverted colors)
