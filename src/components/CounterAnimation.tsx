@@ -13,26 +13,6 @@ const CounterAnimation = ({ value, duration = 2000, className = "" }: CounterAni
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            animateCounter();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAnimated, animateCounter]);
-
   const animateCounter = () => {
     // Handle special cases like "24/7" that shouldn't be animated
     if (value.includes('/') || !value.match(/\d/)) {
@@ -71,6 +51,26 @@ const CounterAnimation = ({ value, duration = 2000, className = "" }: CounterAni
 
     requestAnimationFrame(updateCounter);
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            animateCounter();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated, animateCounter]);
 
   return (
     <div ref={elementRef} className={className}>
