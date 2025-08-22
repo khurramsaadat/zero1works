@@ -555,21 +555,28 @@ const Portfolio = () => {
                 <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-                Previous
+                <span className="hidden md:inline">Previous</span>
               </Button>
 
-              {/* Page Numbers */}
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <Button
-                  key={page}
-                  variant={currentPage === page ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => handlePageChange(page)}
-                  className="btn-hover-effect min-w-[40px]"
-                >
-                  {page}
-                </Button>
-              ))}
+              {/* Page Numbers - Hidden on mobile, visible on tablet/desktop */}
+              <div className="hidden sm:flex items-center space-x-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <Button
+                    key={page}
+                    variant={currentPage === page ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handlePageChange(page)}
+                    className="btn-hover-effect min-w-[40px]"
+                  >
+                    {page}
+                  </Button>
+                ))}
+              </div>
+
+              {/* Mobile Page Indicator - Simple text showing current page */}
+              <div className="sm:hidden text-sm text-gray-600 dark:text-gray-400 px-3 py-2">
+                Page {currentPage} of {totalPages}
+              </div>
 
               {/* Next Button */}
               <Button
@@ -579,7 +586,7 @@ const Portfolio = () => {
                 disabled={currentPage === totalPages}
                 className="btn-hover-effect"
               >
-                Next
+                <span className="hidden md:inline">Next</span>
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
