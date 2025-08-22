@@ -9,6 +9,7 @@ import Link from 'next/link';
 const FeaturesCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isMobileLandscape, setIsMobileLandscape] = useState(false);
 
   const projects = [
     {
@@ -61,19 +62,24 @@ const FeaturesCarousel = () => {
     }
   ];
 
-  // Check if we're on desktop
+  // Check viewport size for responsive layout
   useEffect(() => {
-    const checkIsDesktop = () => {
-      setIsDesktop(window.innerWidth >= 1024);
+    const checkViewport = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      setIsDesktop(width >= 1024); // lg breakpoint (desktop only)
+      setIsMobileLandscape(width > height && width < 1024); // mobile landscape
     };
     
-    checkIsDesktop();
-    window.addEventListener('resize', checkIsDesktop);
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
     
-    return () => window.removeEventListener('resize', checkIsDesktop);
+    return () => window.removeEventListener('resize', checkViewport);
   }, []);
 
-  const cardsPerSlide = isDesktop ? 2 : 1;
+  // Determine cards per slide based on viewport
+  const cardsPerSlide = isDesktop ? 2 : (isMobileLandscape ? 2 : 1);
   const totalSlides = Math.ceil(projects.length / cardsPerSlide);
 
   const nextSlide = () => {
@@ -92,10 +98,10 @@ const FeaturesCarousel = () => {
 
   return (
     <section id="portfolio" className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-none lg:max-w-7xl mx-auto px-0 lg:px-4 sm:px-6 lg:px-8">
+      <div className="max-w-none lg:max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold gradient-text mb-4">
             Our Featured Projects
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -125,19 +131,19 @@ const FeaturesCarousel = () => {
           </button>
 
           {/* Carousel Content */}
-          <div className="overflow-hidden mx-0 lg:mx-12">
+          <div className="overflow-hidden mx-4 lg:mx-12">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                 <div key={slideIndex} className="w-full flex-shrink-0">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  <div className={`grid gap-10 ${isDesktop || isMobileLandscape ? 'grid-cols-2' : 'grid-cols-1'}`}>
                     {projects.slice(slideIndex * cardsPerSlide, slideIndex * cardsPerSlide + cardsPerSlide).map((project) => (
-                      <Card key={project.id} className="card-hover-effect overflow-hidden group">
+                                              <Card key={project.id} className="card-hover-effect overflow-hidden group mx-2 lg:mx-0">
                         {project.link ? (
                           <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
-                            <div className="relative h-[380px] overflow-hidden rounded-t-xl">
+                            <div className="relative h-[240px] lg:h-[380px] overflow-hidden rounded-t-xl">
                               {/* Conditional Image Display */}
                               {project.image ? (
                                 <Image 
@@ -187,7 +193,7 @@ const FeaturesCarousel = () => {
                           </a>
                         ) : (
                           <>
-                            <div className="relative h-[380px] overflow-hidden rounded-t-xl">
+                            <div className="relative h-[240px] lg:h-[380px] overflow-hidden rounded-t-xl">
                               {/* Conditional Image Display */}
                               {project.image ? (
                                 <Image 
