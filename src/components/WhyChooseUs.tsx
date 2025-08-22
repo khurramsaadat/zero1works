@@ -106,7 +106,7 @@ const WhyChooseUs = () => {
                   </div>
 
                   {/* Project Management Circle */}
-                  <div className="absolute top-8 left-0 w-20 h-20 bg-blue-200 rounded-full flex items-center justify-center text-gray-900 font-semibold text-sm opacity-90 shadow-md">
+                  <div className="absolute top-8 left-0 w-24 h-24 bg-blue-200 rounded-full flex items-center justify-center text-gray-900 font-semibold text-sm opacity-90 shadow-md">
                     Project<br />Management
                   </div>
                 </div>

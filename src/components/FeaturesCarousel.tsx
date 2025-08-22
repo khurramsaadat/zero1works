@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 const FeaturesCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   const projects = [
     {
@@ -33,15 +34,54 @@ const FeaturesCarousel = () => {
       image: "/images/portfolio/personality-app.jpg",
       category: "Psychology",
       link: "https://personalityapp.netlify.app/"
+    },
+    {
+      id: 4,
+      title: "Healthcare Dashboard",
+      description: "Advanced healthcare analytics platform with patient monitoring and data visualization.",
+      image: "/images/portfolio/healthcare-dashboard-800x520.jpg",
+      category: "Healthcare",
+      link: "#"
+    },
+    {
+      id: 5,
+      title: "Food Delivery App",
+      description: "Complete food delivery solution with real-time tracking and payment integration.",
+      image: "/images/portfolio/food-delivery-800x520.jpg",
+      category: "Food & Delivery",
+      link: "#"
+    },
+    {
+      id: 6,
+      title: "VR Training Platform",
+      description: "Immersive virtual reality training system for corporate and educational use.",
+      image: "/images/portfolio/vr-training-800x520.jpg",
+      category: "VR & Training",
+      link: "#"
     }
   ];
 
+  // Check if we're on desktop
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+    
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, []);
+
+  const cardsPerSlide = isDesktop ? 2 : 1;
+  const totalSlides = Math.ceil(projects.length / cardsPerSlide);
+
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % Math.ceil(projects.length / 3));
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + Math.ceil(projects.length / 3)) % Math.ceil(projects.length / 3));
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
   // Auto-play carousel
@@ -52,7 +92,7 @@ const FeaturesCarousel = () => {
 
   return (
     <section id="portfolio" className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-none lg:max-w-7xl mx-auto px-0 lg:px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
@@ -85,19 +125,19 @@ const FeaturesCarousel = () => {
           </button>
 
           {/* Carousel Content */}
-          <div className="overflow-hidden mx-12">
+          <div className="overflow-hidden mx-0 lg:mx-12">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              {Array.from({ length: Math.ceil(projects.length / 3) }).map((_, slideIndex) => (
+              {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                 <div key={slideIndex} className="w-full flex-shrink-0">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {projects.slice(slideIndex * 3, slideIndex * 3 + 3).map((project) => (
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    {projects.slice(slideIndex * cardsPerSlide, slideIndex * cardsPerSlide + cardsPerSlide).map((project) => (
                       <Card key={project.id} className="card-hover-effect overflow-hidden group">
                         {project.link ? (
                           <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
-                            <div className="relative h-[260px] overflow-hidden rounded-t-xl">
+                            <div className="relative h-[380px] overflow-hidden rounded-t-xl">
                               {/* Conditional Image Display */}
                               {project.image ? (
                                 <Image 
@@ -147,7 +187,7 @@ const FeaturesCarousel = () => {
                           </a>
                         ) : (
                           <>
-                            <div className="relative h-[260px] overflow-hidden rounded-t-xl">
+                            <div className="relative h-[380px] overflow-hidden rounded-t-xl">
                               {/* Conditional Image Display */}
                               {project.image ? (
                                 <Image 
@@ -206,7 +246,7 @@ const FeaturesCarousel = () => {
 
           {/* Dots Indicator */}
           <div className="flex justify-center mt-8 space-x-2">
-            {Array.from({ length: Math.ceil(projects.length / 3) }).map((_, index) => (
+            {Array.from({ length: totalSlides }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}

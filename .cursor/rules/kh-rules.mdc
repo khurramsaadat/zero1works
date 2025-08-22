@@ -5,12 +5,11 @@ alwaysApply: true
 ---
 # Your rule content
 - When I set agent to AUTO, so mention the agent's name that was used for reply the code and answers.
-- Make PROGRESS.md file and report each progress in it.
-  - ALWAYS check @web for current date before any date-related operations
-  - NEVER assume or use hardcoded dates
-  - Use web search to verify versions and dates
-  - All changelogs and documentation must use verified current dates
-  - Format dates consistently as YYYY-MM-DD
+- ALWAYS check @web for current date before any date-related operations
+- NEVER assume or use hardcoded dates
+- Use web search to verify versions and dates
+- All changelogs and documentation must use verified current dates
+- Format dates consistently as YYYY-MM-DD
 - I am using windows 11 and my IDE is Cursor AI.
 - Do not use && and use ; instead to avoid PowerShell syntax error.
 - DATES AND VERSIONS:
@@ -28,7 +27,6 @@ alwaysApply: true
 - Always make responsive design
 - Follow Next.js docs for Data Fetching, Rendering, and Routing.
 - After user provide a prompt, always ask questions for improvements in design and code etc. (check internet for best practice) and never proceed without it. 
-- Always remember my inputs and remind me if i make a mistake. Make a LOG.md of all of my inputs with time and date stamp for my records.
 - Always check Problems in the Cursor terminal first before making any changes or suggestions
 - Address all TypeScript errors, ESLint warnings, and other issues shown in the Problems tab
 - If there are multiple problems, prioritize them by severity and address them systematically:
@@ -42,10 +40,13 @@ alwaysApply: true
   - Show the exact error message
   - Explain the cause
   - Propose a solution
-  - Get confirmation before implementing fixes
-- When adding new code, ensure it doesn't introduce new problems
-- After fixing errors, verify the fix by checking the Problems tab again
-- Always follow and keep the PRD.md and Plan.md updated.
-- For configuration errors (like next.config.ts), address them before proceeding with feature work
+  - Get confirmation before implementing fixes.
+- When adding new code, ensure it doesn't introduce new problems.
+- After fixing errors, verify the fix by checking the Problems tab again.
+- For configuration errors (like next.config.ts), address them before proceeding with feature work.
 - Git is main not master.
-- When user mention save, please update all md files.
+- Always follow PRD.md and Plan.md files.
+- Make PROGRESS.md file.
+- When user mention save, please update all md files and report each progress in PROGRESS.md file.
+- Always remember my inputs and remind me if i make a mistake.
+- Make a LOG.md of all of my inputs with time and date stamp for my records and update it when user mention save.

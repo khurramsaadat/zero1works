@@ -10,7 +10,7 @@ const Hero = () => {
       id="home"
       className="pt-16 min-h-screen flex items-center relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&crop=center')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&crop=center')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -22,11 +22,11 @@ const Hero = () => {
           <div className="space-y-8 text-center max-w-4xl">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-white">Transform Your Ideas</span>
+                <span className="text-white drop-shadow-lg">Transform Your Ideas</span>
                 <br />
-                <span className="text-blue-300">Into Digital Reality</span>
+                <span className="text-blue-300 drop-shadow-lg">Into Digital Reality</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-100 max-w-3xl">
+              <p className="text-lg md:text-xl text-gray-100 max-w-3xl drop-shadow-md">
                 We craft stunning, high-performance websites and web applications that drive results. 
                 From concept to launch, we&apos;re your trusted partner in digital success.
               </p>
@@ -37,28 +37,28 @@ const Hero = () => {
               <div className="text-center">
                 <CounterAnimation
                   value="150+"
-                  className="text-2xl md:text-3xl font-bold gradient-text"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
                 />
-                <div className="text-sm text-gray-200">Projects Completed</div>
+                <div className="text-sm text-gray-200 drop-shadow-md">Projects Completed</div>
               </div>
               <div className="text-center">
                 <CounterAnimation
                   value="98%"
-                  className="text-2xl md:text-3xl font-bold text-white"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
                 />
-                <div className="text-sm text-gray-200">Client Satisfaction</div>
+                <div className="text-sm text-gray-200 drop-shadow-md">Client Satisfaction</div>
               </div>
               <div className="text-center">
                 <CounterAnimation
                   value="5+"
-                  className="text-2xl md:text-3xl font-bold text-white"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
                 />
-                <div className="text-sm text-gray-200">Years Experience</div>
+                <div className="text-sm text-gray-200 drop-shadow-md">Years Experience</div>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="btn-hover-effect btn-primary-hover">
                 Start Your Project
               </Button>
@@ -70,29 +70,27 @@ const Hero = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex items-center space-x-6 text-sm text-gray-200">
+            <div className="flex items-center justify-center space-x-6 text-sm text-gray-200 drop-shadow-md">
               <div className="flex items-center space-x-1">
-                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 <span>Free Consultation</span>
               </div>
               <div className="flex items-center space-x-1">
-                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 <span>24/7 Support</span>
               </div>
               <div className="flex items-center space-x-1">
-                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 <span>Money-back Guarantee</span>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
