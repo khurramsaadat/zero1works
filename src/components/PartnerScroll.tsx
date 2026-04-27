@@ -1,7 +1,37 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import CounterAnimation from "@/components/CounterAnimation";
+
+function PartnerBrandLogo({
+  name,
+  logo,
+  fallback,
+}: {
+  name: string;
+  logo: string;
+  fallback: string;
+}) {
+  const [useFallback, setUseFallback] = useState(false);
+  if (useFallback) {
+    return (
+      <div className="flex h-14 min-w-[96px] items-center justify-center rounded bg-gray-600 px-2 text-sm font-bold text-white">
+        {fallback}
+      </div>
+    );
+  }
+  return (
+    <Image
+      src={logo}
+      alt={`${name} logo`}
+      width={160}
+      height={56}
+      className="h-14 w-auto max-w-[150px] object-contain opacity-70 grayscale brightness-50 border-0"
+      onError={() => setUseFallback(true)}
+    />
+  );
+}
 
 const PartnerScroll = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -124,21 +154,11 @@ const PartnerScroll = () => {
                   key={`first-${index}`}
                   className="flex-shrink-0 flex items-center justify-center min-w-[150px]"
                 >
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="h-14 w-auto object-contain opacity-70 filter grayscale brightness-50 border-0"
-                    style={{ border: 'none', outline: 'none' }}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
+                  <PartnerBrandLogo
+                    name={partner.name}
+                    logo={partner.logo}
+                    fallback={partner.fallback}
                   />
-                  <div className="hidden h-14 w-24 bg-gray-600 rounded items-center justify-center text-white font-bold text-sm">
-                    {partner.fallback}
-                  </div>
                 </div>
               ))}
             </div>
@@ -150,21 +170,11 @@ const PartnerScroll = () => {
                   key={`second-${index}`}
                   className="flex-shrink-0 flex items-center justify-center min-w-[150px]"
                 >
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="h-14 w-auto object-contain opacity-70 filter grayscale brightness-50 border-0"
-                    style={{ border: 'none', outline: 'none' }}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
+                  <PartnerBrandLogo
+                    name={partner.name}
+                    logo={partner.logo}
+                    fallback={partner.fallback}
                   />
-                  <div className="hidden h-14 w-24 bg-gray-600 rounded items-center justify-center text-white font-bold text-sm">
-                    {partner.fallback}
-                  </div>
                 </div>
               ))}
             </div>

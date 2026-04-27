@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,55 +11,62 @@ const FeaturesCarousel = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobileLandscape, setIsMobileLandscape] = useState(false);
 
+  // Curated featured work aligned with /portfolio (real shipped projects and live links).
   const projects = [
     {
       id: 1,
-      title: "Financial App",
-      description: "Offers professional course management and educational resources.",
-      image: "/images/portfolio/finance-platform.jpg",
-      category: "Finance",
-      link: "https://taimur-finance.netlify.app/"
+      title: "Grind Me Fine",
+      description:
+        "Specialty coffee house website for a women-owned cafe in Al Barsha, Dubai. Features menu, real Google reviews, gallery, and location details.",
+      image: "/images/portfolio/grind-me-fine.jpg",
+      category: "Hospitality",
+      link: "https://grind-me-fine.netlify.app/",
     },
     {
       id: 2,
-      title: "PDF Tools Platform",
-      description: "All-in-one PDF manipulation suite with merge, convert, and edit capabilities.",
-      image: "/images/portfolio/pdf-tools.jpg",
-      category: "PDF Tools",
-      link: "https://pdfs-tools.netlify.app/"
+      title: "Take My Trip",
+      description:
+        "Dubai tour and adventure booking platform covering desert safaris, city tours, dhow cruises, and top attraction tickets.",
+      image: "/images/portfolio/take-my-trip.jpg",
+      category: "Travel",
+      link: "https://take-my-trip.netlify.app/",
     },
     {
       id: 3,
-      title: "Personality360",
-      description: "Comprehensive psychological assessment platform with Big Five, empathy, and cognitive tests.",
-      image: "/images/portfolio/personality-app.jpg",
-      category: "Psychology",
-      link: "https://personalityapp.netlify.app/"
+      title: "Ibex Design",
+      description:
+        "Award-winning design agency website showcasing brand identity, web design, UI/UX, and corporate communications services.",
+      image: "/images/portfolio/ibex-design.jpg",
+      category: "Design Agency",
+      link: "https://ibexdesign.netlify.app/",
     },
     {
       id: 4,
-      title: "Healthcare Dashboard",
-      description: "Advanced healthcare analytics platform with patient monitoring and data visualization.",
-      image: "/images/portfolio/healthcare-dashboard-800x520.jpg",
-      category: "Healthcare",
-      link: "#"
+      title: "PDF Tools Platform",
+      description:
+        "All-in-one PDF suite with merge, split, compress, and convert capabilities. Fully browser-based with no uploads required.",
+      image: "/images/portfolio/pdf-tools.jpg",
+      category: "PDF Tools",
+      link: "https://pdfs-tools.netlify.app/",
     },
     {
       id: 5,
-      title: "Food Delivery App",
-      description: "Complete food delivery solution with real-time tracking and payment integration.",
-      image: "/images/portfolio/food-delivery-800x520.jpg",
-      category: "Food & Delivery",
-      link: "#"
+      title: "Files & Folders",
+      description:
+        "Free browser-based file tools - batch rename files with pattern support, bulk resize images, and visualize folder structures as interactive trees.",
+      image: "/images/portfolio/files-folders.jpg",
+      category: "Utilities",
+      link: "https://filesfolders.netlify.app/",
     },
     {
       id: 6,
-      title: "VR Training Platform",
-      description: "Immersive virtual reality training system for corporate and educational use.",
-      image: "/images/portfolio/vr-training-800x520.jpg",
-      category: "VR & Training",
-      link: "#"
-    }
+      title: "Personality360",
+      description:
+        "Comprehensive psychological assessment platform with Big Five personality, empathy mapping, and cognitive ability tests.",
+      image: "/images/portfolio/personality-app.jpg",
+      category: "Psychology",
+      link: "https://personalityapp.netlify.app/",
+    },
   ];
 
   // Check viewport size for responsive layout
@@ -82,15 +89,14 @@ const FeaturesCarousel = () => {
   const cardsPerSlide = isDesktop ? 2 : (isMobileLandscape ? 2 : 1);
   const totalSlides = Math.ceil(projects.length / cardsPerSlide);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
+  }, [totalSlides]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
+  }, [totalSlides]);
 
-  // Auto-play carousel
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
@@ -146,14 +152,15 @@ const FeaturesCarousel = () => {
                             <div className="relative h-[240px] lg:h-[380px] overflow-hidden rounded-t-xl">
                               {/* Conditional Image Display */}
                               {project.image ? (
-                                <Image 
-                                  src={project.image} 
+                                <Image
+                                  src={project.image}
                                   alt={project.title}
                                   width={800}
                                   height={520}
                                   className="w-full h-full object-cover"
                                   priority={slideIndex === 0}
                                   loading={slideIndex === 0 ? "eager" : "lazy"}
+                                  sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                               ) : (
                                 <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
@@ -196,14 +203,15 @@ const FeaturesCarousel = () => {
                             <div className="relative h-[240px] lg:h-[380px] overflow-hidden rounded-t-xl">
                               {/* Conditional Image Display */}
                               {project.image ? (
-                                <Image 
-                                  src={project.image} 
+                                <Image
+                                  src={project.image}
                                   alt={project.title}
                                   width={800}
                                   height={520}
                                   className="w-full h-full object-cover"
                                   priority={slideIndex === 0}
                                   loading={slideIndex === 0 ? "eager" : "lazy"}
+                                  sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                               ) : (
                                 <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">

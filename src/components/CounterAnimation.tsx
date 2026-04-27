@@ -14,46 +14,42 @@ const CounterAnimation = ({ value, duration = 2000, className = "", style }: Cou
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
-  const animateCounter = () => {
-    // Handle special cases like "24/7" that shouldn't be animated
-    if (value.includes('/') || !value.match(/\d/)) {
-      setDisplayValue(value);
-      return;
-    }
-
-    // Extract numeric value and suffix from the string
-    const numericMatch = value.match(/(\d+)/);
-    const suffix = value.replace(/\d+/, "");
-
-    if (!numericMatch) {
-      setDisplayValue(value);
-      return;
-    }
-
-    const targetNumber = parseInt(numericMatch[0]);
-    const startTime = Date.now();
-
-    const updateCounter = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      // Use easeOutCubic for smooth animation
-      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-      const currentNumber = Math.floor(easeOutCubic * targetNumber);
-
-      setDisplayValue(currentNumber + suffix);
-
-      if (progress < 1) {
-        requestAnimationFrame(updateCounter);
-      } else {
-        setDisplayValue(value); // Ensure final value is exact
+  useEffect(() => {
+    const animateCounter = () => {
+      if (value.includes('/') || !value.match(/\d/)) {
+        setDisplayValue(value);
+        return;
       }
+
+      const numericMatch = value.match(/(\d+)/);
+      const suffix = value.replace(/\d+/, "");
+
+      if (!numericMatch) {
+        setDisplayValue(value);
+        return;
+      }
+
+      const targetNumber = parseInt(numericMatch[0], 10);
+      const startTime = Date.now();
+
+      const updateCounter = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentNumber = Math.floor(easeOutCubic * targetNumber);
+
+        setDisplayValue(currentNumber + suffix);
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          setDisplayValue(value);
+        }
+      };
+
+      requestAnimationFrame(updateCounter);
     };
 
-    requestAnimationFrame(updateCounter);
-  };
-
-  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -71,7 +67,7 @@ const CounterAnimation = ({ value, duration = 2000, className = "", style }: Cou
     }
 
     return () => observer.disconnect();
-  }, [hasAnimated, animateCounter]);
+  }, [hasAnimated, value, duration]);
 
   return (
     <div ref={elementRef} className={className} style={style}>

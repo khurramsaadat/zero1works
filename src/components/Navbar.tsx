@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Button } from "@/components/ui/button";
@@ -55,10 +56,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between w-full">
           <Link href="/" className="flex items-center space-x-3">
-            <img
+            <Image
               src="/images/ZeroOne logo.png"
               alt="Zero One Works Ltd"
+              width={200}
+              height={64}
               className="h-16 w-auto invert"
+              priority
             />
           </Link>
 

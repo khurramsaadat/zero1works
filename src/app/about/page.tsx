@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import CounterAnimation from "@/components/CounterAnimation";
 import Link from "next/link";
+import Image from "next/image";
 
 const About = () => {
   const team = [
@@ -270,11 +271,13 @@ const About = () => {
             <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 lg:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-1">
-                  <div className="w-48 h-48 mx-auto rounded-2xl overflow-hidden shadow-lg">
-                    <img
+                  <div className="w-48 h-48 mx-auto rounded-2xl overflow-hidden shadow-lg relative">
+                    <Image
                       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
                       alt="Jabir M."
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="192px"
                     />
                   </div>
                 </div>
@@ -313,11 +316,13 @@ const About = () => {
             {team.slice(0, 3).map((member, index) => (
               <Card key={index} className="card-hover-effect text-center">
                 <CardContent className="p-6">
-                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden relative">
+                    <Image
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="96px"
                     />
                   </div>
                   <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-1">

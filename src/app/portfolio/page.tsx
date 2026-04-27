@@ -7,6 +7,45 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+function PortfolioCoverImage({
+  src,
+  alt,
+  title,
+  category,
+  index,
+}: {
+  src: string;
+  alt: string;
+  title: string;
+  category: string;
+  index: number;
+}) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+        <div className="text-center text-white p-4">
+          <div className="text-2xl font-bold mb-2">{title}</div>
+          <div className="text-sm opacity-90">{category}</div>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={800}
+      height={520}
+      className="w-full h-full object-cover"
+      priority={index < 4}
+      loading={index < 4 ? "eager" : "lazy"}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 const Portfolio = () => {
   const [filter, setFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
@@ -229,16 +268,20 @@ const Portfolio = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section
-        className="pt-16 pb-12 relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop&crop=center')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section className="pt-16 pb-12 relative overflow-hidden min-h-[280px]">
+        <Image
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop&crop=center"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 z-[1]"
+          aria-hidden
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-[2]">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Our Portfolio
@@ -285,14 +328,12 @@ const Portfolio = () => {
                     <div className="relative h-[300px] overflow-hidden rounded-t-xl">
                       {/* Conditional Image Display */}
                       {project.image ? (
-                        <Image 
-                          src={project.image} 
+                        <PortfolioCoverImage
+                          src={project.image}
                           alt={project.title}
-                          width={800}
-                          height={520}
-                          className="w-full h-full object-cover"
-                          priority={index < 4}
-                          loading={index < 4 ? "eager" : "lazy"}
+                          title={project.title}
+                          category={project.category}
+                          index={index}
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
@@ -336,14 +377,12 @@ const Portfolio = () => {
                     <div className="relative h-[300px] overflow-hidden rounded-t-xl">
                       {/* Conditional Image Display */}
                       {project.image ? (
-                        <Image 
-                          src={project.image} 
+                        <PortfolioCoverImage
+                          src={project.image}
                           alt={project.title}
-                          width={800}
-                          height={520}
-                          className="w-full h-full object-cover"
-                          priority={index < 4}
-                          loading={index < 4 ? "eager" : "lazy"}
+                          title={project.title}
+                          category={project.category}
+                          index={index}
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">

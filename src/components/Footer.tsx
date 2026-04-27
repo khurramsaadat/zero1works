@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   const navLinks = [
@@ -96,9 +97,11 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex flex-col items-center md:items-start space-y-4">
               <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
-                <img
+                <Image
                   src="/images/ZeroOne logo.png"
                   alt="Zero One Works Ltd"
+                  width={200}
+                  height={64}
                   className="h-16 w-auto"
                 />
               </Link>

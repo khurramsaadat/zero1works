@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -155,11 +156,14 @@ const Blog = () => {
               <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-8">Featured Post</h2>
               <Card className="card-hover-effect overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className="relative h-64 lg:h-auto">
-                    <img 
-                      src={filteredPosts[0].image} 
+                  <div className="relative h-64 lg:min-h-[320px]">
+                    <Image
+                      src={filteredPosts[0].image}
                       alt={filteredPosts[0].title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-white/90 dark:bg-slate-800/90 text-gray-600 dark:text-gray-400 px-3 py-1 rounded-full text-sm font-medium">
@@ -198,10 +202,12 @@ const Blog = () => {
             {filteredPosts.slice(1).map((post) => (
               <Card key={post.id} className="card-hover-effect overflow-hidden">
                 <div className="relative h-48">
-                  <img 
-                    src={post.image} 
+                  <Image
+                    src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute top-4 right-4">
                     <span className="bg-white/90 dark:bg-slate-800/90 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full text-xs font-medium">

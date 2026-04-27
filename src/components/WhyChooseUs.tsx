@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const WhyChooseUs = () => {
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
@@ -31,10 +33,12 @@ const WhyChooseUs = () => {
           {/* Right Illustration */}
           <div className="relative">
             <div className="relative z-10">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&crop=center"
                 alt="Team collaboration"
-                className="rounded-2xl shadow-2xl"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-2xl h-auto w-full max-w-[600px]"
               />
               {/* Floating Elements - Using your theme colors */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-600 dark:bg-blue-300 rounded-full opacity-80"></div>
