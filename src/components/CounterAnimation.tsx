@@ -6,9 +6,10 @@ interface CounterAnimationProps {
   value: string;
   duration?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const CounterAnimation = ({ value, duration = 2000, className = "" }: CounterAnimationProps) => {
+const CounterAnimation = ({ value, duration = 2000, className = "", style }: CounterAnimationProps) => {
   const [displayValue, setDisplayValue] = useState("0");
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
@@ -73,7 +74,7 @@ const CounterAnimation = ({ value, duration = 2000, className = "" }: CounterAni
   }, [hasAnimated, animateCounter]);
 
   return (
-    <div ref={elementRef} className={className}>
+    <div ref={elementRef} className={className} style={style}>
       {displayValue}
     </div>
   );

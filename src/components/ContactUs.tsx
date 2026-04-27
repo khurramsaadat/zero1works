@@ -138,7 +138,7 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <div className="font-medium text-gray-800 dark:text-gray-200">Email</div>
-                      <div className="text-gray-600 dark:text-gray-400">hello@webdevagency.com</div>
+                      <div className="text-gray-600 dark:text-gray-400">khurram@zerooneworks.com</div>
                     </div>
                   </div>
                   
@@ -163,8 +163,8 @@ const ContactUs = () => {
                     <div>
                       <div className="font-medium text-gray-800 dark:text-gray-200">Office</div>
                       <div className="text-gray-600 dark:text-gray-400">
-                        123 Tech Street, Suite 100<br />
-                        San Francisco, CA 94105
+                      1791 Holmcroft Rd, <br />
+                      Manchester M18 7WQ, UK
                       </div>
                     </div>
                   </div>

@@ -9,24 +9,33 @@ const Hero = () => {
     <section
       id="home"
       className="pt-16 min-h-screen flex items-center relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&crop=center')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-1 w-full h-full object-cover z-0"
+      >
+        <source src="/earth-rotating.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Gradient Overlay for Text Readability */}
+      <div className="absolute inset-1 bg-gradient-to-r from-black/80 via-black/70 to-black/10 z-1"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-20">
         <div className="flex justify-center items-center">
           {/* Main Content */}
           <div className="space-y-8 text-center max-w-4xl">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-white drop-shadow-lg">Transform Your Ideas</span>
+                <span className="text-white drop-shadow-2xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Transform Your Ideas</span>
                 <br />
-                <span className="text-blue-300 drop-shadow-lg">Into Digital Reality</span>
+                <span className="text-blue-300 drop-shadow-2xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Into Digital Reality</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-100 max-w-3xl drop-shadow-md">
+              <p className="text-lg md:text-xl text-gray-100 max-w-3xl drop-shadow-lg" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>
                 We craft stunning, high-performance websites and web applications that drive results. 
                 From concept to launch, we&apos;re your trusted partner in digital success.
               </p>
@@ -37,23 +46,26 @@ const Hero = () => {
               <div className="text-center">
                 <CounterAnimation
                   value="150+"
-                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-2xl"
+                  style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
                 />
-                <div className="text-sm text-gray-200 drop-shadow-md">Projects Completed</div>
+                <div className="text-sm text-gray-200 drop-shadow-lg" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>Projects Completed</div>
               </div>
               <div className="text-center">
                 <CounterAnimation
                   value="98%"
-                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-2xl"
+                  style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
                 />
-                <div className="text-sm text-gray-200 drop-shadow-md">Client Satisfaction</div>
+                <div className="text-sm text-gray-200 drop-shadow-lg" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>Client Satisfaction</div>
               </div>
               <div className="text-center">
                 <CounterAnimation
                   value="5+"
-                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
+                  className="text-2xl md:text-3xl font-bold text-white drop-shadow-2xl"
+                  style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
                 />
-                <div className="text-sm text-gray-200 drop-shadow-md">Years Experience</div>
+                <div className="text-sm text-gray-200 drop-shadow-lg" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>Years Experience</div>
               </div>
             </div>
 
@@ -70,7 +82,7 @@ const Hero = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex items-center justify-center space-x-6 text-sm text-gray-200 drop-shadow-md">
+            <div className="flex items-center justify-center space-x-6 text-sm text-gray-200 drop-shadow-lg" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>
               <div className="flex items-center space-x-1">
                 <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />

@@ -13,347 +13,193 @@ const Portfolio = () => {
   const projectsPerPage = 9; // 3x3 grid
 
   const projects = [
-    // Original 6 projects from features carousel
+    // Hospitality - Real client cafe websites
     {
       id: 1,
-      title: "Financial App",
-      description: "Offers professional course management and educational resources.",
-      image: "/images/portfolio/finance-platform.jpg",
-      category: "Finance",
-      link: "https://taimur-finance.netlify.app/"
+      title: "Grind Me Fine",
+      description: "Specialty coffee house website for a women-owned cafe in Al Barsha, Dubai. Features menu, real Google reviews, gallery, and location details.",
+      image: "",
+      category: "Hospitality",
+      link: "https://grind-me-fine.netlify.app/"
     },
     {
       id: 2,
+      title: "Roastery Station",
+      description: "Premium specialty coffee brand site with 3 Dubai locations. Includes gallery, multi-location reviews, and opening hours.",
+      image: "",
+      category: "Hospitality",
+      link: "https://roastery-station.netlify.app/"
+    },
+    // Travel
+    {
+      id: 3,
+      title: "Take My Trip",
+      description: "Dubai tour and adventure booking platform covering desert safaris, city tours, dhow cruises, and top attraction tickets.",
+      image: "",
+      category: "Travel",
+      link: "https://take-my-trip.netlify.app/"
+    },
+    // Design & Agency
+    {
+      id: 4,
+      title: "Ibex Design",
+      description: "Award-winning design agency website showcasing brand identity, web design, UI/UX, and corporate communications services.",
+      image: "",
+      category: "Design Agency",
+      link: "https://ibexdesign.netlify.app/"
+    },
+    // PDF & Document Tools
+    {
+      id: 5,
       title: "PDF Tools Platform",
-      description: "All-in-one PDF manipulation suite with merge, convert, and edit capabilities.",
+      description: "All-in-one PDF suite with merge, split, compress, and convert capabilities. Fully browser-based with no uploads required.",
       image: "/images/portfolio/pdf-tools.jpg",
       category: "PDF Tools",
       link: "https://pdfs-tools.netlify.app/"
     },
     {
-      id: 3,
+      id: 6,
+      title: "PDF & Image Merger",
+      description: "Browser-based tool to merge PDFs, convert images (JPG, PNG) and documents (Word, Excel, TXT) into a single PDF. 100% private.",
+      image: "",
+      category: "PDF Tools",
+      link: "https://pdf-images-doc-merger.netlify.app/"
+    },
+    // File & Productivity Utilities
+    {
+      id: 7,
+      title: "Files & Folders",
+      description: "Free browser-based file tools - batch rename files with pattern support, bulk resize images, and visualize folder structures as interactive trees.",
+      image: "",
+      category: "Utilities",
+      link: "https://filesfolders.netlify.app/"
+    },
+    {
+      id: 8,
+      title: "FavOG",
+      description: "Favicon and Open Graph generator tool. Create favicons in all required sizes and generate OG meta tags - all in the browser, no sign-up needed.",
+      image: "",
+      category: "Utilities",
+      link: "https://favog.netlify.app/"
+    },
+    {
+      id: 9,
+      title: "Image Resizer",
+      description: "Free online image resizer supporting JPG, PNG, WebP, and GIF. Resize, convert, and optimize images with multiple processing tools.",
+      image: "",
+      category: "Utilities",
+      link: "https://image-conver.netlify.app/"
+    },
+    // Video Tools
+    {
+      id: 10,
+      title: "VidEnc",
+      description: "Client-side video encoder inspired by HandBrake. Supports H.264 encoding, format conversion, and quality settings - files stay on your device.",
+      image: "",
+      category: "Video Tools",
+      link: "https://videnc.netlify.app/"
+    },
+    {
+      id: 11,
+      title: "VidCon",
+      description: "Video communication platform with E2E encryption. Clean, modern UI for video calling with code-based room joining.",
+      image: "",
+      category: "Video Tools",
+      link: "https://vid-conn.netlify.app/"
+    },
+    // Creative & Media Tools
+    {
+      id: 12,
+      title: "BatchMark",
+      description: "Bulk watermark and image resizing studio for photographers. Add text or image watermarks to hundreds of photos instantly - no uploads.",
+      image: "",
+      category: "Creative Tools",
+      link: "https://batchmark.netlify.app/"
+    },
+    {
+      id: 13,
+      title: "Memories in Motion",
+      description: "Cinematic photo slideshow creator with immersive transitions. Drag and drop photos to build and export beautiful slideshows.",
+      image: "",
+      category: "Creative Tools",
+      link: "https://album-slideshow.netlify.app/"
+    },
+    // Education & Learning
+    {
+      id: 14,
+      title: "Al-Qari",
+      description: "Quran recitation and memorization app. Upload surah recordings in chunks for structured practice and review sessions.",
+      image: "",
+      category: "Education",
+      link: "https://recitation-alqari.netlify.app/"
+    },
+    {
+      id: 15,
+      title: "Playback & Learn",
+      description: "Video and audio learning player with A/B loop, zoom, and playback speed control. Ideal for language learners and musicians.",
+      image: "",
+      category: "Education",
+      link: "https://playbacks.netlify.app/"
+    },
+    // Health & Fitness
+    {
+      id: 16,
+      title: "Track My Workout",
+      description: "AI-powered workout tracker with real-time pose detection and form scoring. Select exercises and let the AI coach guide your reps.",
+      image: "",
+      category: "Health & Fitness",
+      link: "https://track-my-workout.netlify.app/"
+    },
+    // Finance & Utilities
+    {
+      id: 17,
+      title: "UAE Gratuity Calculator",
+      description: "End-of-service gratuity calculator aligned with UAE labor law. Handles resignation, termination, deductions, and additions with PDF export.",
+      image: "",
+      category: "Finance",
+      link: "https://my-gratuity.netlify.app/"
+    },
+    // Psychology
+    {
+      id: 18,
       title: "Personality360",
-      description: "Comprehensive psychological assessment platform with Big Five, empathy, and cognitive tests.",
+      description: "Comprehensive psychological assessment platform with Big Five personality, empathy mapping, and cognitive ability tests.",
       image: "/images/portfolio/personality-app.jpg",
       category: "Psychology",
       link: "https://personalityapp.netlify.app/"
     },
-    {
-      id: 4,
-      title: "Educational Platform",
-      description: "Interactive learning management system for online education.",
-      image: "",
-      category: "Education"
-    },
-    {
-      id: 5,
-      title: "Real Estate Portal",
-      description: "Property listing platform with advanced search and filters.",
-      image: "",
-      category: "Real Estate"
-    },
-    {
-      id: 6,
-      title: "Social Media App",
-      description: "Modern social networking platform with real-time messaging.",
-      image: "",
-      category: "Social Media"
-    },
-    // Additional 18 projects to fill 4x6 grid
-    {
-      id: 7,
-      title: "Restaurant Management",
-      description: "Complete restaurant POS system with inventory and staff management.",
-      image: "",
-      category: "Restaurant"
-    },
-    {
-      id: 8,
-      title: "Fitness Tracking App",
-      description: "Personal fitness tracker with workout plans and nutrition guidance.",
-      image: "",
-      category: "Health & Fitness"
-    },
-    {
-      id: 9,
-      title: "Travel Booking Platform",
-      description: "Comprehensive travel booking system for flights, hotels, and activities.",
-      image: "",
-      category: "Travel"
-    },
-    {
-      id: 10,
-      title: "Event Management System",
-      description: "Complete event planning and management platform with ticketing.",
-      image: "",
-      category: "Events"
-    },
-    {
-      id: 11,
-      title: "Inventory Management",
-      description: "Advanced warehouse and inventory tracking system for businesses.",
-      image: "",
-      category: "Business"
-    },
-    {
-      id: 12,
-      title: "Music Streaming App",
-      description: "High-quality music streaming platform with personalized playlists.",
-      image: "",
-      category: "Entertainment"
-    },
-    {
-      id: 13,
-      title: "Job Portal Platform",
-      description: "Professional job search and recruitment platform with AI matching.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Job+Portal+Platform",
-      category: "Career"
-    },
-    {
-      id: 14,
-      title: "Food Delivery App",
-      description: "Multi-restaurant food delivery platform with real-time tracking.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Food+Delivery+App",
-      category: "Food & Delivery"
-    },
-    {
-      id: 15,
-      title: "CRM Dashboard",
-      description: "Customer relationship management system with sales analytics.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=CRM+Dashboard",
-      category: "Business"
-    },
-    {
-      id: 16,
-      title: "Photography Portfolio",
-      description: "Stunning portfolio website for professional photographers.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Photography+Portfolio",
-      category: "Portfolio"
-    },
-    {
-      id: 17,
-      title: "Cryptocurrency Exchange",
-      description: "Secure crypto trading platform with advanced charting tools.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Cryptocurrency+Exchange",
-      category: "Finance"
-    },
-    {
-      id: 18,
-      title: "News & Media Platform",
-      description: "Modern news aggregation and publishing platform.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=News+and+Media+Platform",
-      category: "Media"
-    },
+    // Games
     {
       id: 19,
-      title: "Gaming Community Hub",
-      description: "Social platform for gamers with tournaments and leaderboards.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Gaming+Community+Hub",
-      category: "Gaming"
+      title: "Pacman",
+      description: "Classic Pacman arcade game recreation with multiple ghost AI characters (Blinky, Pinky, Inky, Clyde), power pellets, and level progression.",
+      image: "",
+      category: "Games",
+      link: "https://pacmans.netlify.app/"
     },
     {
       id: 20,
-      title: "Legal Practice Management",
-      description: "Comprehensive case management system for law firms.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Legal+Practice+Management",
-      category: "Legal"
+      title: "Tic Tac Toe",
+      description: "Multi-mode Tic Tac Toe - classic 2-player, 3-marks-each variant, vs system, and an adaptive AI learning opponent.",
+      image: "",
+      category: "Games",
+      link: "https://khurram-tic-tac-toe.netlify.app/"
     },
     {
       id: 21,
-      title: "Logistics Tracking System",
-      description: "Real-time package tracking and fleet management platform.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Logistics+Tracking+System",
-      category: "Logistics"
+      title: "N-Place Word Game",
+      description: "Browser-based word game where players fill in Name, Place, Animal, and Thing for a random letter within a time limit. Tracks scores and history.",
+      image: "",
+      category: "Games",
+      link: "https://n-place.netlify.app/"
     },
     {
       id: 22,
-      title: "Mental Health App",
-      description: "Wellness and mental health support platform with therapy sessions.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Mental+Health+App",
-      category: "Healthcare"
-    },
-    {
-      id: 23,
-      title: "Smart Home Dashboard",
-      description: "IoT device management and home automation control center.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Smart+Home+Dashboard",
-      category: "IoT"
-    },
-    {
-      id: 24,
-      title: "Nonprofit Donation Platform",
-      description: "Fundraising and donation management system for charities.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Nonprofit+Donation+Platform",
-      category: "Nonprofit"
-    },
-    // Additional 24 projects to reach 48 total
-    {
-      id: 25,
-      title: "Video Streaming Platform",
-      description: "High-quality video streaming service with subscription management.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Video+Streaming",
-      category: "Entertainment"
-    },
-    {
-      id: 26,
-      title: "Project Management Tool",
-      description: "Collaborative project management platform with team features.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Project+Management+Tool",
-      category: "Business"
-    },
-    {
-      id: 27,
-      title: "Online Learning Academy",
-      description: "Comprehensive e-learning platform with interactive courses.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Online+Learning+Academy",
-      category: "Education"
-    },
-    {
-      id: 28,
-      title: "Telemedicine Platform",
-      description: "Virtual healthcare consultations and patient management system.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Telemedicine+Platform",
-      category: "Healthcare"
-    },
-    {
-      id: 29,
-      title: "Digital Wallet App",
-      description: "Secure mobile payment and digital wallet solution.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Digital+Wallet+App",
-      category: "Finance"
-    },
-    {
-      id: 30,
-      title: "Recipe Sharing Community",
-      description: "Social platform for sharing and discovering recipes.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Recipe+Sharing+Community",
-      category: "Food & Delivery"
-    },
-    {
-      id: 31,
-      title: "Car Rental System",
-      description: "Vehicle rental platform with booking and fleet management.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Car+Rental+System",
-      category: "Travel"
-    },
-    {
-      id: 32,
-      title: "Fashion E-commerce",
-      description: "Modern fashion retail platform with AR try-on features.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Fashion+E-commerce",
-      category: "E-Commerce"
-    },
-    {
-      id: 33,
-      title: "Podcast Platform",
-      description: "Audio content platform with hosting and analytics.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Podcast+Platform",
-      category: "Media"
-    },
-    {
-      id: 34,
-      title: "Virtual Event Platform",
-      description: "Online event hosting with live streaming and networking.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Virtual+Event+Platform",
-      category: "Events"
-    },
-    {
-      id: 35,
-      title: "Freelancer Marketplace",
-      description: "Platform connecting freelancers with clients worldwide.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Freelancer+Marketplace",
-      category: "Business"
-    },
-    {
-      id: 36,
-      title: "Weather Monitoring App",
-      description: "Advanced weather tracking with alerts and forecasting.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Weather+Monitoring+App",
-      category: "Weather"
-    },
-    {
-      id: 37,
-      title: "Pet Care Management",
-      description: "Comprehensive pet health and care tracking system.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Pet+Care+Management",
-      category: "Pet Care"
-    },
-    {
-      id: 38,
-      title: "Construction Management",
-      description: "Project management system for construction companies.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Construction+Management",
-      category: "Construction"
-    },
-    {
-      id: 39,
-      title: "Language Learning App",
-      description: "Interactive language learning platform with AI tutoring.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Language+Learning+App",
-      category: "Education"
-    },
-    {
-      id: 40,
-      title: "Stock Trading Platform",
-      description: "Advanced trading platform with real-time market data.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Stock+Trading+Platform",
-      category: "Finance"
-    },
-    {
-      id: 41,
-      title: "Home Automation Hub",
-      description: "Central control system for smart home devices.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Smart+Home+Dashboard",
-      category: "IoT"
-    },
-    {
-      id: 42,
-      title: "Meditation & Wellness App",
-      description: "Mental wellness platform with guided meditation sessions.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Meditation+and+Wellness+App",
-      category: "Health & Fitness"
-    },
-    {
-      id: 43,
-      title: "Agricultural Management",
-      description: "Farm management system with crop monitoring and analytics.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Agricultural+Management",
-      category: "Agriculture"
-    },
-    {
-      id: 44,
-      title: "Art Gallery Platform",
-      description: "Digital art showcase and marketplace for artists.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Art+Gallery+Platform",
-      category: "Art & Culture"
-    },
-    {
-      id: 45,
-      title: "Delivery Tracking System",
-      description: "Real-time package tracking and logistics management.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Logistics+Tracking+System",
-      category: "Logistics"
-    },
-    {
-      id: 46,
-      title: "Virtual Reality Training",
-      description: "VR-based training platform for various industries.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=VR+Training",
-      category: "VR/AR"
-    },
-    {
-      id: 47,
-      title: "Renewable Energy Monitor",
-      description: "Solar and wind energy monitoring and optimization system.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Renewable+Energy+Monitor",
-      category: "Energy"
-    },
-    {
-      id: 48,
-      title: "Community Forum Platform",
-      description: "Discussion forum with moderation and community features.",
-      image: "https://placehold.co/800x520/2563eb/ffffff/jpg?text=Community+Forum+Platform",
-      category: "Community"
+      title: "Flappy Bird",
+      description: "Faithful Flappy Bird clone with responsive tap-to-fly controls, pipe obstacle generation, and score tracking.",
+      image: "",
+      category: "Games",
+      link: "https://flappy-birrd.netlify.app/"
     }
   ];
 

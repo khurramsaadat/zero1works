@@ -1,0 +1,292 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e5]:
+        - link "Zero One Works Ltd" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img "Zero One Works Ltd" [ref=e7]
+        - generic [ref=e9]:
+          - link "Home" [ref=e10] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link "Portfolio" [ref=e11] [cursor=pointer]:
+            - /url: /portfolio/
+            - text: Portfolio
+          - link "Services" [ref=e13] [cursor=pointer]:
+            - /url: /services/
+            - text: Services
+          - link "Process" [ref=e14] [cursor=pointer]:
+            - /url: /process/
+            - text: Process
+          - link "Blog" [ref=e15] [cursor=pointer]:
+            - /url: /blog/
+            - text: Blog
+          - link "About" [ref=e16] [cursor=pointer]:
+            - /url: /about/
+            - text: About
+        - button "Get Started" [ref=e18]
+    - generic [ref=e21]:
+      - heading "Our Portfolio" [level=1] [ref=e22]
+      - paragraph [ref=e23]: Explore our diverse collection of successful projects across various industries. Each project represents our commitment to excellence and innovation in web development.
+      - generic [ref=e24]:
+        - button "All" [ref=e25]
+        - button "Hospitality" [ref=e26]
+        - button "Travel" [ref=e27]
+        - button "Design Agency" [ref=e28]
+        - button "PDF Tools" [ref=e29]
+        - button "Utilities" [ref=e30]
+        - button "Video Tools" [ref=e31]
+        - button "Creative Tools" [ref=e32]
+        - button "Education" [ref=e33]
+        - button "Health & Fitness" [ref=e34]
+        - button "Finance" [ref=e35]
+        - button "Psychology" [ref=e36]
+        - button "Games" [ref=e37]
+    - generic [ref=e39]:
+      - paragraph [ref=e41]: Showing 10-18 of 22 projects
+      - generic [ref=e42]:
+        - link "VidEnc Video Tools VidEnc Client-side video encoder inspired by HandBrake. Supports H.264 encoding, format conversion, and quality settings - files stay on your device. Video Tools" [ref=e317] [cursor=pointer]:
+          - /url: https://videnc.netlify.app/
+          - generic [ref=e320]:
+            - generic [ref=e321]: VidEnc
+            - generic [ref=e322]: Video Tools
+          - generic [ref=e324]:
+            - generic [ref=e325]:
+              - heading "VidEnc" [level=3] [ref=e326]
+              - paragraph [ref=e327]: Client-side video encoder inspired by HandBrake. Supports H.264 encoding, format conversion, and quality settings - files stay on your device.
+            - generic [ref=e328]:
+              - generic [ref=e329]: Video Tools
+              - img [ref=e330]
+        - link "VidCon Video Tools VidCon Video communication platform with E2E encryption. Clean, modern UI for video calling with code-based room joining. Video Tools" [ref=e333] [cursor=pointer]:
+          - /url: https://vid-conn.netlify.app/
+          - generic [ref=e336]:
+            - generic [ref=e337]: VidCon
+            - generic [ref=e338]: Video Tools
+          - generic [ref=e340]:
+            - generic [ref=e341]:
+              - heading "VidCon" [level=3] [ref=e342]
+              - paragraph [ref=e343]: Video communication platform with E2E encryption. Clean, modern UI for video calling with code-based room joining.
+            - generic [ref=e344]:
+              - generic [ref=e345]: Video Tools
+              - img [ref=e346]
+        - link "BatchMark Creative Tools BatchMark Bulk watermark and image resizing studio for photographers. Add text or image watermarks to hundreds of photos instantly - no uploads. Creative Tools" [ref=e349] [cursor=pointer]:
+          - /url: https://batchmark.netlify.app/
+          - generic [ref=e352]:
+            - generic [ref=e353]: BatchMark
+            - generic [ref=e354]: Creative Tools
+          - generic [ref=e356]:
+            - generic [ref=e357]:
+              - heading "BatchMark" [level=3] [ref=e358]
+              - paragraph [ref=e359]: Bulk watermark and image resizing studio for photographers. Add text or image watermarks to hundreds of photos instantly - no uploads.
+            - generic [ref=e360]:
+              - generic [ref=e361]: Creative Tools
+              - img [ref=e362]
+        - link "Memories in Motion Creative Tools Memories in Motion Cinematic photo slideshow creator with immersive transitions. Drag and drop photos to build and export beautiful slideshows. Creative Tools" [ref=e365] [cursor=pointer]:
+          - /url: https://album-slideshow.netlify.app/
+          - generic [ref=e368]:
+            - generic [ref=e369]: Memories in Motion
+            - generic [ref=e370]: Creative Tools
+          - generic [ref=e372]:
+            - generic [ref=e373]:
+              - heading "Memories in Motion" [level=3] [ref=e374]
+              - paragraph [ref=e375]: Cinematic photo slideshow creator with immersive transitions. Drag and drop photos to build and export beautiful slideshows.
+            - generic [ref=e376]:
+              - generic [ref=e377]: Creative Tools
+              - img [ref=e378]
+        - link "Al-Qari Education Al-Qari Quran recitation and memorization app. Upload surah recordings in chunks for structured practice and review sessions. Education" [ref=e381] [cursor=pointer]:
+          - /url: https://recitation-alqari.netlify.app/
+          - generic [ref=e384]:
+            - generic [ref=e385]: Al-Qari
+            - generic [ref=e386]: Education
+          - generic [ref=e388]:
+            - generic [ref=e389]:
+              - heading "Al-Qari" [level=3] [ref=e390]
+              - paragraph [ref=e391]: Quran recitation and memorization app. Upload surah recordings in chunks for structured practice and review sessions.
+            - generic [ref=e392]:
+              - generic [ref=e393]: Education
+              - img [ref=e394]
+        - link "Playback & Learn Education Playback & Learn Video and audio learning player with A/B loop, zoom, and playback speed control. Ideal for language learners and musicians. Education" [ref=e397] [cursor=pointer]:
+          - /url: https://playbacks.netlify.app/
+          - generic [ref=e400]:
+            - generic [ref=e401]: Playback & Learn
+            - generic [ref=e402]: Education
+          - generic [ref=e404]:
+            - generic [ref=e405]:
+              - heading "Playback & Learn" [level=3] [ref=e406]
+              - paragraph [ref=e407]: Video and audio learning player with A/B loop, zoom, and playback speed control. Ideal for language learners and musicians.
+            - generic [ref=e408]:
+              - generic [ref=e409]: Education
+              - img [ref=e410]
+        - link "Track My Workout Health & Fitness Track My Workout AI-powered workout tracker with real-time pose detection and form scoring. Select exercises and let the AI coach guide your reps. Health & Fitness" [ref=e413] [cursor=pointer]:
+          - /url: https://track-my-workout.netlify.app/
+          - generic [ref=e416]:
+            - generic [ref=e417]: Track My Workout
+            - generic [ref=e418]: Health & Fitness
+          - generic [ref=e420]:
+            - generic [ref=e421]:
+              - heading "Track My Workout" [level=3] [ref=e422]
+              - paragraph [ref=e423]: AI-powered workout tracker with real-time pose detection and form scoring. Select exercises and let the AI coach guide your reps.
+            - generic [ref=e424]:
+              - generic [ref=e425]: Health & Fitness
+              - img [ref=e426]
+        - link "UAE Gratuity Calculator Finance UAE Gratuity Calculator End-of-service gratuity calculator aligned with UAE labor law. Handles resignation, termination, deductions, and additions with PDF export. Finance" [ref=e429] [cursor=pointer]:
+          - /url: https://my-gratuity.netlify.app/
+          - generic [ref=e432]:
+            - generic [ref=e433]: UAE Gratuity Calculator
+            - generic [ref=e434]: Finance
+          - generic [ref=e436]:
+            - generic [ref=e437]:
+              - heading "UAE Gratuity Calculator" [level=3] [ref=e438]
+              - paragraph [ref=e439]: End-of-service gratuity calculator aligned with UAE labor law. Handles resignation, termination, deductions, and additions with PDF export.
+            - generic [ref=e440]:
+              - generic [ref=e441]: Finance
+              - img [ref=e442]
+        - link "Personality360 Personality360 Comprehensive psychological assessment platform with Big Five personality, empathy mapping, and cognitive ability tests. Psychology" [ref=e445] [cursor=pointer]:
+          - /url: https://personalityapp.netlify.app/
+          - img "Personality360" [ref=e447]
+          - generic [ref=e449]:
+            - generic [ref=e450]:
+              - heading "Personality360" [level=3] [ref=e451]
+              - paragraph [ref=e452]: Comprehensive psychological assessment platform with Big Five personality, empathy mapping, and cognitive ability tests.
+            - generic [ref=e453]:
+              - generic [ref=e454]: Psychology
+              - img [ref=e455]
+      - generic [ref=e184]:
+        - button "Previous" [ref=e457]:
+          - img
+          - generic [ref=e458]: Previous
+        - generic [ref=e185]:
+          - button "1" [ref=e186]
+          - button "2" [active] [ref=e187]
+          - button "3" [ref=e188]
+        - button "Next" [ref=e189]:
+          - generic [ref=e190]: Next
+          - img
+    - contentinfo [ref=e191]:
+      - generic [ref=e192]:
+        - paragraph [ref=e194]: Established in 2024, Zero One Works Ltd is a trustworthy web design company with a highly motivated team of innovative web design professionals that make us stand out from our competitors. Our expertise and skill set include professional specialization in web development, mobile app development, e-commerce solutions, digital marketing, and UI/UX design. As a leading company, we put forward all digital services under one roof for growing your business. Transforming ideas into digital reality, we create stunning, high-performance websites and applications that drive business success. Our team of experts is dedicated to delivering exceptional results that exceed expectations.
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - link "Zero One Works Ltd" [ref=e198] [cursor=pointer]:
+              - /url: /
+              - img "Zero One Works Ltd" [ref=e199]
+            - paragraph [ref=e200]: Your trusted partner for innovative web solutions. We specialize in creating custom digital experiences that help businesses thrive in the modern marketplace.
+            - generic [ref=e201]:
+              - heading "Stay Updated" [level=4] [ref=e202]
+              - paragraph [ref=e203]: Subscribe to our newsletter for the latest updates and insights.
+              - generic [ref=e204]:
+                - textbox "Enter your email" [ref=e205]
+                - button "Subscribe" [ref=e206]
+            - generic [ref=e207]:
+              - link "Facebook" [ref=e208] [cursor=pointer]:
+                - /url: https://facebook.com
+                - img [ref=e209]
+              - link "X (Twitter)" [ref=e211] [cursor=pointer]:
+                - /url: https://twitter.com
+                - img [ref=e212]
+              - link "LinkedIn" [ref=e214] [cursor=pointer]:
+                - /url: https://linkedin.com
+                - img [ref=e215]
+              - link "Instagram" [ref=e217] [cursor=pointer]:
+                - /url: https://instagram.com
+                - img [ref=e218]
+              - link "GitHub" [ref=e220] [cursor=pointer]:
+                - /url: https://github.com
+                - img [ref=e221]
+              - link "YouTube" [ref=e223] [cursor=pointer]:
+                - /url: https://youtube.com
+                - img [ref=e224]
+          - generic [ref=e226]:
+            - generic [ref=e227]:
+              - heading "Quick Links" [level=3] [ref=e228]
+              - list [ref=e229]:
+                - listitem [ref=e230]:
+                  - link "Home" [ref=e231] [cursor=pointer]:
+                    - /url: /
+                    - generic [ref=e233]: Home
+                - listitem [ref=e234]:
+                  - link "Services" [ref=e235] [cursor=pointer]:
+                    - /url: /services
+                    - generic [ref=e237]: Services
+                - listitem [ref=e238]:
+                  - link "Portfolio" [ref=e239] [cursor=pointer]:
+                    - /url: /portfolio
+                    - generic [ref=e241]: Portfolio
+                - listitem [ref=e242]:
+                  - link "Process" [ref=e243] [cursor=pointer]:
+                    - /url: /process
+                    - generic [ref=e245]: Process
+                - listitem [ref=e246]:
+                  - link "About" [ref=e247] [cursor=pointer]:
+                    - /url: /about
+                    - generic [ref=e249]: About
+                - listitem [ref=e250]:
+                  - link "Blog" [ref=e251] [cursor=pointer]:
+                    - /url: /blog
+                    - generic [ref=e253]: Blog
+            - generic [ref=e254]:
+              - heading "Resources" [level=4] [ref=e255]
+              - list [ref=e256]:
+                - listitem [ref=e257]:
+                  - link "Case Studies" [ref=e258] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e259]:
+                  - link "White Papers" [ref=e260] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e261]:
+                  - link "Documentation" [ref=e262] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e263]:
+                  - link "API Reference" [ref=e264] [cursor=pointer]:
+                    - /url: "#"
+          - generic [ref=e265]:
+            - heading "Services" [level=3] [ref=e266]
+            - list [ref=e267]:
+              - listitem [ref=e268]:
+                - link "Web Development" [ref=e269] [cursor=pointer]:
+                  - /url: "#services"
+              - listitem [ref=e270]:
+                - link "Mobile Apps" [ref=e271] [cursor=pointer]:
+                  - /url: "#services"
+              - listitem [ref=e272]:
+                - link "E-Commerce" [ref=e273] [cursor=pointer]:
+                  - /url: "#services"
+              - listitem [ref=e274]:
+                - link "UI/UX Design" [ref=e275] [cursor=pointer]:
+                  - /url: "#services"
+              - listitem [ref=e276]:
+                - link "SEO Optimization" [ref=e277] [cursor=pointer]:
+                  - /url: "#services"
+              - listitem [ref=e278]:
+                - link "Maintenance" [ref=e279] [cursor=pointer]:
+                  - /url: "#services"
+          - generic [ref=e280]:
+            - heading "Contact Info" [level=3] [ref=e281]
+            - generic [ref=e282]:
+              - generic [ref=e283]:
+                - img [ref=e284]
+                - generic [ref=e286]:
+                  - text: 1791 Holmcroft Rd,
+                  - text: Manchester M18 7WQ, UK
+              - generic [ref=e287]:
+                - img [ref=e288]
+                - generic [ref=e290]: +1 (555) 123-4567
+              - generic [ref=e291]:
+                - img [ref=e292]
+                - generic [ref=e295]: khurram@zerooneworks.com
+        - generic [ref=e297]:
+          - generic [ref=e298]:
+            - generic [ref=e299]: © 2025 ZERO ONE WORKS LTD. All rights reserved.
+            - generic [ref=e300]: Crafted with ❤️ in Manchester UK | Serving clients worldwide
+          - generic [ref=e301]:
+            - link "Privacy Policy" [ref=e302] [cursor=pointer]:
+              - /url: "#"
+            - link "Terms of Service" [ref=e303] [cursor=pointer]:
+              - /url: "#"
+            - link "Cookie Policy" [ref=e304] [cursor=pointer]:
+              - /url: "#"
+            - link "Sitemap" [ref=e305] [cursor=pointer]:
+              - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e311] [cursor=pointer]:
+    - img [ref=e312]
+  - alert [ref=e315]: Our Portfolio
