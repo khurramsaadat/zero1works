@@ -18,7 +18,7 @@ const Portfolio = () => {
       id: 1,
       title: "Grind Me Fine",
       description: "Specialty coffee house website for a women-owned cafe in Al Barsha, Dubai. Features menu, real Google reviews, gallery, and location details.",
-      image: "",
+      image: "/images/portfolio/grind-me-fine.jpg",
       category: "Hospitality",
       link: "https://grind-me-fine.netlify.app/"
     },
@@ -26,7 +26,7 @@ const Portfolio = () => {
       id: 2,
       title: "Roastery Station",
       description: "Premium specialty coffee brand site with 3 Dubai locations. Includes gallery, multi-location reviews, and opening hours.",
-      image: "",
+      image: "/images/portfolio/roastery-station.jpg",
       category: "Hospitality",
       link: "https://roastery-station.netlify.app/"
     },
@@ -35,7 +35,7 @@ const Portfolio = () => {
       id: 3,
       title: "Take My Trip",
       description: "Dubai tour and adventure booking platform covering desert safaris, city tours, dhow cruises, and top attraction tickets.",
-      image: "",
+      image: "/images/portfolio/take-my-trip.jpg",
       category: "Travel",
       link: "https://take-my-trip.netlify.app/"
     },
@@ -44,7 +44,7 @@ const Portfolio = () => {
       id: 4,
       title: "Ibex Design",
       description: "Award-winning design agency website showcasing brand identity, web design, UI/UX, and corporate communications services.",
-      image: "",
+      image: "/images/portfolio/ibex-design.jpg",
       category: "Design Agency",
       link: "https://ibexdesign.netlify.app/"
     },
@@ -61,7 +61,7 @@ const Portfolio = () => {
       id: 6,
       title: "PDF & Image Merger",
       description: "Browser-based tool to merge PDFs, convert images (JPG, PNG) and documents (Word, Excel, TXT) into a single PDF. 100% private.",
-      image: "",
+      image: "/images/portfolio/pdf-image-merger.jpg",
       category: "PDF Tools",
       link: "https://pdf-images-doc-merger.netlify.app/"
     },
@@ -70,7 +70,7 @@ const Portfolio = () => {
       id: 7,
       title: "Files & Folders",
       description: "Free browser-based file tools - batch rename files with pattern support, bulk resize images, and visualize folder structures as interactive trees.",
-      image: "",
+      image: "/images/portfolio/files-folders.jpg",
       category: "Utilities",
       link: "https://filesfolders.netlify.app/"
     },
@@ -78,7 +78,7 @@ const Portfolio = () => {
       id: 8,
       title: "FavOG",
       description: "Favicon and Open Graph generator tool. Create favicons in all required sizes and generate OG meta tags - all in the browser, no sign-up needed.",
-      image: "",
+      image: "/images/portfolio/favog.jpg",
       category: "Utilities",
       link: "https://favog.netlify.app/"
     },
@@ -86,7 +86,7 @@ const Portfolio = () => {
       id: 9,
       title: "Image Resizer",
       description: "Free online image resizer supporting JPG, PNG, WebP, and GIF. Resize, convert, and optimize images with multiple processing tools.",
-      image: "",
+      image: "/images/portfolio/image-resizer.jpg",
       category: "Utilities",
       link: "https://image-conver.netlify.app/"
     },
@@ -95,7 +95,7 @@ const Portfolio = () => {
       id: 10,
       title: "VidEnc",
       description: "Client-side video encoder inspired by HandBrake. Supports H.264 encoding, format conversion, and quality settings - files stay on your device.",
-      image: "",
+      image: "/images/portfolio/videnc.jpg",
       category: "Video Tools",
       link: "https://videnc.netlify.app/"
     },
@@ -103,7 +103,7 @@ const Portfolio = () => {
       id: 11,
       title: "VidCon",
       description: "Video communication platform with E2E encryption. Clean, modern UI for video calling with code-based room joining.",
-      image: "",
+      image: "/images/portfolio/vid-conn.jpg",
       category: "Video Tools",
       link: "https://vid-conn.netlify.app/"
     },
@@ -112,7 +112,7 @@ const Portfolio = () => {
       id: 12,
       title: "BatchMark",
       description: "Bulk watermark and image resizing studio for photographers. Add text or image watermarks to hundreds of photos instantly - no uploads.",
-      image: "",
+      image: "/images/portfolio/batchmark.jpg",
       category: "Creative Tools",
       link: "https://batchmark.netlify.app/"
     },
@@ -120,7 +120,7 @@ const Portfolio = () => {
       id: 13,
       title: "Memories in Motion",
       description: "Cinematic photo slideshow creator with immersive transitions. Drag and drop photos to build and export beautiful slideshows.",
-      image: "",
+      image: "/images/portfolio/memories-in-motion.jpg",
       category: "Creative Tools",
       link: "https://album-slideshow.netlify.app/"
     },
@@ -129,7 +129,7 @@ const Portfolio = () => {
       id: 14,
       title: "Al-Qari",
       description: "Quran recitation and memorization app. Upload surah recordings in chunks for structured practice and review sessions.",
-      image: "",
+      image: "/images/portfolio/al-qari.jpg",
       category: "Education",
       link: "https://recitation-alqari.netlify.app/"
     },
@@ -137,7 +137,7 @@ const Portfolio = () => {
       id: 15,
       title: "Playback & Learn",
       description: "Video and audio learning player with A/B loop, zoom, and playback speed control. Ideal for language learners and musicians.",
-      image: "",
+      image: "/images/portfolio/playback-learn.jpg",
       category: "Education",
       link: "https://playbacks.netlify.app/"
     },
@@ -146,7 +146,7 @@ const Portfolio = () => {
       id: 16,
       title: "Track My Workout",
       description: "AI-powered workout tracker with real-time pose detection and form scoring. Select exercises and let the AI coach guide your reps.",
-      image: "",
+      image: "/images/portfolio/track-my-workout.jpg",
       category: "Health & Fitness",
       link: "https://track-my-workout.netlify.app/"
     },
@@ -155,7 +155,7 @@ const Portfolio = () => {
       id: 17,
       title: "UAE Gratuity Calculator",
       description: "End-of-service gratuity calculator aligned with UAE labor law. Handles resignation, termination, deductions, and additions with PDF export.",
-      image: "",
+      image: "/images/portfolio/uae-gratuity.jpg",
       category: "Finance",
       link: "https://my-gratuity.netlify.app/"
     },
@@ -173,7 +173,7 @@ const Portfolio = () => {
       id: 19,
       title: "Pacman",
       description: "Classic Pacman arcade game recreation with multiple ghost AI characters (Blinky, Pinky, Inky, Clyde), power pellets, and level progression.",
-      image: "",
+      image: "/images/portfolio/pacman.jpg",
       category: "Games",
       link: "https://pacmans.netlify.app/"
     },
@@ -181,7 +181,7 @@ const Portfolio = () => {
       id: 20,
       title: "Tic Tac Toe",
       description: "Multi-mode Tic Tac Toe - classic 2-player, 3-marks-each variant, vs system, and an adaptive AI learning opponent.",
-      image: "",
+      image: "/images/portfolio/tic-tac-toe.jpg",
       category: "Games",
       link: "https://khurram-tic-tac-toe.netlify.app/"
     },
@@ -189,7 +189,7 @@ const Portfolio = () => {
       id: 21,
       title: "N-Place Word Game",
       description: "Browser-based word game where players fill in Name, Place, Animal, and Thing for a random letter within a time limit. Tracks scores and history.",
-      image: "",
+      image: "/images/portfolio/n-place.jpg",
       category: "Games",
       link: "https://n-place.netlify.app/"
     },
@@ -197,7 +197,7 @@ const Portfolio = () => {
       id: 22,
       title: "Flappy Bird",
       description: "Faithful Flappy Bird clone with responsive tap-to-fly controls, pipe obstacle generation, and score tracking.",
-      image: "",
+      image: "/images/portfolio/flappy-bird.jpg",
       category: "Games",
       link: "https://flappy-birrd.netlify.app/"
     }
