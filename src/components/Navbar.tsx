@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -93,8 +94,9 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* Theme toggle + CTA Button */}
+          <div className="hidden lg:flex lg:items-center lg:gap-2">
+            <ThemeToggle />
             <Button className="btn-hover-effect btn-primary-hover">
               Get Started
             </Button>
@@ -147,8 +149,9 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <div className="px-3 py-2">
-              <Button className="w-full btn-hover-effect btn-primary-hover">
+            <div className="flex items-center gap-2 px-3 py-2">
+              <ThemeToggle />
+              <Button className="flex-1 btn-hover-effect btn-primary-hover">
                 Get Started
               </Button>
             </div>

@@ -52,11 +52,11 @@ const Portfolio = () => {
   const projectsPerPage = 9; // 3x3 grid
 
   const projects = [
-    // Hospitality - Real client cafe websites
+    // Hospitality
     {
       id: 1,
       title: "Grind Me Fine",
-      description: "Specialty coffee house website for a women-owned cafe in Al Barsha, Dubai. Features menu, real Google reviews, gallery, and location details.",
+      description: "Specialty coffee house website featuring menu, real Google reviews, gallery, and location details with a warm, inviting design.",
       image: "/images/portfolio/grind-me-fine.jpg",
       category: "Hospitality",
       link: "https://grind-me-fine.netlify.app/"
@@ -64,23 +64,64 @@ const Portfolio = () => {
     {
       id: 2,
       title: "Roastery Station",
-      description: "Premium specialty coffee brand site with 3 Dubai locations. Includes gallery, multi-location reviews, and opening hours.",
+      description: "Premium specialty coffee brand site with multiple locations, gallery, multi-location reviews, and opening hours.",
       image: "/images/portfolio/roastery-station.jpg",
       category: "Hospitality",
       link: "https://roastery-station.netlify.app/"
     },
-    // Travel
     {
       id: 3,
+      title: "UNO Espresso Cafe",
+      description: "Family-owned cafe website with 100+ Google reviews, photo gallery, online ordering via Zomato, and an embedded Google Map.",
+      image: "/images/portfolio/uno-espresso.jpg",
+      category: "Hospitality",
+      link: "https://unoespresso.netlify.app/"
+    },
+    {
+      id: 4,
+      title: "TumaCafe & Restaurant",
+      description: "Cafe and restaurant site with full menu, photo gallery, Google reviews integration, and multi-platform ordering links.",
+      image: "/images/portfolio/tumacafe.jpg",
+      category: "Hospitality",
+      link: "https://tumacafe-restaurant.netlify.app/"
+    },
+    {
+      id: 5,
+      title: "Lunar Beauty Lounge",
+      description: "Premium ladies salon website with service packages, client testimonials, photo gallery, and online booking via Fresha.",
+      image: "/images/portfolio/lunar-beauty.jpg",
+      category: "Hospitality",
+      link: "https://lunar-beauty-lounge.netlify.app/"
+    },
+    {
+      id: 6,
+      title: "Black Beared Gents Salon",
+      description: "Premium barber and gents salon site featuring services, pricing, craft gallery, and Google-verified client reviews.",
+      image: "/images/portfolio/black-beared.jpg",
+      category: "Hospitality",
+      link: "https://black-beared.netlify.app/"
+    },
+    // Travel
+    {
+      id: 7,
       title: "Take My Trip",
-      description: "Dubai tour and adventure booking platform covering desert safaris, city tours, dhow cruises, and top attraction tickets.",
+      description: "Tour and adventure booking platform covering desert safaris, city tours, dhow cruises, and top attraction tickets.",
       image: "/images/portfolio/take-my-trip.jpg",
       category: "Travel",
       link: "https://take-my-trip.netlify.app/"
     },
+    // Automotive
+    {
+      id: 8,
+      title: "Dubai Bikes",
+      description: "Premium motorcycle dealership site with featured machines, pricing in AED, test ride booking, and a cinematic visual experience.",
+      image: "/images/portfolio/dubai-bikes.jpg",
+      category: "Automotive",
+      link: "https://dubaibikes.netlify.app/"
+    },
     // Design & Agency
     {
-      id: 4,
+      id: 9,
       title: "Ibex Design",
       description: "Award-winning design agency website showcasing brand identity, web design, UI/UX, and corporate communications services.",
       image: "/images/portfolio/ibex-design.jpg",
@@ -89,7 +130,7 @@ const Portfolio = () => {
     },
     // PDF & Document Tools
     {
-      id: 5,
+      id: 10,
       title: "PDF Tools Platform",
       description: "All-in-one PDF suite with merge, split, compress, and convert capabilities. Fully browser-based with no uploads required.",
       image: "/images/portfolio/pdf-tools.jpg",
@@ -97,49 +138,65 @@ const Portfolio = () => {
       link: "https://pdfs-tools.netlify.app/"
     },
     {
-      id: 6,
+      id: 11,
       title: "PDF & Image Merger",
-      description: "Browser-based tool to merge PDFs, convert images (JPG, PNG) and documents (Word, Excel, TXT) into a single PDF. 100% private.",
+      description: "Browser-based tool to merge PDFs, convert images and documents into a single PDF. 100% private, no server uploads.",
       image: "/images/portfolio/pdf-image-merger.jpg",
       category: "PDF Tools",
       link: "https://pdf-images-doc-merger.netlify.app/"
     },
-    // File & Productivity Utilities
+    // Utilities
     {
-      id: 7,
+      id: 12,
+      title: "SnapFormat",
+      description: "Free batch image converter supporting JPG, PNG, WebP, SVG, AVIF, HEIC, TIFF, and more. All processing happens in-browser.",
+      image: "/images/portfolio/snapformat.jpg",
+      category: "Utilities",
+      link: "https://snapformat.org/"
+    },
+    {
+      id: 13,
       title: "Files & Folders",
-      description: "Free browser-based file tools - batch rename files with pattern support, bulk resize images, and visualize folder structures as interactive trees.",
+      description: "Free browser-based file tools - batch rename, bulk resize images, and visualize folder structures as interactive trees.",
       image: "/images/portfolio/files-folders.jpg",
       category: "Utilities",
       link: "https://filesfolders.netlify.app/"
     },
     {
-      id: 8,
+      id: 14,
       title: "FavOG",
-      description: "Favicon and Open Graph generator tool. Create favicons in all required sizes and generate OG meta tags - all in the browser, no sign-up needed.",
+      description: "Favicon and Open Graph generator tool. Create favicons in all sizes and generate OG meta tags in the browser.",
       image: "/images/portfolio/favog.jpg",
       category: "Utilities",
       link: "https://favog.netlify.app/"
     },
     {
-      id: 9,
+      id: 15,
       title: "Image Resizer",
-      description: "Free online image resizer supporting JPG, PNG, WebP, and GIF. Resize, convert, and optimize images with multiple processing tools.",
+      description: "Free online image resizer supporting JPG, PNG, WebP, and GIF. Resize, convert, and optimize images easily.",
       image: "/images/portfolio/image-resizer.jpg",
       category: "Utilities",
       link: "https://image-conver.netlify.app/"
     },
+    {
+      id: 16,
+      title: "Map Explorer",
+      description: "Interactive map application with rich data layers and location discovery features for exploring geographic information.",
+      image: "/images/portfolio/map-explorer.jpg",
+      category: "Utilities",
+      link: "https://mapexplorer.netlify.app/"
+    },
     // Video Tools
     {
-      id: 10,
+      id: 17,
       title: "VidEnc",
-      description: "Client-side video encoder inspired by HandBrake. Supports H.264 encoding, format conversion, and quality settings - files stay on your device.",
+      description: "Client-side video encoder inspired by HandBrake. H.264 encoding, format conversion, and quality settings - files stay on your device.",
       image: "/images/portfolio/videnc.jpg",
       category: "Video Tools",
       link: "https://videnc.netlify.app/"
     },
     {
-      id: 11,
+      id: 18,
       title: "VidCon",
       description: "Video communication platform with E2E encryption. Clean, modern UI for video calling with code-based room joining.",
       image: "/images/portfolio/vid-conn.jpg",
@@ -148,24 +205,90 @@ const Portfolio = () => {
     },
     // Creative & Media Tools
     {
-      id: 12,
+      id: 19,
       title: "BatchMark",
-      description: "Bulk watermark and image resizing studio for photographers. Add text or image watermarks to hundreds of photos instantly - no uploads.",
+      description: "Bulk watermark and image resizing studio for photographers. Add text or image watermarks to hundreds of photos instantly.",
       image: "/images/portfolio/batchmark.jpg",
       category: "Creative Tools",
       link: "https://batchmark.netlify.app/"
     },
     {
-      id: 13,
+      id: 20,
       title: "Memories in Motion",
       description: "Cinematic photo slideshow creator with immersive transitions. Drag and drop photos to build and export beautiful slideshows.",
       image: "/images/portfolio/memories-in-motion.jpg",
       category: "Creative Tools",
       link: "https://album-slideshow.netlify.app/"
     },
+    // Productivity
+    {
+      id: 21,
+      title: "Zenote",
+      description: "Distraction-free note-taking workspace with nested folders, daily notes, and a rich text editor. Private, free, and beautifully minimal.",
+      image: "/images/portfolio/zenote.jpg",
+      category: "Productivity",
+      link: "https://zenote-live.netlify.app/"
+    },
+    {
+      id: 22,
+      title: "Project Management Board",
+      description: "Kanban-style project management workspace for organizing tasks, tracking progress, and collaborating with teams.",
+      image: "/images/portfolio/proj-manage.jpg",
+      category: "Productivity",
+      link: "https://proj-manage.netlify.app/"
+    },
+    // Business Tools
+    {
+      id: 23,
+      title: "DFRE Unipoles",
+      description: "Media campaigns tracking platform with monthly reports, department breakdowns, and year-over-year analytics dashboards.",
+      image: "/images/portfolio/dfre-report.jpg",
+      category: "Business Tools",
+      link: "https://dfre-report.netlify.app/"
+    },
+    {
+      id: 24,
+      title: "Layouts Dashboard",
+      description: "Digital display format management dashboard with search, filtering, vendor coordination, and layout specifications.",
+      image: "/images/portfolio/layouts-dashboard.jpg",
+      category: "Business Tools",
+      link: "https://layouts-dashboard.netlify.app/"
+    },
+    {
+      id: 25,
+      title: "DM Gallery",
+      description: "Airport digital media screen management platform tracking 281 layouts across 9 locations with image upload and completion stats.",
+      image: "/images/portfolio/dm-gallery.jpg",
+      category: "Business Tools",
+      link: "https://digital-media-gallery.netlify.app/"
+    },
+    {
+      id: 26,
+      title: "Vendor Gallery",
+      description: "Vendor screen gallery for digital signage networks. Manage and showcase screens for luxury brands across multiple locations.",
+      image: "/images/portfolio/vendor-lib.jpg",
+      category: "Business Tools",
+      link: "https://vendor-lib.netlify.app/"
+    },
+    {
+      id: 27,
+      title: "DDF Promo Dashboard",
+      description: "Real-time promotional scheduling dashboard monitoring 146 digital media players with brand creative statuses and concourse views.",
+      image: "/images/portfolio/ddf-promo.jpg",
+      category: "Business Tools",
+      link: "https://ddf-promo-dashboard.netlify.app/"
+    },
     // Education & Learning
     {
-      id: 14,
+      id: 28,
+      title: "Solarization",
+      description: "Interactive 3D Solar System explorer with live space data, scale comparisons, space trivia, and real-time cosmic measurements.",
+      image: "/images/portfolio/solarization.jpg",
+      category: "Education",
+      link: "https://solarization.netlify.app/"
+    },
+    {
+      id: 29,
       title: "Al-Qari",
       description: "Quran recitation and memorization app. Upload surah recordings in chunks for structured practice and review sessions.",
       image: "/images/portfolio/al-qari.jpg",
@@ -173,7 +296,7 @@ const Portfolio = () => {
       link: "https://recitation-alqari.netlify.app/"
     },
     {
-      id: 15,
+      id: 30,
       title: "Playback & Learn",
       description: "Video and audio learning player with A/B loop, zoom, and playback speed control. Ideal for language learners and musicians.",
       image: "/images/portfolio/playback-learn.jpg",
@@ -182,25 +305,42 @@ const Portfolio = () => {
     },
     // Health & Fitness
     {
-      id: 16,
+      id: 31,
       title: "Track My Workout",
       description: "AI-powered workout tracker with real-time pose detection and form scoring. Select exercises and let the AI coach guide your reps.",
       image: "/images/portfolio/track-my-workout.jpg",
       category: "Health & Fitness",
       link: "https://track-my-workout.netlify.app/"
     },
-    // Finance & Utilities
+    // Finance
     {
-      id: 17,
+      id: 32,
       title: "UAE Gratuity Calculator",
-      description: "End-of-service gratuity calculator aligned with UAE labor law. Handles resignation, termination, deductions, and additions with PDF export.",
+      description: "End-of-service gratuity calculator aligned with UAE labor law. Handles resignation, termination, deductions, and PDF export.",
       image: "/images/portfolio/uae-gratuity.jpg",
       category: "Finance",
       link: "https://my-gratuity.netlify.app/"
     },
+    {
+      id: 33,
+      title: "StockPulse",
+      description: "Professional global stock terminal with live NYSE and NASDAQ data, interactive charts, portfolio tracking, and custom watchlists.",
+      image: "/images/portfolio/stock-pulse.jpg",
+      category: "Finance",
+      link: "https://stock-pulse-app.netlify.app/"
+    },
+    // Real Estate
+    {
+      id: 34,
+      title: "FalconCity Guide",
+      description: "Community service charges payment guide with step-by-step instructions, secure payment portal, and resident FAQ section.",
+      image: "/images/portfolio/falconcity.jpg",
+      category: "Real Estate",
+      link: "https://falconcity.netlify.app/"
+    },
     // Psychology
     {
-      id: 18,
+      id: 35,
       title: "Personality360",
       description: "Comprehensive psychological assessment platform with Big Five personality, empathy mapping, and cognitive ability tests.",
       image: "/images/portfolio/personality-app.jpg",
@@ -209,15 +349,15 @@ const Portfolio = () => {
     },
     // Games
     {
-      id: 19,
+      id: 36,
       title: "Pacman",
-      description: "Classic Pacman arcade game recreation with multiple ghost AI characters (Blinky, Pinky, Inky, Clyde), power pellets, and level progression.",
+      description: "Classic Pacman arcade game recreation with multiple ghost AI characters, power pellets, and level progression.",
       image: "/images/portfolio/pacman.jpg",
       category: "Games",
       link: "https://pacmans.netlify.app/"
     },
     {
-      id: 20,
+      id: 37,
       title: "Tic Tac Toe",
       description: "Multi-mode Tic Tac Toe - classic 2-player, 3-marks-each variant, vs system, and an adaptive AI learning opponent.",
       image: "/images/portfolio/tic-tac-toe.jpg",
@@ -225,21 +365,21 @@ const Portfolio = () => {
       link: "https://khurram-tic-tac-toe.netlify.app/"
     },
     {
-      id: 21,
+      id: 38,
       title: "N-Place Word Game",
-      description: "Browser-based word game where players fill in Name, Place, Animal, and Thing for a random letter within a time limit. Tracks scores and history.",
+      description: "Word game where players fill in Name, Place, Animal, and Thing for a random letter within a time limit. Tracks scores.",
       image: "/images/portfolio/n-place.jpg",
       category: "Games",
       link: "https://n-place.netlify.app/"
     },
     {
-      id: 22,
+      id: 39,
       title: "Flappy Bird",
       description: "Faithful Flappy Bird clone with responsive tap-to-fly controls, pipe obstacle generation, and score tracking.",
       image: "/images/portfolio/flappy-bird.jpg",
       category: "Games",
       link: "https://flappy-birrd.netlify.app/"
-    }
+    },
   ];
 
   const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];

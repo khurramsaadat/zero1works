@@ -1,7 +1,10 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
@@ -229,25 +232,25 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
             <div className="text-center md:text-left">
               <div className="text-gray-400 text-sm mb-2">
-                © 2025 ZERO ONE WORKS LTD. All rights reserved.
+                &copy; {currentYear} Zero One Works Ltd by Khurram | All rights reserved.
               </div>
               <div className="text-gray-500 text-xs">
-                Crafted with ❤️ in Manchester UK | Serving clients worldwide
+                Based in Manchester, UK | Serving clients worldwide
               </div>
             </div>
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm text-center">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              </Link>
+              <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors duration-200">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              </Link>
+              <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
                 Cookie Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              </Link>
+              <Link href="/sitemap-page" className="text-gray-400 hover:text-white transition-colors duration-200">
                 Sitemap
-              </a>
+              </Link>
             </div>
           </div>
         </div>

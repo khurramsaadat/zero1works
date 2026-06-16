@@ -3,36 +3,8 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import CounterAnimation from "@/components/CounterAnimation";
 import Link from "next/link";
-import Image from "next/image";
 
 const About = () => {
-  const team = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO & Founder",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
-      bio: "10+ years of experience in web development and business strategy. Passionate about helping businesses grow through technology."
-    },
-    {
-      name: "Michael Chen",
-      role: "Lead Developer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      bio: "Full-stack developer with expertise in React, Node.js, and cloud technologies. Loves building scalable and efficient solutions."
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "UI/UX Designer",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      bio: "Creative designer focused on user-centered design. Specializes in creating intuitive and beautiful digital experiences."
-    },
-    {
-      name: "David Kim",
-      role: "Project Manager",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      bio: "Experienced project manager ensuring smooth delivery of projects. Expert in agile methodologies and client communication."
-    }
-  ];
-
   const values = [
     {
       title: "Innovation",
@@ -94,26 +66,24 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-8">
-              A Trusted Web Designing and Web Development Company in Dubai!
+              A Trusted Web Design and Development Company in the UK
             </h2>
             <div className="max-w-4xl mx-auto space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
               <p>
-                WebCastle is a trusted web designing company in Dubai with a team of web designers and web developers who are experts in
-                their respective fields. We have been providing web design and web development services to clients across the globe for
-                over 5 years. Our team of web designers and web developers are well-versed in the latest technologies and trends in the
-                web design and web development industry. We have a proven track record of delivering high-quality web design and web
-                development services to our clients.
+                Zero One Works Ltd is a trusted web design company based in Manchester, UK, with a team of designers and developers
+                who are experts in their respective fields. We have been providing web design and development services to clients
+                across the globe for over 5 years. Our team is well-versed in the latest technologies and trends in the industry,
+                with a proven track record of delivering high-quality digital solutions.
               </p>
               <p>
-                Our web design and web development services are tailored to meet the specific needs of our clients. We work closely with
-                our clients to understand their business requirements and provide them with the best possible solutions. Our team of web
-                designers and web developers are committed to delivering high-quality web design and web development services that meet
-                the expectations of our clients.
+                Our services are tailored to meet the specific needs of each client. We work closely with businesses to understand
+                their requirements and provide the best possible solutions. From startups to established enterprises, our team is
+                committed to delivering results that exceed expectations.
               </p>
               <p>
-                We offer a wide range of web design and web development services including responsive web design, e-commerce website
-                development, content management systems, mobile app development, and digital marketing services. Our team of web designers
-                and web developers are experts in various technologies including HTML, CSS, JavaScript, PHP, WordPress, Shopify, and more.
+                We offer a wide range of services including responsive web design, e-commerce development, content management systems,
+                mobile app development, and digital marketing. Our developers are proficient in modern technologies including React,
+                Next.js, TypeScript, Node.js, Tailwind CSS, and more.
               </p>
             </div>
           </div>
@@ -259,80 +229,28 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
-              Meet Our Team
+              Our Team
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Get to know the talented individuals behind our success
+              A dedicated group of professionals committed to delivering exceptional digital solutions
             </p>
           </div>
 
-          {/* Featured Team Member */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 lg:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                <div className="lg:col-span-1">
-                  <div className="w-48 h-48 mx-auto rounded-2xl overflow-hidden shadow-lg relative">
-                    <Image
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
-                      alt="Jabir M."
-                      fill
-                      className="object-cover"
-                      sizes="192px"
-                    />
-                  </div>
-                </div>
-                <div className="lg:col-span-2 text-center lg:text-left">
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
-                    Jabir M.
-                  </h3>
-                  <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
-                    Chief Executive Officer
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                    Jabir is a visionary leader with over 8 years of experience in web development and digital strategy.
-                    He founded WebCastle with the mission to help businesses succeed in the digital world. Under his leadership,
-                    the company has grown from a small startup to a trusted partner for businesses worldwide. Jabir is passionate
-                    about innovation and believes in delivering exceptional value to every client.
-                  </p>
-                  <div className="flex justify-center lg:justify-start space-x-4">
-                    <a href="#" className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                      </svg>
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center text-white hover:bg-gray-700 transition-colors">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Other Team Members */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {team.slice(0, 3).map((member, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { role: "Project Leadership", icon: "🎯", desc: "Strategic project oversight ensuring every deliverable aligns with your business objectives and timeline." },
+              { role: "Frontend Development", icon: "🖥️", desc: "Pixel-perfect, responsive interfaces built with React, Next.js, and modern CSS frameworks." },
+              { role: "Backend Engineering", icon: "⚙️", desc: "Robust server architectures, APIs, and database solutions that scale with your growth." },
+              { role: "UI/UX Design", icon: "🎨", desc: "User-centred design that balances aesthetics with usability, backed by research and testing." },
+            ].map((member, index) => (
               <Card key={index} className="card-hover-effect text-center">
                 <CardContent className="p-6">
-                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden relative">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                      sizes="96px"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-medium mb-3">
+                  <div className="text-4xl mb-4">{member.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
                     {member.role}
-                  </p>
+                  </h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {member.bio}
+                    {member.desc}
                   </p>
                 </CardContent>
               </Card>

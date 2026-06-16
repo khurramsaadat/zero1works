@@ -11,61 +11,60 @@ const FeaturesCarousel = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobileLandscape, setIsMobileLandscape] = useState(false);
 
-  // Curated featured work aligned with /portfolio (real shipped projects and live links).
   const projects = [
     {
       id: 1,
-      title: "Grind Me Fine",
+      title: "UNO Espresso Cafe",
       description:
-        "Specialty coffee house website for a women-owned cafe in Al Barsha, Dubai. Features menu, real Google reviews, gallery, and location details.",
-      image: "/images/portfolio/grind-me-fine.jpg",
+        "Family-owned cafe website with 100+ Google reviews, photo gallery, online ordering via Zomato, and an embedded Google Map.",
+      image: "/images/portfolio/uno-espresso.jpg",
       category: "Hospitality",
-      link: "https://grind-me-fine.netlify.app/",
+      link: "https://unoespresso.netlify.app/",
     },
     {
       id: 2,
-      title: "Take My Trip",
+      title: "SnapFormat",
       description:
-        "Dubai tour and adventure booking platform covering desert safaris, city tours, dhow cruises, and top attraction tickets.",
-      image: "/images/portfolio/take-my-trip.jpg",
-      category: "Travel",
-      link: "https://take-my-trip.netlify.app/",
+        "Free batch image converter supporting JPG, PNG, WebP, SVG, AVIF, HEIC, TIFF, and more. All processing happens in-browser.",
+      image: "/images/portfolio/snapformat.jpg",
+      category: "Utilities",
+      link: "https://snapformat.org/",
     },
     {
       id: 3,
-      title: "Ibex Design",
+      title: "Lunar Beauty Lounge",
       description:
-        "Award-winning design agency website showcasing brand identity, web design, UI/UX, and corporate communications services.",
-      image: "/images/portfolio/ibex-design.jpg",
-      category: "Design Agency",
-      link: "https://ibexdesign.netlify.app/",
+        "Premium ladies salon website with service packages, client testimonials, photo gallery, and online booking via Fresha.",
+      image: "/images/portfolio/lunar-beauty.jpg",
+      category: "Hospitality",
+      link: "https://lunar-beauty-lounge.netlify.app/",
     },
     {
       id: 4,
-      title: "PDF Tools Platform",
+      title: "StockPulse",
       description:
-        "All-in-one PDF suite with merge, split, compress, and convert capabilities. Fully browser-based with no uploads required.",
-      image: "/images/portfolio/pdf-tools.jpg",
-      category: "PDF Tools",
-      link: "https://pdfs-tools.netlify.app/",
+        "Professional global stock terminal with live NYSE and NASDAQ data, interactive charts, portfolio tracking, and custom watchlists.",
+      image: "/images/portfolio/stock-pulse.jpg",
+      category: "Finance",
+      link: "https://stock-pulse-app.netlify.app/",
     },
     {
       id: 5,
-      title: "Files & Folders",
+      title: "Zenote",
       description:
-        "Free browser-based file tools - batch rename files with pattern support, bulk resize images, and visualize folder structures as interactive trees.",
-      image: "/images/portfolio/files-folders.jpg",
-      category: "Utilities",
-      link: "https://filesfolders.netlify.app/",
+        "Distraction-free note-taking workspace with nested folders, daily notes, and a rich text editor. Private, free, and minimal.",
+      image: "/images/portfolio/zenote.jpg",
+      category: "Productivity",
+      link: "https://zenote-live.netlify.app/",
     },
     {
       id: 6,
-      title: "Personality360",
+      title: "Solarization",
       description:
-        "Comprehensive psychological assessment platform with Big Five personality, empathy mapping, and cognitive ability tests.",
-      image: "/images/portfolio/personality-app.jpg",
-      category: "Psychology",
-      link: "https://personalityapp.netlify.app/",
+        "Interactive 3D Solar System explorer with live space data, scale comparisons, trivia, and real-time cosmic measurements.",
+      image: "/images/portfolio/solarization.jpg",
+      category: "Education",
+      link: "https://solarization.netlify.app/",
     },
   ];
 

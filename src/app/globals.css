@@ -231,3 +231,18 @@
     @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200;
   }
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}

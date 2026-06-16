@@ -1,137 +1,59 @@
 # Project Progress Log
 
-## 2025-01-27
+## 2026-06-16
 
-### Text Readability Fix - Hero Component
-- **Fixed critical text readability issues** in Hero component
-  - Removed problematic `gradient-text` class from "150+" counter that was making text unreadable
-  - Increased background overlay opacity from `rgba(0, 0, 0, 0.4/0.6)` to `rgba(0, 0, 0, 0.7/0.8)` for better contrast
-  - Applied consistent `text-white` color to all counter numbers for uniform readability
-  - Added `drop-shadow-lg` to main headings and `drop-shadow-md` to supporting text
-  - Changed trust indicator icons from `text-green-500` to `text-green-400` for better visibility
-  - Added `justify-center` to trust indicators for better alignment
-- **Enhanced global CSS** with improved text shadow utilities
-  - Added `.text-shadow-sm`, `.text-shadow-md`, `.text-shadow-lg`, `.text-shadow-xl` classes
-  - These provide consistent text shadow options for better readability on dark backgrounds
-- **Improved overall visual hierarchy** and text contrast throughout the hero section
-- **All text now clearly readable** against the dark background image
+### Major Update - Portfolio Expansion, UK Location Fix, Missing Pages & UI Enhancements
 
-### Button Positioning - Hero Component
-- **Moved CTA buttons to center** of hero section
-  - Changed button container from default alignment to `justify-center`
-  - Buttons now properly centered horizontally in the hero section
-  - Maintains responsive behavior and professional appearance
+#### Portfolio Expansion - 17 New Projects Added
+- **Total portfolio projects increased** from 22 to 39
+- **New projects added across multiple categories**:
+  - Hospitality: UNO Espresso Cafe, TumaCafe & Restaurant, Lunar Beauty Lounge, Black Beared Gents Salon
+  - Automotive: Dubai Bikes
+  - Utilities: SnapFormat, Map Explorer
+  - Productivity: Zenote, Project Management Board
+  - Business Tools: DFRE Unipoles, Layouts Dashboard, DM Gallery, Vendor Gallery, DDF Promo Dashboard
+  - Education: Solarization (3D Solar System Explorer)
+  - Finance: StockPulse
+  - Real Estate: FalconCity Guide
+- **All URLs visited and verified** - descriptions written from actual site content
+- **FeaturesCarousel updated** with 6 highlighted new projects
 
-### Project Management Circle - WhyChooseUs Component
-- **Enlarged Project Management circle** in team structure diagram
-  - Increased circle size from `w-20 h-20` (80px) to `w-24 h-24` (96px)
-  - Circle now more prominent and easier to read
-  - Maintains visual balance with other elements in the diagram
+#### About Page - UK Location Fix
+- **Removed all "Dubai" references** from company description
+- **Removed "WebCastle" references** - replaced with Zero One Works Ltd
+- **Updated company location** to Manchester, UK throughout
+- **Replaced fake team section** (Jabir M., Sarah Johnson, Michael Chen, Emily Rodriguez) with professional role-based team cards (Project Leadership, Frontend Development, Backend Engineering, UI/UX Design)
+- **Removed unused Image import** after team photo section removal
 
-### Featured Projects Carousel - Enhanced & Responsive
-- **Significantly enlarged project cards** for better visual impact
-  - Increased image height from `h-[260px]` to `h-[380px]` (46% larger)
-  - Increased grid gap from `gap-6` to `gap-10` for better spacing
-  - Changed layout from 3 columns to 2 columns on desktop for wider cards
-- **Full viewport width on mobile** with responsive design
-  - Mobile: Full width, 1 card per slide with auto-slide
-  - Desktop: Centered layout, 2 cards per slide with auto-slide
-  - Responsive container: `max-w-none lg:max-w-7xl` and `px-0 lg:px-4`
-- **Added three more project cards** to enrich the portfolio
-  - Healthcare Dashboard (Healthcare category)
-  - Food Delivery App (Food & Delivery category)
-  - VR Training Platform (VR & Training category)
-- **Smart responsive logic** with auto-slide functionality
-  - Automatically detects screen size and adjusts cards per slide
-  - Mobile: 6 slides (1 card each), Desktop: 3 slides (2 cards each)
-  - 5-second auto-advance with manual navigation options
+#### Missing Pages Created (5 New Pages)
+- **Privacy Policy** (/privacy-policy) - UK GDPR compliant, 7 sections
+- **Terms of Service** (/terms-of-service) - England & Wales governing law
+- **Cookie Policy** (/cookie-policy) - PECR/GDPR compliant with cookie type cards
+- **Careers** (/careers) - 4 open positions with culture, benefits, apply section
+- **Sitemap (HTML)** (/sitemap-page) - Organized by Main, Legal, Company categories
 
-### Technical Improvements
-- **Enhanced responsive behavior** in FeaturesCarousel component
-  - Added `isDesktop` state with window resize listener
-  - Dynamic calculation of `cardsPerSlide` and `totalSlides`
-  - Proper React state management for responsive behavior
-- **Improved carousel navigation** with more content
-  - Arrow buttons for manual navigation
-  - Dot indicators showing current slide position
-  - Smooth transitions between slides
+#### UI Enhancements
+- **Back to Top button** - Floating button appears after 600px scroll, smooth scroll to top
+- **Theme Toggle** - Dark/Light mode toggle in navbar, persists via localStorage, respects system preference
+- **Custom Scrollbar** - 4px width, transparent track, neutral gray thumb
+- **Dynamic Copyright Year** - Footer now uses `new Date().getFullYear()`
 
-### Portfolio Content Expansion
-- **Total featured projects increased** from 3 to 6
-- **Diverse project categories** showcasing different industries
-- **Professional project descriptions** with clear value propositions
-- **Consistent image handling** with local portfolio images
+#### Footer Updates
+- **Wired all legal links** - Privacy Policy, Terms of Service, Cookie Policy, Sitemap now point to real pages
+- **Updated copyright** - Dynamic year with "by Khurram" attribution
+- **Removed hardcoded 2025** year
 
-### Mobile Landscape Cards - FeaturesCarousel Component
-- **Implemented smart mobile landscape detection** for optimal card display
-  - Added `isMobileLandscape` state that detects when `width > height && width < 1024px`
-  - Mobile Portrait: 1 card per slide (existing behavior)
-  - Mobile Landscape: 2 cards per slide (new feature)
-  - Desktop: 2 cards per slide (existing behavior)
-- **Dynamic grid layout** that adapts to device orientation
-  - Uses `isDesktop || isMobileLandscape ? 'grid-cols-2' : 'grid-cols-1'`
-  - Responsive breakpoint logic: 1024px for desktop detection
-  - Smooth transitions between different layouts
-
-### Smart Navbar with Auto-Hide - Navbar Component
-- **Implemented smart navbar behavior** for better mobile experience
-  - **Hide on scroll down:** Navbar slides up and disappears when scrolling down
-  - **Show on scroll up:** Navbar slides down and reappears when scrolling up
-  - **Always visible at top:** Navbar remains visible when near the top (≤ 100px)
-- **Smooth animations** with 300ms ease-in-out transitions
-  - Uses CSS transform: `translate-y-0` (visible) vs `-translate-y-full` (hidden)
-  - Scroll direction detection with `window.scrollY` monitoring
-  - Smart logic that prevents unnecessary hiding/showing
-
-### Arrow-to-Card Spacing - FeaturesCarousel Component
-- **Enhanced navigation arrow positioning** for better visual balance
-  - **Left Arrow:** Positioned at `left-6` (24px from left edge)
-  - **Right Arrow:** Positioned at `right-6` (24px from right edge)
-  - **Carousel Content:** Increased margins to `mx-12` (mobile) and `lg:mx-20` (desktop)
-- **Improved visual hierarchy** with better spacing between navigation and content
-  - Mobile: 48px spacing on each side
-  - Desktop: 80px spacing on each side
-  - Better breathing room for project cards
-
-### Mobile Pagination Fix - Portfolio Page
-- **Replaced numbered pagination with arrow navigation** on mobile devices
-  - **Mobile (< 640px):** Shows only left/right arrows with "Page X of Y" indicator
-  - **Tablet & Desktop (≥ 640px):** Shows full numbered pagination (1, 2, 3, 4, 5, 6)
-  - **Clean mobile experience:** No more cramped numbered buttons on small screens
-- **Responsive breakpoint logic** using `sm:` (640px) breakpoint
-  - Hidden numbered pagination: `hidden sm:flex`
-  - Mobile page indicator: `sm:hidden`
-  - Button text hidden on mobile: `hidden md:inline`
-- **Final Result:** Mobile pagination now provides clean, intuitive navigation with arrow buttons instead of cramped numbered buttons
-
-### Deployment Status
-- **All changes successfully implemented** and tested
+#### Build Status
+- **All 15 pages build successfully** - No errors
+- **Static export working** - All pages exported as static HTML
 - **No linter errors** introduced
-- **Responsive design** working across all screen sizes
-- **Auto-slide functionality** working seamlessly on mobile and desktop
-- **Smart navbar** providing better mobile user experience
-- **Mobile pagination** now clean and user-friendly with arrow navigation
-- **All user requests completed** and documented
+- **Responsive design** maintained across all new pages
 
-### Hostinger Deployment Preparation - 2025-01-27
-- **Build verification completed** - Static export successful with 80 files
-- **HOSTINGER_DEPLOYMENT_GUIDE.md created** - Comprehensive step-by-step deployment instructions
-- **File structure verified** - All pages, images, and assets ready for upload
-- **Domain configuration confirmed** - www.zerooneworks.com ready for Hostinger shared hosting
-- **Deployment method selected** - File Manager (hPanel) for easy upload
-- **All deployment requirements met** - Website ready for production deployment
+---
 
-### Video Background & Final Production Build - 2025-01-27
-- **Video background implemented** - earth-rotating.mp4 successfully integrated
-- **Gradient overlay optimization** - Fine-tuned to 80% → 70% → 10% opacity (left to right)
-- **Perfect text readability** - Strong contrast maintained with video visibility
-- **Contact information updated** - khurram@zerooneworks.com, Manchester UK address
-- **Favicon integration completed** - Full set of favicon files for all devices
-- **Final build successful** - No errors, 10 pages generated (145kB first load JS)
-- **Production ready** - All files optimized and ready for Hostinger deployment
-- **Performance optimized** - Static export with excellent loading performance
+## 2026-04-27
 
-### Portfolio Real Projects Update - 2026-04-27
+### Portfolio Real Projects Update
 - **22 real projects added** - All fake placeholder projects removed and replaced with actual live websites
 - **No duplicates** - pdfs-tools and personalityapp were already present; handled correctly
 - **New projects added across 9 categories**: Hospitality, Travel, Design Agency, PDF Tools, Utilities, Video Tools, Creative Tools, Education, Health & Fitness, Finance, Psychology, Games
@@ -140,17 +62,52 @@
 - Categories: Hospitality (2), Travel (1), Design Agency (1), PDF Tools (2), Utilities (3), Video Tools (2), Creative Tools (2), Education (2), Health & Fitness (1), Finance (1), Psychology (1), Games (4)
 - **Portfolio ready for Hostinger deployment**
 
+## 2025-01-27
+
+### Text Readability Fix - Hero Component
+- Fixed critical text readability issues in Hero component
+- Removed problematic gradient-text class from "150+" counter
+- Increased background overlay opacity for better contrast
+- Applied consistent text-white color to all counter numbers
+- Added drop shadows for better readability
+
+### Button Positioning - Hero Component
+- Moved CTA buttons to center of hero section
+
+### Featured Projects Carousel - Enhanced & Responsive
+- Significantly enlarged project cards (46% larger)
+- Full viewport width on mobile with responsive design
+- Added three more project cards
+- Smart responsive logic with auto-slide functionality
+
+### Smart Navbar with Auto-Hide
+- Hide on scroll down, show on scroll up
+- Always visible at top of page
+
+### Mobile Pagination Fix
+- Replaced numbered pagination with arrow navigation on mobile
+
+### Hostinger Deployment Preparation
+- Build verification completed
+- HOSTINGER_DEPLOYMENT_GUIDE.md created
+- Domain configuration confirmed for www.zerooneworks.com
+
+### Video Background & Final Production Build
+- Video background implemented - earth-rotating.mp4
+- Gradient overlay optimized (80% to 70% to 10%)
+- Contact information updated - khurram@zerooneworks.com, Manchester UK
+- Favicon integration completed
+- Final build successful
+
 ## Previous Progress
 - Initial project setup and configuration
-- Portfolio page grid layout (3x3 instead of 4x3)
+- Portfolio page grid layout (3x3)
 - Image optimization and placeholder system
 - Netlify configuration for static export
 - Portfolio page updates and ESLint fixes
 - FeaturesCarousel component synchronization
-- Technical improvements and error resolution
 - Content Security Policy (CSP) fixes
 - Text readability improvements
-- Portfolio content updates
 - Typography improvements
 - Branding & logo integration
 - Navigation & user experience improvements
