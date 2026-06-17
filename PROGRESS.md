@@ -1,5 +1,33 @@
 # Project Progress Log
 
+## 2026-06-17
+
+### Portfolio Image Capture, Dependency Update & Full Audit
+
+#### Portfolio Preview Images - 19 Missing Images Added
+- **Identified 19 portfolio cards** showing blue gradient placeholders (no preview image)
+- **Used Playwright MCP** to navigate to all 19 project websites and capture viewport screenshots
+- **Processed with sharp** - resized to 800x520, converted to optimized JPEG (quality 82, mozjpeg)
+- **All 39 portfolio cards now have real preview images** - zero blue placeholders remaining
+- **Images saved** to `public/images/portfolio/` following existing naming convention
+- Sites captured: UNO Espresso, TumaCafe, Lunar Beauty Lounge, Black Beared, Dubai Bikes, PDF Tools, SnapFormat, Map Explorer, Zenote, Project Management Board, DFRE Report, Layouts Dashboard, DM Gallery, Vendor Gallery, DDF Promo Dashboard, Solarization, StockPulse, FalconCity, Personality360
+
+#### Dependency Update (Minor/Patch Only)
+- **Updated 20 packages** to latest compatible minor/patch versions
+- Key updates: Next.js 15.5.0 -> 15.5.19, React 19.1.0 -> 19.2.7, Tailwind 4.1.12 -> 4.3.1, TypeScript 5.9.2 -> 5.9.3
+- **npm audit fix** resolved 4 of 6 vulnerabilities (remaining 2 are moderate PostCSS issues inside Next.js - no action needed)
+- **Major version upgrades skipped** (Next 16, ESLint 10, TS 6) to avoid breaking changes
+
+#### Full Website Audit
+- **ESLint**: 0 errors, 0 warnings
+- **Production build**: All 15 pages prerendered successfully as static content
+- **Page load times**: All pages under 2s (dev server), home ~5s (cold start)
+- **Playwright MCP tests**: All 11 routes return HTTP 200
+- **Mobile responsiveness**: Tested at 375px viewport (iPhone SE) - all layouts responsive
+- **Footer verification**: Dynamic copyright year (2026), Manchester UK address, all legal links working
+
+---
+
 ## 2026-06-16
 
 ### Major Update - Portfolio Expansion, UK Location Fix, Missing Pages & UI Enhancements

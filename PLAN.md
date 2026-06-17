@@ -88,16 +88,25 @@
 - [x] FeaturesCarousel updated with new highlighted projects
 - [x] About page updated - UK location, removed fake team/company references
 
+## Phase 11: Portfolio Images & Audit ✅ COMPLETED
+- [x] Identified 19 portfolio cards missing preview images
+- [x] Captured hero section screenshots from all 19 project websites via Playwright
+- [x] Optimized screenshots to 800x520 JPEG with sharp (mozjpeg, quality 82)
+- [x] All 39 portfolio cards now display real website preview images
+- [x] Updated 20 dependencies to latest minor/patch versions
+- [x] npm audit fix - resolved 4/6 vulnerabilities
+- [x] ESLint clean pass (0 errors)
+- [x] Production build successful (15 pages static export)
+- [x] Playwright MCP tests: all 11 routes HTTP 200
+- [x] Mobile responsiveness verified at 375px
+
 ## Current Status: ALL PHASES COMPLETED ✅
 
-### Latest Update (2026-06-16)
-- **Portfolio expanded** to 39 real projects across 15 categories
-- **UK location** established - all Dubai references removed from company pages
-- **5 new pages** created: Privacy Policy, Terms of Service, Cookie Policy, Careers, Sitemap
-- **UI enhancements** added: Back to Top button, Theme Toggle, Custom Scrollbar
-- **Footer links** wired to real pages with dynamic copyright year
-- **About page** updated with professional team role cards
-- **FeaturesCarousel** refreshed with 6 highlighted new projects
+### Latest Update (2026-06-17)
+- **All 39 portfolio cards** now have real website preview images (19 added this session)
+- **Dependencies updated** - 20 packages to latest minor/patch versions
+- **Full audit passed** - ESLint clean, build successful, Playwright tests all green
+- **Mobile responsive** verified at 375px viewport
 
 ### Portfolio Showcase (39 Projects)
 - **Hospitality (6)**: Grind Me Fine, Roastery Station, UNO Espresso, TumaCafe, Lunar Beauty, Black Beared
@@ -125,12 +134,13 @@
 - [ ] Add Google Analytics integration
 
 ## Technical Specifications
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS v4
-- **Deployment**: Netlify with static export
-- **Image Handling**: Local images + CSS placeholders + external domain support
-- **Build Process**: Optimized for production deployment
-- **Security**: CSP configured for external image domains
-- **Performance**: All images optimized and loading properly
+- **Framework**: Next.js 15.5.19 with App Router
+- **Styling**: Tailwind CSS v4.3.1
+- **Runtime**: React 19.2.7, TypeScript 5.9.3
+- **Deployment**: Static export for Hostinger/Netlify
+- **Image Handling**: Local optimized JPEGs (800x520, sharp/mozjpeg) + next/image
+- **Build Process**: Turbopack, 15 prerendered static pages
+- **Security**: CSP configured, npm audit clean (2 moderate unfixable in Next.js transitive deps)
+- **Performance**: All images optimized, lazy loading, responsive srcset
 - **Branding**: Zero One Works Ltd logo and identity system
-- **Navigation**: Active state detection and elegant hover effects
+- **Navigation**: Active state detection, theme toggle, back-to-top button
