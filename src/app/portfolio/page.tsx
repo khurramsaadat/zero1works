@@ -108,7 +108,7 @@ const Portfolio = () => {
       description: "Tour and adventure booking platform covering desert safaris, city tours, dhow cruises, and top attraction tickets.",
       image: "/images/portfolio/take-my-trip.jpg",
       category: "Travel",
-      link: "https://take-my-trip.netlify.app/"
+      link: "https://take-mytrip.netlify.app/"
     },
     // Automotive
     {

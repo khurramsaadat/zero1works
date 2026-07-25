@@ -2,13 +2,17 @@
 
 ## 2026-07-26 - 00:00 UTC+4
 
-### Portfolio URL Updates (6 Changed)
-- **Input**: "as per attached, i have changed six urls. you will find the old and new urls. please update in the site. and push the code to my repo"
+### Portfolio URL Updates (7 Changed) & Brand Logos Section
+- **Input 1**: "as per attached, i have changed six urls..."
+- **Input 2**: "please also update the old url take-my-trip to take-mytrip... please change all the logos mentioned under Trusted by Leading Companies section..."
 - **Action taken**:
-  1. Updated 6 portfolio project URLs in `portfolio/page.tsx`
-  2. Updated 2 matching URLs in `FeaturesCarousel.tsx` (UNO Espresso, Lunar Beauty)
-  3. Changes: grind-me-fine -> grindme-fine, roastery-station -> roasterysta, unoespresso -> uno-espresso, tumacafe-restaurant -> tumacaferest, lunar-beauty-lounge -> lunarbeauty-lounge, ddf-promo-dashboard -> ddf-promo-schedule
-- **Result**: All 6 URLs updated, pushed to GitHub
+  1. Updated 7 portfolio project URLs total (6 initial + Take My Trip) in `portfolio/page.tsx` and `FeaturesCarousel.tsx`
+  2. Visited all 39 portfolio websites via Playwright MCP to extract navbar logos
+  3. Downloaded 17 image logos to `public/images/logos/`
+  4. Updated PartnerScroll component: replaced fake company logos (Apple, Google, etc.) with real portfolio project logos
+  5. Section renamed from "Trusted by Leading Companies" to "Brands We Have Built"
+  6. 22 projects without downloadable logos use text-based fallbacks
+- **Result**: All URLs updated, brand section shows real portfolio logos
 
 ---
 

@@ -14,9 +14,9 @@ function PartnerBrandLogo({
   fallback: string;
 }) {
   const [useFallback, setUseFallback] = useState(false);
-  if (useFallback) {
+  if (!logo || useFallback) {
     return (
-      <div className="flex h-14 min-w-[96px] items-center justify-center rounded bg-gray-600 px-2 text-sm font-bold text-white">
+      <div className="flex h-12 min-w-[80px] items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 text-xs font-semibold tracking-wide text-gray-500 dark:text-gray-400 uppercase whitespace-nowrap">
         {fallback}
       </div>
     );
@@ -25,9 +25,9 @@ function PartnerBrandLogo({
     <Image
       src={logo}
       alt={`${name} logo`}
-      width={160}
-      height={56}
-      className="h-14 w-auto max-w-[150px] object-contain opacity-70 grayscale brightness-50 border-0"
+      width={140}
+      height={48}
+      className="h-12 w-auto max-w-[130px] object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 border-0"
       onError={() => setUseFallback(true)}
     />
   );
@@ -68,66 +68,45 @@ const PartnerScroll = () => {
   }, [testimonials.length]);
 
   const partners = [
-    {
-      name: "Apple",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg",
-      fallback: "🍎"
-    },
-    {
-      name: "Google",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
-      fallback: "G"
-    },
-    {
-      name: "Microsoft",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
-      fallback: "⊞"
-    },
-    {
-      name: "Amazon",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-      fallback: "📦"
-    },
-    {
-      name: "Meta",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg",
-      fallback: "f"
-    },
-    {
-      name: "Tesla",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg",
-      fallback: "T"
-    },
-    {
-      name: "Netflix",
-      logo: "https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png",
-      fallback: "N"
-    },
-    {
-      name: "Samsung",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg",
-      fallback: "S"
-    },
-    {
-      name: "IBM",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ibm/ibm-original.svg",
-      fallback: "IBM"
-    },
-    {
-      name: "Oracle",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
-      fallback: "○"
-    },
-    {
-      name: "Intel",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg",
-      fallback: "i"
-    },
-    {
-      name: "Adobe",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/adobe/adobe-original.svg",
-      fallback: "Ae"
-    },
+    { name: "Grind Me Fine", logo: "/images/logos/grind-me-fine.png", fallback: "GMF" },
+    { name: "Roastery Station", logo: "", fallback: "Roastery Station" },
+    { name: "UNO Espresso", logo: "/images/logos/uno-espresso.jpg", fallback: "UNO" },
+    { name: "TumaCafe", logo: "/images/logos/tumacafe.webp", fallback: "TumaCafe" },
+    { name: "Lunar Beauty", logo: "/images/logos/lunar-beauty.jpg", fallback: "Lunar Beauty" },
+    { name: "Black Beared", logo: "/images/logos/black-beared.jpeg", fallback: "Black Beared" },
+    { name: "Take My Trip", logo: "/images/logos/take-my-trip.png", fallback: "Take My Trip" },
+    { name: "Dubai Bikes", logo: "", fallback: "Dubai Bikes" },
+    { name: "Ibex Design", logo: "/images/logos/ibex-design.svg", fallback: "IBEX" },
+    { name: "PDF Tools", logo: "", fallback: "PDF Tools" },
+    { name: "PDF Merger", logo: "", fallback: "PDF Merger" },
+    { name: "SnapFormat", logo: "/images/logos/snapformat.svg", fallback: "SnapFormat" },
+    { name: "Files & Folders", logo: "", fallback: "Files & Folders" },
+    { name: "FavOG", logo: "", fallback: "FavOG" },
+    { name: "Image Resizer", logo: "/images/logos/image-resizer.webp", fallback: "Resizer" },
+    { name: "Map Explorer", logo: "", fallback: "Map Explorer" },
+    { name: "VidEnc", logo: "", fallback: "VidEnc" },
+    { name: "VidCon", logo: "", fallback: "VidCon" },
+    { name: "BatchMark", logo: "/images/logos/batchmark.png", fallback: "BatchMark" },
+    { name: "Memories in Motion", logo: "/images/logos/memories-in-motion.png", fallback: "MiM" },
+    { name: "Zenote", logo: "/images/logos/zenote.png", fallback: "Zenote" },
+    { name: "PMB", logo: "", fallback: "PMB" },
+    { name: "DFRE Unipoles", logo: "", fallback: "DFRE" },
+    { name: "Layouts Dashboard", logo: "/images/logos/layouts-dashboard.png", fallback: "Layouts" },
+    { name: "DM Gallery", logo: "/images/logos/dm-gallery.svg", fallback: "DM Gallery" },
+    { name: "Vendor Gallery", logo: "", fallback: "Vendor Gallery" },
+    { name: "DDF Promo", logo: "/images/logos/ddf-promo.png", fallback: "DDF" },
+    { name: "Solarization", logo: "", fallback: "Solarization" },
+    { name: "Al-Qari", logo: "", fallback: "Al-Qari" },
+    { name: "Playback & Learn", logo: "", fallback: "Playback" },
+    { name: "Track My Workout", logo: "", fallback: "TMW" },
+    { name: "UAE Gratuity", logo: "", fallback: "Gratuity" },
+    { name: "StockPulse", logo: "", fallback: "StockPulse" },
+    { name: "FalconCity", logo: "", fallback: "FalconCity" },
+    { name: "Personality360", logo: "/images/logos/personality360.svg", fallback: "P360" },
+    { name: "Pacman", logo: "", fallback: "Pacman" },
+    { name: "Tic Tac Toe", logo: "", fallback: "TTT" },
+    { name: "N-Place", logo: "", fallback: "N-Place" },
+    { name: "Flappy Bird", logo: "/images/logos/flappy-bird.png", fallback: "Flappy" },
   ];
 
   return (
@@ -136,10 +115,10 @@ const PartnerScroll = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-            Trusted by Leading Companies
+            Brands We Have Built
           </h2>
           <p className="text-gray-600 dark:text-gray-400">
-            We&apos;ve partnered with amazing companies to deliver exceptional results
+            A selection of the digital products and brands we&apos;ve brought to life
           </p>
         </div>
 
@@ -148,11 +127,11 @@ const PartnerScroll = () => {
           {/* Scrolling Animation */}
           <div className="flex animate-scroll">
             {/* First set of logos */}
-            <div className="flex space-x-24 animate-scroll-left">
+            <div className="flex space-x-16 animate-scroll-left">
               {partners.map((partner, index) => (
                 <div
                   key={`first-${index}`}
-                  className="flex-shrink-0 flex items-center justify-center min-w-[150px]"
+                  className="flex-shrink-0 flex items-center justify-center min-w-[120px]"
                 >
                   <PartnerBrandLogo
                     name={partner.name}
@@ -164,11 +143,11 @@ const PartnerScroll = () => {
             </div>
             
             {/* Duplicate set for seamless loop */}
-            <div className="flex space-x-24 animate-scroll-left ml-24">
+            <div className="flex space-x-16 animate-scroll-left ml-16">
               {partners.map((partner, index) => (
                 <div
                   key={`second-${index}`}
-                  className="flex-shrink-0 flex items-center justify-center min-w-[150px]"
+                  className="flex-shrink-0 flex items-center justify-center min-w-[120px]"
                 >
                   <PartnerBrandLogo
                     name={partner.name}
@@ -291,7 +270,7 @@ const PartnerScroll = () => {
         }
         
         .animate-scroll-left {
-          animation: scroll-left 30s linear infinite;
+          animation: scroll-left 60s linear infinite;
         }
       `}</style>
     </section>
