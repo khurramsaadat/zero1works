@@ -1,5 +1,17 @@
 # User Input Log
 
+## 2026-07-26 - 00:00 UTC+4
+
+### Portfolio URL Updates (6 Changed)
+- **Input**: "as per attached, i have changed six urls. you will find the old and new urls. please update in the site. and push the code to my repo"
+- **Action taken**:
+  1. Updated 6 portfolio project URLs in `portfolio/page.tsx`
+  2. Updated 2 matching URLs in `FeaturesCarousel.tsx` (UNO Espresso, Lunar Beauty)
+  3. Changes: grind-me-fine -> grindme-fine, roastery-station -> roasterysta, unoespresso -> uno-espresso, tumacafe-restaurant -> tumacaferest, lunar-beauty-lounge -> lunarbeauty-lounge, ddf-promo-dashboard -> ddf-promo-schedule
+- **Result**: All 6 URLs updated, pushed to GitHub
+
+---
+
 ## 2026-06-17 - 11:54 UTC+4
 
 ### Portfolio Image Capture & Full Audit

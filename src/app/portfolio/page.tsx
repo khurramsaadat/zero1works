@@ -59,7 +59,7 @@ const Portfolio = () => {
       description: "Specialty coffee house website featuring menu, real Google reviews, gallery, and location details with a warm, inviting design.",
       image: "/images/portfolio/grind-me-fine.jpg",
       category: "Hospitality",
-      link: "https://grind-me-fine.netlify.app/"
+      link: "https://grindme-fine.netlify.app/"
     },
     {
       id: 2,
@@ -67,7 +67,7 @@ const Portfolio = () => {
       description: "Premium specialty coffee brand site with multiple locations, gallery, multi-location reviews, and opening hours.",
       image: "/images/portfolio/roastery-station.jpg",
       category: "Hospitality",
-      link: "https://roastery-station.netlify.app/"
+      link: "https://roasterysta.netlify.app/"
     },
     {
       id: 3,
@@ -75,7 +75,7 @@ const Portfolio = () => {
       description: "Family-owned cafe website with 100+ Google reviews, photo gallery, online ordering via Zomato, and an embedded Google Map.",
       image: "/images/portfolio/uno-espresso.jpg",
       category: "Hospitality",
-      link: "https://unoespresso.netlify.app/"
+      link: "https://uno-espresso.netlify.app/"
     },
     {
       id: 4,
@@ -83,7 +83,7 @@ const Portfolio = () => {
       description: "Cafe and restaurant site with full menu, photo gallery, Google reviews integration, and multi-platform ordering links.",
       image: "/images/portfolio/tumacafe.jpg",
       category: "Hospitality",
-      link: "https://tumacafe-restaurant.netlify.app/"
+      link: "https://tumacaferest.netlify.app/"
     },
     {
       id: 5,
@@ -91,7 +91,7 @@ const Portfolio = () => {
       description: "Premium ladies salon website with service packages, client testimonials, photo gallery, and online booking via Fresha.",
       image: "/images/portfolio/lunar-beauty.jpg",
       category: "Hospitality",
-      link: "https://lunar-beauty-lounge.netlify.app/"
+      link: "https://lunarbeauty-lounge.netlify.app/"
     },
     {
       id: 6,
@@ -276,7 +276,7 @@ const Portfolio = () => {
       description: "Real-time promotional scheduling dashboard monitoring 146 digital media players with brand creative statuses and concourse views.",
       image: "/images/portfolio/ddf-promo.jpg",
       category: "Business Tools",
-      link: "https://ddf-promo-dashboard.netlify.app/"
+      link: "https://ddf-promo-schedule.netlify.app/"
     },
     // Education & Learning
     {

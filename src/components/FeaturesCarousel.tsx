@@ -19,7 +19,7 @@ const FeaturesCarousel = () => {
         "Family-owned cafe website with 100+ Google reviews, photo gallery, online ordering via Zomato, and an embedded Google Map.",
       image: "/images/portfolio/uno-espresso.jpg",
       category: "Hospitality",
-      link: "https://unoespresso.netlify.app/",
+      link: "https://uno-espresso.netlify.app/",
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ const FeaturesCarousel = () => {
         "Premium ladies salon website with service packages, client testimonials, photo gallery, and online booking via Fresha.",
       image: "/images/portfolio/lunar-beauty.jpg",
       category: "Hospitality",
-      link: "https://lunar-beauty-lounge.netlify.app/",
+      link: "https://lunarbeauty-lounge.netlify.app/",
     },
     {
       id: 4,
