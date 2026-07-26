@@ -100,13 +100,22 @@
 - [x] Playwright MCP tests: all 11 routes HTTP 200
 - [x] Mobile responsiveness verified at 375px
 
+## Phase 12: Dependency Update & Testing (2026-07-26) ✅ COMPLETED
+- [x] Updated 13 packages to latest minor/patch versions
+- [x] Next.js 15.5.22, React 19.2.8, Tailwind CSS 4.3.3, Playwright 1.62.0
+- [x] ESLint clean pass (0 errors)
+- [x] Production build successful (15 pages static export)
+- [x] Playwright MCP tests: all 11 routes HTTP 200, 0 console errors
+- [x] Mobile responsiveness verified at 375x812
+- [x] npm audit fix - remaining vulns are upstream transitive deps (not fixable)
+
 ## Current Status: ALL PHASES COMPLETED ✅
 
-### Latest Update (2026-06-17)
-- **All 39 portfolio cards** now have real website preview images (19 added this session)
-- **Dependencies updated** - 20 packages to latest minor/patch versions
-- **Full audit passed** - ESLint clean, build successful, Playwright tests all green
-- **Mobile responsive** verified at 375px viewport
+### Latest Update (2026-07-26)
+- **13 dependencies updated** to latest safe minor/patch versions
+- **Full Playwright test** - all 11 routes HTTP 200, 0 console errors
+- **Build verified** - 15 pages prerendered, ESLint clean
+- **Mobile responsive** verified at 375x812 viewport
 
 ### Portfolio Showcase (39 Projects)
 - **Hospitality (6)**: Grind Me Fine, Roastery Station, UNO Espresso, TumaCafe, Lunar Beauty, Black Beared
@@ -134,13 +143,14 @@
 - [ ] Add Google Analytics integration
 
 ## Technical Specifications
-- **Framework**: Next.js 15.5.19 with App Router
-- **Styling**: Tailwind CSS v4.3.1
-- **Runtime**: React 19.2.7, TypeScript 5.9.3
+- **Framework**: Next.js 15.5.22 with App Router
+- **Styling**: Tailwind CSS v4.3.3
+- **Runtime**: React 19.2.8, TypeScript 5.9.3
+- **Testing**: Playwright 1.62.0
 - **Deployment**: Static export for Hostinger/Netlify
 - **Image Handling**: Local optimized JPEGs (800x520, sharp/mozjpeg) + next/image
 - **Build Process**: Turbopack, 15 prerendered static pages
-- **Security**: CSP configured, npm audit clean (2 moderate unfixable in Next.js transitive deps)
+- **Security**: CSP configured, upstream transitive dep vulns (brace-expansion, postcss, sharp) not fixable without breaking changes
 - **Performance**: All images optimized, lazy loading, responsive srcset
 - **Branding**: Zero One Works Ltd logo and identity system
 - **Navigation**: Active state detection, theme toggle, back-to-top button
