@@ -107,6 +107,8 @@ const PartnerScroll = () => {
     { name: "Tic Tac Toe", logo: "", fallback: "TTT" },
     { name: "N-Place", logo: "", fallback: "N-Place" },
     { name: "Flappy Bird", logo: "/images/logos/flappy-bird.png", fallback: "Flappy" },
+    { name: "FolderVault", logo: "", fallback: "FolderVault" },
+    { name: "3D Chess", logo: "", fallback: "3D Chess" },
   ];
 
   return (

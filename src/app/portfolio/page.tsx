@@ -380,6 +380,22 @@ const Portfolio = () => {
       category: "Games",
       link: "https://flappy-birrd.netlify.app/"
     },
+    {
+      id: 40,
+      title: "FolderVault",
+      description: "Local file backup tool that runs entirely in the browser. Select source folders, set a time window, and back up to any destination - no cloud, no uploads.",
+      image: "/images/portfolio/foldervault.jpg",
+      category: "Utilities",
+      link: "https://drive-archive.netlify.app/"
+    },
+    {
+      id: 41,
+      title: "3D Chess",
+      description: "Interactive 3D chess game built with Three.js featuring vs engine mode, undo, resign, and multiple camera angles including top and side views.",
+      image: "/images/portfolio/chess-3d.jpg",
+      category: "Games",
+      link: "https://chess-3d-chess.netlify.app/"
+    },
   ];
 
   const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
