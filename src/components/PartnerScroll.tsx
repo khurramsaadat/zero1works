@@ -109,6 +109,17 @@ const PartnerScroll = () => {
     { name: "Flappy Bird", logo: "/images/logos/flappy-bird.png", fallback: "Flappy" },
     { name: "FolderVault", logo: "", fallback: "FolderVault" },
     { name: "3D Chess", logo: "", fallback: "3D Chess" },
+    { name: "KS Portfolio", logo: "", fallback: "KS Portfolio" },
+    { name: "BBC FM", logo: "", fallback: "BBC FM" },
+    { name: "Discovery Monitor", logo: "", fallback: "Discovery" },
+    { name: "Tarteel Hifz", logo: "", fallback: "Tarteel" },
+    { name: "Rocket Web", logo: "", fallback: "Rocket Web" },
+    { name: "Khurram Estate", logo: "", fallback: "KH Estate" },
+    { name: "Formula 1", logo: "", fallback: "F1 Race" },
+    { name: "Grand Prix", logo: "", fallback: "Grand Prix" },
+    { name: "Snake AI", logo: "", fallback: "Snake AI" },
+    { name: "IronLog AI", logo: "", fallback: "IronLog" },
+    { name: "DumbbellHome", logo: "", fallback: "Dumbbell" },
   ];
 
   return (

@@ -1,5 +1,33 @@
 # User Input Log
 
+## 2026-09-15 - 16:58 UTC+4
+
+### Add 11 New Portfolio Projects
+- **User Input**: Add portfolio cards for 11 new URLs across 4 groups:
+  - Additional: portfolio-test-me1, bbc-fm, discovery-monitor, tarteel-hifz
+  - Templates: rocketweb-vscode-cline, vscode-cline-test-estate-website
+  - Games: formula1race, grandprix-race, snake-z-dot-ai
+  - Gym: ironlog-ai-studio, dumbbell-home
+- Visit each website, capture hero section screenshots, optimize for card preview
+- Test end-to-end with Playwright MCP
+- Update all markdown files, push to GitHub
+
+### Actions Taken
+- Visited all 11 URLs via WebFetch and Playwright MCP
+- Captured hero screenshots at 1280x800 for all sites
+- Processed all 11 images to 800x520 JPEG via sharp (quality 82, mozjpeg)
+- Added 11 new project cards to `src/app/portfolio/page.tsx` (IDs 42-52)
+- Added 11 new brands to `src/components/PartnerScroll.tsx`
+- New categories: Templates (2 projects), Entertainment (1 project)
+- Existing categories expanded: Games (+3), Health & Fitness (+2), Finance (+1), Education (+1), Design Agency (+1)
+- Total portfolio: 52 projects
+- ESLint: clean, Build: all 15 pages prerendered
+- Playwright E2E: all 11 routes HTTP 200, 0 console errors
+- Mobile test: 375x812 responsive layout verified
+- Markdown files updated, pushed to GitHub
+
+---
+
 ## 2026-07-26 - 17:12 UTC+4
 
 ### Dependency Update, Playwright Testing & Push

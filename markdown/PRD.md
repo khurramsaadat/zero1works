@@ -2,10 +2,10 @@
 ## Zero One Works Ltd Website
 
 ### Document Information
-- **Version**: 3.0 (Updated)
-- **Date**: 2026-07-26
+- **Version**: 4.0 (Updated)
+- **Date**: 2026-09-15
 - **Project Status**: ✅ FULLY IMPLEMENTED
-- **Last Updated**: Dependency update (13 packages), Playwright testing, all 15 pages verified
+- **Last Updated**: Portfolio expansion - 11 new projects added (52 total), 2 new categories (Templates, Entertainment), Playwright E2E verified
 
 ---
 

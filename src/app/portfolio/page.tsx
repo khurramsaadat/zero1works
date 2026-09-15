@@ -396,6 +396,101 @@ const Portfolio = () => {
       category: "Games",
       link: "https://chess-3d-chess.netlify.app/"
     },
+    // Design Agency
+    {
+      id: 42,
+      title: "Khurram Saadat Portfolio",
+      description: "Creative Manager and Digital Media Strategist portfolio showcasing motion graphics, DOOH campaigns, broadcast media, and web product UI work.",
+      image: "/images/portfolio/portfolio-khurram.jpg",
+      category: "Design Agency",
+      link: "https://portfolio-test-me1.netlify.app/"
+    },
+    // Entertainment
+    {
+      id: 43,
+      title: "BBC FM Radio",
+      description: "Interactive radio station UI with multiple BBC channels, live playback controls, and a clean broadcast-style interface.",
+      image: "/images/portfolio/bbc-fm.jpg",
+      category: "Entertainment",
+      link: "https://bbc-fm.netlify.app/"
+    },
+    // Finance
+    {
+      id: 44,
+      title: "Discovery Monitor",
+      description: "Real-time healthcare market intelligence dashboard tracking SEC filings, FDA approvals, clinical trials, and regulatory events across 4 global markets.",
+      image: "/images/portfolio/discovery-monitor.jpg",
+      category: "Finance",
+      link: "https://discovery-monitor.netlify.app/"
+    },
+    // Education
+    {
+      id: 45,
+      title: "Tarteel Hifz",
+      description: "Quran memorization companion app with structured revision schedules, progress tracking, and recitation practice tools.",
+      image: "/images/portfolio/tarteel-hifz.jpg",
+      category: "Education",
+      link: "https://tarteel-hifz.netlify.app/"
+    },
+    // Templates
+    {
+      id: 46,
+      title: "Rocket Web Agency",
+      description: "Conversion-focused web design agency template for Dubai UAE businesses with pricing tiers, process steps, and portfolio showcase.",
+      image: "/images/portfolio/rocketweb.jpg",
+      category: "Templates",
+      link: "https://rocketweb-vscode-cline-glm53free.netlify.app/"
+    },
+    {
+      id: 47,
+      title: "Khurram Estate",
+      description: "Luxury real estate agency template featuring property listings, advanced search, client testimonials, and RERA-compliant Dubai property showcase.",
+      image: "/images/portfolio/estate-website.jpg",
+      category: "Templates",
+      link: "https://vscode-cline-test-estate-website.netlify.app/"
+    },
+    // Games
+    {
+      id: 48,
+      title: "Formula 1 Race",
+      description: "3D car and track test drive experience built with Three.js. Drive a Formula 1 car on a realistic circuit directly in the browser.",
+      image: "/images/portfolio/formula1.jpg",
+      category: "Games",
+      link: "https://formula1race.netlify.app/"
+    },
+    {
+      id: 49,
+      title: "Grand Prix Racing",
+      description: "Free browser-based 3D car racing game with realistic physics, track navigation, and competitive lap timing.",
+      image: "/images/portfolio/grandprix.jpg",
+      category: "Games",
+      link: "https://grandprix-race.netlify.app/"
+    },
+    {
+      id: 50,
+      title: "Snake Terminal AI",
+      description: "Retro-styled terminal snake game with AI mode, speed controls, sound effects, and a hacker-aesthetic grid-based interface.",
+      image: "/images/portfolio/snake-ai.jpg",
+      category: "Games",
+      link: "https://snake-z-dot-ai.netlify.app/"
+    },
+    // Health & Fitness
+    {
+      id: 51,
+      title: "IronLog AI Studio",
+      description: "AI-powered gym workout logger and analyzer. Track exercises, sets, and reps with intelligent insights powered by Google AI Studio.",
+      image: "/images/portfolio/ironlog.jpg",
+      category: "Health & Fitness",
+      link: "https://ironlog-ai-studio.netlify.app/"
+    },
+    {
+      id: 52,
+      title: "DumbbellHome",
+      description: "Home workout dashboard with exercise tracking, routine planning, and progress visualization for dumbbell-based training programs.",
+      image: "/images/portfolio/dumbbell.jpg",
+      category: "Health & Fitness",
+      link: "https://dumbbell-home.netlify.app/"
+    },
   ];
 
   const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
