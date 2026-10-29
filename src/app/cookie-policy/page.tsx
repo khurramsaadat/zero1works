@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy",
+  description: "Zero One Works Ltd cookie policy. Types of cookies we use and how to manage your preferences under PECR/GDPR.",
+  alternates: { canonical: "/cookie-policy" },
+};
 import Link from "next/link";
 
 const CookiePolicy = () => {

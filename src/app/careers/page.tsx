@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Careers",
+  description: "Join Zero One Works Ltd. Open positions in web development, mobile apps, UI/UX design, and digital marketing. Manchester, UK.",
+  alternates: { canonical: "/careers" },
+};
 
 const Careers = () => {
   const openPositions = [

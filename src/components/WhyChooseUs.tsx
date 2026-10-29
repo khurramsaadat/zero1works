@@ -10,7 +10,7 @@ const WhyChooseUs = () => {
           {/* Left Content */}
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-              Why <span className="text-blue-600 dark:text-blue-300">Choose Us?</span>
+              Why <span className="text-gray-600 dark:text-gray-300">Choose Us?</span>
             </h2>
 
             <div className="space-y-4 text-gray-700 dark:text-gray-100 leading-relaxed">
@@ -22,9 +22,9 @@ const WhyChooseUs = () => {
 
               <p>
                 We&apos;ve seen it all and built a model that fixes it. Our agency is the web development
-                partner built for business trust. Multidisciplinary, <span className="text-blue-600 dark:text-blue-300 font-semibold">full-time dedicated teams</span>. Clear
+                partner built for business trust. Multidisciplinary, <span className="text-gray-700 dark:text-gray-200 font-semibold">full-time dedicated teams</span>. Clear
                 communication. A mission to make your web development experience
-                enjoyable. We&apos;re a <span className="text-blue-600 dark:text-blue-300 font-semibold">team that feels like it&apos;s yours, wholly committed to your
+                enjoyable. We&apos;re a <span className="text-gray-700 dark:text-gray-200 font-semibold">team that feels like it&apos;s yours, wholly committed to your
                 success.</span>
               </p>
             </div>
@@ -38,10 +38,10 @@ const WhyChooseUs = () => {
                 alt="Team collaboration"
                 width={600}
                 height={400}
-                className="rounded-2xl shadow-2xl h-auto w-full max-w-[600px]"
+                className="rounded-xl shadow-2xl h-auto w-full max-w-[600px]"
               />
               {/* Floating Elements - Using your theme colors */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-600 dark:bg-blue-300 rounded-full opacity-80"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gray-700 dark:bg-gray-400 rounded-full opacity-80"></div>
               <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gray-400 dark:bg-gray-300 rounded-full opacity-60"></div>
               <div className="absolute top-1/2 -right-8 w-12 h-12 bg-gray-600 dark:bg-white rounded-full opacity-70"></div>
             </div>
@@ -90,7 +90,7 @@ const WhyChooseUs = () => {
                   </div>
 
                   {/* Design Circle */}
-                  <div className="absolute top-0 right-8 w-20 h-20 bg-blue-300 rounded-full flex items-center justify-center text-gray-900 font-semibold text-sm opacity-90 shadow-md">
+                  <div className="absolute top-0 right-8 w-20 h-20 bg-gray-300 rounded-full flex items-center justify-center text-gray-900 font-semibold text-sm opacity-90 shadow-md">
                     Design
                   </div>
 
@@ -110,7 +110,7 @@ const WhyChooseUs = () => {
                   </div>
 
                   {/* Project Management Circle */}
-                  <div className="absolute top-8 left-0 w-24 h-24 bg-blue-200 rounded-full flex items-center justify-center text-gray-900 font-semibold text-sm opacity-90 shadow-md">
+                  <div className="absolute top-8 left-0 w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center text-gray-900 font-semibold text-sm opacity-90 shadow-md">
                     Project<br />Management
                   </div>
                 </div>

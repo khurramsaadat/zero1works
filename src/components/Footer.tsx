@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -169,10 +170,10 @@ const Footer = () => {
             <div>
               <h4 className="text-white font-semibold mb-3">Resources</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Case Studies</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">White Papers</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Documentation</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">API Reference</a></li>
+                <li><Link href="/case-studies" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Case Studies</Link></li>
+                <li><Link href="/white-papers" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">White Papers</Link></li>
+                <li><Link href="/documentation" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Documentation</Link></li>
+                <li><Link href="/api-reference" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">API Reference</Link></li>
               </ul>
             </div>
           </div>
@@ -210,18 +211,11 @@ const Footer = () => {
               </div>
 
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                <span className="text-gray-400">+1 (555) 123-4567</span>
-              </div>
-
-              <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <span className="text-gray-400">khurram@zerooneworks.com</span>
+                <a href="mailto:khurram@zerooneworks.com" className="text-gray-400 hover:text-white transition-colors">khurram@zerooneworks.com</a>
               </div>
             </div>
           </div>
@@ -238,19 +232,22 @@ const Footer = () => {
                 Based in Manchester, UK | Serving clients worldwide
               </div>
             </div>
-            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm text-center">
-              <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Privacy Policy
-              </Link>
-              <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Terms of Service
-              </Link>
-              <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Cookie Policy
-              </Link>
-              <Link href="/sitemap-page" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Sitemap
-              </Link>
+            <div className="flex flex-col items-center md:items-end gap-4">
+              <ThemeSwitcher />
+              <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm text-center">
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  Terms of Service
+                </Link>
+                <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  Cookie Policy
+                </Link>
+                <Link href="/sitemap-page" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  Sitemap
+                </Link>
+              </div>
             </div>
           </div>
         </div>

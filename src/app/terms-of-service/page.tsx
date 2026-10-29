@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Terms and conditions for using Zero One Works Ltd services. Governed by the laws of England and Wales.",
+  alternates: { canonical: "/terms-of-service" },
+};
 
 const TermsOfService = () => {
   const sections = [

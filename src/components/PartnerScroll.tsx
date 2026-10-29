@@ -120,6 +120,13 @@ const PartnerScroll = () => {
     { name: "Snake AI", logo: "", fallback: "Snake AI" },
     { name: "IronLog AI", logo: "", fallback: "IronLog" },
     { name: "DumbbellHome", logo: "", fallback: "Dumbbell" },
+    { name: "Playland", logo: "", fallback: "Playland" },
+    { name: "Solitaire", logo: "", fallback: "Solitaire" },
+    { name: "AppSphere", logo: "", fallback: "AppSphere" },
+    { name: "Utility Tools", logo: "", fallback: "Utility Tools" },
+    { name: "Dubi Developers", logo: "", fallback: "Dubi Dev" },
+    { name: "Pomodoro", logo: "", fallback: "Pomodoro" },
+    { name: "PomoFlow", logo: "", fallback: "PomoFlow" },
   ];
 
   return (
@@ -207,7 +214,7 @@ const PartnerScroll = () => {
 
         {/* Testimonials Section */}
         <div className="mt-24">
-          <div className="bg-gray-800 dark:bg-gray-900 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-gray-800 dark:bg-gray-900 rounded-xl p-8 md:p-12 relative overflow-hidden">
             {/* Quote Icon */}
             <div className="absolute top-6 left-8 text-6xl text-gray-600 opacity-30">
               &ldquo;
@@ -235,7 +242,7 @@ const PartnerScroll = () => {
             {/* Navigation Arrows */}
             <button
               onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-300 transition-colors duration-200"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200"
               aria-label="Previous testimonial"
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,7 +252,7 @@ const PartnerScroll = () => {
 
             <button
               onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-300 transition-colors duration-200"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200"
               aria-label="Next testimonial"
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,7 +268,7 @@ const PartnerScroll = () => {
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors duration-200 ${
                     index === currentTestimonial
-                      ? 'bg-blue-400'
+                      ? 'bg-white'
                       : 'bg-gray-500 hover:bg-gray-400'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}

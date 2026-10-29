@@ -66,6 +66,24 @@ const FeaturesCarousel = () => {
       category: "Education",
       link: "https://solarization.netlify.app/",
     },
+    {
+      id: 7,
+      title: "AppSphere",
+      description:
+        "Modern SaaS landing page template designed to help teams ship 2x faster with conversion-focused layout and clean UI.",
+      image: "/images/portfolio/appsphere.jpg",
+      category: "Templates",
+      link: "https://app-sphere-app.netlify.app/",
+    },
+    {
+      id: 8,
+      title: "Utility Tools",
+      description:
+        "50+ free browser-based dev and productivity tools - PDF, image, text, code, media converters and generators. 100% private.",
+      image: "/images/portfolio/utility-tools.jpg",
+      category: "Utilities",
+      link: "https://utility-tools-free.netlify.app/",
+    },
   ];
 
   // Check viewport size for responsive layout
@@ -182,7 +200,7 @@ const FeaturesCarousel = () => {
                                   </p>
                                 </div>
                                 <div className="flex flex-col items-end space-y-2">
-                                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                                  <span className="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">
                                     {project.category}
                                   </span>
                                   <svg 
@@ -233,7 +251,7 @@ const FeaturesCarousel = () => {
                                   </p>
                                 </div>
                                 <div className="flex flex-col items-end space-y-2">
-                                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                                  <span className="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-medium">
                                     {project.category}
                                   </span>
                                   <svg 

@@ -1,32 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Card, CardContent } from "@/components/ui/card";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
+
+/* Skeleton card shown while images are loading */
+function SkeletonCard() {
+  return (
+    <div className="rounded-xl overflow-hidden bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 animate-pulse">
+      <div className="aspect-[4/3] bg-gray-200 dark:bg-gray-800" />
+      <div className="px-3 py-2.5 space-y-1.5">
+        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3" />
+        <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded w-full" />
+      </div>
+    </div>
+  );
+}
 
 function PortfolioCoverImage({
   src,
   alt,
   title,
-  category,
   index,
 }: {
   src: string;
   alt: string;
   title: string;
-  category: string;
   index: number;
 }) {
   const [failed, setFailed] = useState(false);
   if (failed) {
     return (
-      <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-        <div className="text-center text-white p-4">
-          <div className="text-2xl font-bold mb-2">{title}</div>
-          <div className="text-sm opacity-90">{category}</div>
+      <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+        <div className="text-center text-white p-3">
+          <div className="text-sm font-semibold">{title}</div>
         </div>
       </div>
     );
@@ -34,475 +44,120 @@ function PortfolioCoverImage({
   return (
     <Image
       src={src}
-      alt={alt}
+      alt={`${alt} - project screenshot`}
       width={800}
       height={520}
-      className="w-full h-full object-cover"
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       priority={index < 4}
       loading={index < 4 ? "eager" : "lazy"}
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
       onError={() => setFailed(true)}
     />
   );
 }
 
+type SortOption = "newest" | "az" | "category";
+
 const Portfolio = () => {
   const [filter, setFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 9; // 3x3 grid
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState<SortOption>("newest");
+  const gridRef = useRef<HTMLDivElement>(null);
+  const projectsPerPage = 12;
 
   const projects = [
-    // Hospitality
-    {
-      id: 1,
-      title: "Grind Me Fine",
-      description: "Specialty coffee house website featuring menu, real Google reviews, gallery, and location details with a warm, inviting design.",
-      image: "/images/portfolio/grind-me-fine.jpg",
-      category: "Hospitality",
-      link: "https://grindme-fine.netlify.app/"
-    },
-    {
-      id: 2,
-      title: "Roastery Station",
-      description: "Premium specialty coffee brand site with multiple locations, gallery, multi-location reviews, and opening hours.",
-      image: "/images/portfolio/roastery-station.jpg",
-      category: "Hospitality",
-      link: "https://roasterysta.netlify.app/"
-    },
-    {
-      id: 3,
-      title: "UNO Espresso Cafe",
-      description: "Family-owned cafe website with 100+ Google reviews, photo gallery, online ordering via Zomato, and an embedded Google Map.",
-      image: "/images/portfolio/uno-espresso.jpg",
-      category: "Hospitality",
-      link: "https://uno-espresso.netlify.app/"
-    },
-    {
-      id: 4,
-      title: "TumaCafe & Restaurant",
-      description: "Cafe and restaurant site with full menu, photo gallery, Google reviews integration, and multi-platform ordering links.",
-      image: "/images/portfolio/tumacafe.jpg",
-      category: "Hospitality",
-      link: "https://tumacaferest.netlify.app/"
-    },
-    {
-      id: 5,
-      title: "Lunar Beauty Lounge",
-      description: "Premium ladies salon website with service packages, client testimonials, photo gallery, and online booking via Fresha.",
-      image: "/images/portfolio/lunar-beauty.jpg",
-      category: "Hospitality",
-      link: "https://lunarbeauty-lounge.netlify.app/"
-    },
-    {
-      id: 6,
-      title: "Black Beared Gents Salon",
-      description: "Premium barber and gents salon site featuring services, pricing, craft gallery, and Google-verified client reviews.",
-      image: "/images/portfolio/black-beared.jpg",
-      category: "Hospitality",
-      link: "https://black-beared.netlify.app/"
-    },
-    // Travel
-    {
-      id: 7,
-      title: "Take My Trip",
-      description: "Tour and adventure booking platform covering desert safaris, city tours, dhow cruises, and top attraction tickets.",
-      image: "/images/portfolio/take-my-trip.jpg",
-      category: "Travel",
-      link: "https://take-mytrip.netlify.app/"
-    },
-    // Automotive
-    {
-      id: 8,
-      title: "Dubai Bikes",
-      description: "Premium motorcycle dealership site with featured machines, pricing in AED, test ride booking, and a cinematic visual experience.",
-      image: "/images/portfolio/dubai-bikes.jpg",
-      category: "Automotive",
-      link: "https://dubaibikes.netlify.app/"
-    },
-    // Design & Agency
-    {
-      id: 9,
-      title: "Ibex Design",
-      description: "Award-winning design agency website showcasing brand identity, web design, UI/UX, and corporate communications services.",
-      image: "/images/portfolio/ibex-design.jpg",
-      category: "Design Agency",
-      link: "https://ibexdesign.netlify.app/"
-    },
-    // PDF & Document Tools
-    {
-      id: 10,
-      title: "PDF Tools Platform",
-      description: "All-in-one PDF suite with merge, split, compress, and convert capabilities. Fully browser-based with no uploads required.",
-      image: "/images/portfolio/pdf-tools.jpg",
-      category: "PDF Tools",
-      link: "https://pdfs-tools.netlify.app/"
-    },
-    {
-      id: 11,
-      title: "PDF & Image Merger",
-      description: "Browser-based tool to merge PDFs, convert images and documents into a single PDF. 100% private, no server uploads.",
-      image: "/images/portfolio/pdf-image-merger.jpg",
-      category: "PDF Tools",
-      link: "https://pdf-images-doc-merger.netlify.app/"
-    },
-    // Utilities
-    {
-      id: 12,
-      title: "SnapFormat",
-      description: "Free batch image converter supporting JPG, PNG, WebP, SVG, AVIF, HEIC, TIFF, and more. All processing happens in-browser.",
-      image: "/images/portfolio/snapformat.jpg",
-      category: "Utilities",
-      link: "https://snapformat.org/"
-    },
-    {
-      id: 13,
-      title: "Files & Folders",
-      description: "Free browser-based file tools - batch rename, bulk resize images, and visualize folder structures as interactive trees.",
-      image: "/images/portfolio/files-folders.jpg",
-      category: "Utilities",
-      link: "https://filesfolders.netlify.app/"
-    },
-    {
-      id: 14,
-      title: "FavOG",
-      description: "Favicon and Open Graph generator tool. Create favicons in all sizes and generate OG meta tags in the browser.",
-      image: "/images/portfolio/favog.jpg",
-      category: "Utilities",
-      link: "https://favog.netlify.app/"
-    },
-    {
-      id: 15,
-      title: "Image Resizer",
-      description: "Free online image resizer supporting JPG, PNG, WebP, and GIF. Resize, convert, and optimize images easily.",
-      image: "/images/portfolio/image-resizer.jpg",
-      category: "Utilities",
-      link: "https://image-conver.netlify.app/"
-    },
-    {
-      id: 16,
-      title: "Map Explorer",
-      description: "Interactive map application with rich data layers and location discovery features for exploring geographic information.",
-      image: "/images/portfolio/map-explorer.jpg",
-      category: "Utilities",
-      link: "https://mapexplorer.netlify.app/"
-    },
-    // Video Tools
-    {
-      id: 17,
-      title: "VidEnc",
-      description: "Client-side video encoder inspired by HandBrake. H.264 encoding, format conversion, and quality settings - files stay on your device.",
-      image: "/images/portfolio/videnc.jpg",
-      category: "Video Tools",
-      link: "https://videnc.netlify.app/"
-    },
-    {
-      id: 18,
-      title: "VidCon",
-      description: "Video communication platform with E2E encryption. Clean, modern UI for video calling with code-based room joining.",
-      image: "/images/portfolio/vid-conn.jpg",
-      category: "Video Tools",
-      link: "https://vid-conn.netlify.app/"
-    },
-    // Creative & Media Tools
-    {
-      id: 19,
-      title: "BatchMark",
-      description: "Bulk watermark and image resizing studio for photographers. Add text or image watermarks to hundreds of photos instantly.",
-      image: "/images/portfolio/batchmark.jpg",
-      category: "Creative Tools",
-      link: "https://batchmark.netlify.app/"
-    },
-    {
-      id: 20,
-      title: "Memories in Motion",
-      description: "Cinematic photo slideshow creator with immersive transitions. Drag and drop photos to build and export beautiful slideshows.",
-      image: "/images/portfolio/memories-in-motion.jpg",
-      category: "Creative Tools",
-      link: "https://album-slideshow.netlify.app/"
-    },
-    // Productivity
-    {
-      id: 21,
-      title: "Zenote",
-      description: "Distraction-free note-taking workspace with nested folders, daily notes, and a rich text editor. Private, free, and beautifully minimal.",
-      image: "/images/portfolio/zenote.jpg",
-      category: "Productivity",
-      link: "https://zenote-live.netlify.app/"
-    },
-    {
-      id: 22,
-      title: "Project Management Board",
-      description: "Kanban-style project management workspace for organizing tasks, tracking progress, and collaborating with teams.",
-      image: "/images/portfolio/proj-manage.jpg",
-      category: "Productivity",
-      link: "https://proj-manage.netlify.app/"
-    },
-    // Business Tools
-    {
-      id: 23,
-      title: "DFRE Unipoles",
-      description: "Media campaigns tracking platform with monthly reports, department breakdowns, and year-over-year analytics dashboards.",
-      image: "/images/portfolio/dfre-report.jpg",
-      category: "Business Tools",
-      link: "https://dfre-report.netlify.app/"
-    },
-    {
-      id: 24,
-      title: "Layouts Dashboard",
-      description: "Digital display format management dashboard with search, filtering, vendor coordination, and layout specifications.",
-      image: "/images/portfolio/layouts-dashboard.jpg",
-      category: "Business Tools",
-      link: "https://layouts-dashboard.netlify.app/"
-    },
-    {
-      id: 25,
-      title: "DM Gallery",
-      description: "Airport digital media screen management platform tracking 281 layouts across 9 locations with image upload and completion stats.",
-      image: "/images/portfolio/dm-gallery.jpg",
-      category: "Business Tools",
-      link: "https://digital-media-gallery.netlify.app/"
-    },
-    {
-      id: 26,
-      title: "Vendor Gallery",
-      description: "Vendor screen gallery for digital signage networks. Manage and showcase screens for luxury brands across multiple locations.",
-      image: "/images/portfolio/vendor-lib.jpg",
-      category: "Business Tools",
-      link: "https://vendor-lib.netlify.app/"
-    },
-    {
-      id: 27,
-      title: "DDF Promo Dashboard",
-      description: "Real-time promotional scheduling dashboard monitoring 146 digital media players with brand creative statuses and concourse views.",
-      image: "/images/portfolio/ddf-promo.jpg",
-      category: "Business Tools",
-      link: "https://ddf-promo-schedule.netlify.app/"
-    },
-    // Education & Learning
-    {
-      id: 28,
-      title: "Solarization",
-      description: "Interactive 3D Solar System explorer with live space data, scale comparisons, space trivia, and real-time cosmic measurements.",
-      image: "/images/portfolio/solarization.jpg",
-      category: "Education",
-      link: "https://solarization.netlify.app/"
-    },
-    {
-      id: 29,
-      title: "Al-Qari",
-      description: "Quran recitation and memorization app. Upload surah recordings in chunks for structured practice and review sessions.",
-      image: "/images/portfolio/al-qari.jpg",
-      category: "Education",
-      link: "https://recitation-alqari.netlify.app/"
-    },
-    {
-      id: 30,
-      title: "Playback & Learn",
-      description: "Video and audio learning player with A/B loop, zoom, and playback speed control. Ideal for language learners and musicians.",
-      image: "/images/portfolio/playback-learn.jpg",
-      category: "Education",
-      link: "https://playbacks.netlify.app/"
-    },
-    // Health & Fitness
-    {
-      id: 31,
-      title: "Track My Workout",
-      description: "AI-powered workout tracker with real-time pose detection and form scoring. Select exercises and let the AI coach guide your reps.",
-      image: "/images/portfolio/track-my-workout.jpg",
-      category: "Health & Fitness",
-      link: "https://track-my-workout.netlify.app/"
-    },
-    // Finance
-    {
-      id: 32,
-      title: "UAE Gratuity Calculator",
-      description: "End-of-service gratuity calculator aligned with UAE labor law. Handles resignation, termination, deductions, and PDF export.",
-      image: "/images/portfolio/uae-gratuity.jpg",
-      category: "Finance",
-      link: "https://my-gratuity.netlify.app/"
-    },
-    {
-      id: 33,
-      title: "StockPulse",
-      description: "Professional global stock terminal with live NYSE and NASDAQ data, interactive charts, portfolio tracking, and custom watchlists.",
-      image: "/images/portfolio/stock-pulse.jpg",
-      category: "Finance",
-      link: "https://stock-pulse-app.netlify.app/"
-    },
-    // Real Estate
-    {
-      id: 34,
-      title: "FalconCity Guide",
-      description: "Community service charges payment guide with step-by-step instructions, secure payment portal, and resident FAQ section.",
-      image: "/images/portfolio/falconcity.jpg",
-      category: "Real Estate",
-      link: "https://falconcity.netlify.app/"
-    },
-    // Psychology
-    {
-      id: 35,
-      title: "Personality360",
-      description: "Comprehensive psychological assessment platform with Big Five personality, empathy mapping, and cognitive ability tests.",
-      image: "/images/portfolio/personality-app.jpg",
-      category: "Psychology",
-      link: "https://personalityapp.netlify.app/"
-    },
-    // Games
-    {
-      id: 36,
-      title: "Pacman",
-      description: "Classic Pacman arcade game recreation with multiple ghost AI characters, power pellets, and level progression.",
-      image: "/images/portfolio/pacman.jpg",
-      category: "Games",
-      link: "https://pacmans.netlify.app/"
-    },
-    {
-      id: 37,
-      title: "Tic Tac Toe",
-      description: "Multi-mode Tic Tac Toe - classic 2-player, 3-marks-each variant, vs system, and an adaptive AI learning opponent.",
-      image: "/images/portfolio/tic-tac-toe.jpg",
-      category: "Games",
-      link: "https://khurram-tic-tac-toe.netlify.app/"
-    },
-    {
-      id: 38,
-      title: "N-Place Word Game",
-      description: "Word game where players fill in Name, Place, Animal, and Thing for a random letter within a time limit. Tracks scores.",
-      image: "/images/portfolio/n-place.jpg",
-      category: "Games",
-      link: "https://n-place.netlify.app/"
-    },
-    {
-      id: 39,
-      title: "Flappy Bird",
-      description: "Faithful Flappy Bird clone with responsive tap-to-fly controls, pipe obstacle generation, and score tracking.",
-      image: "/images/portfolio/flappy-bird.jpg",
-      category: "Games",
-      link: "https://flappy-birrd.netlify.app/"
-    },
-    {
-      id: 40,
-      title: "FolderVault",
-      description: "Local file backup tool that runs entirely in the browser. Select source folders, set a time window, and back up to any destination - no cloud, no uploads.",
-      image: "/images/portfolio/foldervault.jpg",
-      category: "Utilities",
-      link: "https://drive-archive.netlify.app/"
-    },
-    {
-      id: 41,
-      title: "3D Chess",
-      description: "Interactive 3D chess game built with Three.js featuring vs engine mode, undo, resign, and multiple camera angles including top and side views.",
-      image: "/images/portfolio/chess-3d.jpg",
-      category: "Games",
-      link: "https://chess-3d-chess.netlify.app/"
-    },
-    // Design Agency
-    {
-      id: 42,
-      title: "Khurram Saadat Portfolio",
-      description: "Creative Manager and Digital Media Strategist portfolio showcasing motion graphics, DOOH campaigns, broadcast media, and web product UI work.",
-      image: "/images/portfolio/portfolio-khurram.jpg",
-      category: "Design Agency",
-      link: "https://portfolio-test-me1.netlify.app/"
-    },
-    // Entertainment
-    {
-      id: 43,
-      title: "BBC FM Radio",
-      description: "Interactive radio station UI with multiple BBC channels, live playback controls, and a clean broadcast-style interface.",
-      image: "/images/portfolio/bbc-fm.jpg",
-      category: "Entertainment",
-      link: "https://bbc-fm.netlify.app/"
-    },
-    // Finance
-    {
-      id: 44,
-      title: "Discovery Monitor",
-      description: "Real-time healthcare market intelligence dashboard tracking SEC filings, FDA approvals, clinical trials, and regulatory events across 4 global markets.",
-      image: "/images/portfolio/discovery-monitor.jpg",
-      category: "Finance",
-      link: "https://discovery-monitor.netlify.app/"
-    },
-    // Education
-    {
-      id: 45,
-      title: "Tarteel Hifz",
-      description: "Quran memorization companion app with structured revision schedules, progress tracking, and recitation practice tools.",
-      image: "/images/portfolio/tarteel-hifz.jpg",
-      category: "Education",
-      link: "https://tarteel-hifz.netlify.app/"
-    },
-    // Templates
-    {
-      id: 46,
-      title: "Rocket Web Agency",
-      description: "Conversion-focused web design agency template for Dubai UAE businesses with pricing tiers, process steps, and portfolio showcase.",
-      image: "/images/portfolio/rocketweb.jpg",
-      category: "Templates",
-      link: "https://rocketweb-vscode-cline-glm53free.netlify.app/"
-    },
-    {
-      id: 47,
-      title: "Khurram Estate",
-      description: "Luxury real estate agency template featuring property listings, advanced search, client testimonials, and RERA-compliant Dubai property showcase.",
-      image: "/images/portfolio/estate-website.jpg",
-      category: "Templates",
-      link: "https://vscode-cline-test-estate-website.netlify.app/"
-    },
-    // Games
-    {
-      id: 48,
-      title: "Formula 1 Race",
-      description: "3D car and track test drive experience built with Three.js. Drive a Formula 1 car on a realistic circuit directly in the browser.",
-      image: "/images/portfolio/formula1.jpg",
-      category: "Games",
-      link: "https://formula1race.netlify.app/"
-    },
-    {
-      id: 49,
-      title: "Grand Prix Racing",
-      description: "Free browser-based 3D car racing game with realistic physics, track navigation, and competitive lap timing.",
-      image: "/images/portfolio/grandprix.jpg",
-      category: "Games",
-      link: "https://grandprix-race.netlify.app/"
-    },
-    {
-      id: 50,
-      title: "Snake Terminal AI",
-      description: "Retro-styled terminal snake game with AI mode, speed controls, sound effects, and a hacker-aesthetic grid-based interface.",
-      image: "/images/portfolio/snake-ai.jpg",
-      category: "Games",
-      link: "https://snake-z-dot-ai.netlify.app/"
-    },
-    // Health & Fitness
-    {
-      id: 51,
-      title: "IronLog AI Studio",
-      description: "AI-powered gym workout logger and analyzer. Track exercises, sets, and reps with intelligent insights powered by Google AI Studio.",
-      image: "/images/portfolio/ironlog.jpg",
-      category: "Health & Fitness",
-      link: "https://ironlog-ai-studio.netlify.app/"
-    },
-    {
-      id: 52,
-      title: "DumbbellHome",
-      description: "Home workout dashboard with exercise tracking, routine planning, and progress visualization for dumbbell-based training programs.",
-      image: "/images/portfolio/dumbbell.jpg",
-      category: "Health & Fitness",
-      link: "https://dumbbell-home.netlify.app/"
-    },
+    { id: 1, title: "Grind Me Fine", description: "Specialty coffee house with menu, reviews, and gallery", image: "/images/portfolio/grind-me-fine.jpg", category: "Hospitality", link: "https://grindme-fine.netlify.app/" },
+    { id: 2, title: "Roastery Station", description: "Premium coffee brand with multi-location reviews", image: "/images/portfolio/roastery-station.jpg", category: "Hospitality", link: "https://roasterysta.netlify.app/" },
+    { id: 3, title: "UNO Espresso", description: "Family cafe with Google reviews and online ordering", image: "/images/portfolio/uno-espresso.jpg", category: "Hospitality", link: "https://uno-espresso.netlify.app/" },
+    { id: 4, title: "TumaCafe", description: "Restaurant site with menu and multi-platform ordering", image: "/images/portfolio/tumacafe.jpg", category: "Hospitality", link: "https://tumacaferest.netlify.app/" },
+    { id: 5, title: "Lunar Beauty", description: "Premium ladies salon with booking via Fresha", image: "/images/portfolio/lunar-beauty.jpg", category: "Hospitality", link: "https://lunarbeauty-lounge.netlify.app/" },
+    { id: 6, title: "Black Beared", description: "Gents salon with services, pricing, and reviews", image: "/images/portfolio/black-beared.jpg", category: "Hospitality", link: "https://black-beared.netlify.app/" },
+    { id: 7, title: "Take My Trip", description: "Tour booking platform for safaris and city tours", image: "/images/portfolio/take-my-trip.jpg", category: "Travel", link: "https://take-mytrip.netlify.app/" },
+    { id: 8, title: "Dubai Bikes", description: "Motorcycle dealership with test ride booking", image: "/images/portfolio/dubai-bikes.jpg", category: "Automotive", link: "https://dubaibikes.netlify.app/" },
+    { id: 9, title: "Ibex Design", description: "Design agency showcasing brand and web services", image: "/images/portfolio/ibex-design.jpg", category: "Design Agency", link: "https://ibexdesign.netlify.app/" },
+    { id: 10, title: "PDF Tools", description: "All-in-one browser-based PDF suite", image: "/images/portfolio/pdf-tools.jpg", category: "PDF Tools", link: "https://pdfs-tools.netlify.app/" },
+    { id: 11, title: "PDF Merger", description: "Merge PDFs and images into a single document", image: "/images/portfolio/pdf-image-merger.jpg", category: "PDF Tools", link: "https://pdf-images-doc-merger.netlify.app/" },
+    { id: 12, title: "SnapFormat", description: "Batch image converter for 10+ formats", image: "/images/portfolio/snapformat.jpg", category: "Utilities", link: "https://snapformat.org/" },
+    { id: 13, title: "Files & Folders", description: "Batch rename, resize, and folder tree viewer", image: "/images/portfolio/files-folders.jpg", category: "Utilities", link: "https://filesfolders.netlify.app/" },
+    { id: 14, title: "FavOG", description: "Favicon and Open Graph meta tag generator", image: "/images/portfolio/favog.jpg", category: "Utilities", link: "https://favog.netlify.app/" },
+    { id: 15, title: "Image Resizer", description: "Free online image resizer and converter", image: "/images/portfolio/image-resizer.jpg", category: "Utilities", link: "https://image-conver.netlify.app/" },
+    { id: 16, title: "Map Explorer", description: "Interactive map with data layers and discovery", image: "/images/portfolio/map-explorer.jpg", category: "Utilities", link: "https://mapexplorer.netlify.app/" },
+    { id: 17, title: "VidEnc", description: "Client-side video encoder with H.264 support", image: "/images/portfolio/videnc.jpg", category: "Video Tools", link: "https://videnc.netlify.app/" },
+    { id: 18, title: "VidCon", description: "E2E encrypted video communication platform", image: "/images/portfolio/vid-conn.jpg", category: "Video Tools", link: "https://vid-conn.netlify.app/" },
+    { id: 19, title: "BatchMark", description: "Bulk watermark and resize studio for photos", image: "/images/portfolio/batchmark.jpg", category: "Creative Tools", link: "https://batchmark.netlify.app/" },
+    { id: 20, title: "Memories in Motion", description: "Cinematic photo slideshow creator", image: "/images/portfolio/memories-in-motion.jpg", category: "Creative Tools", link: "https://album-slideshow.netlify.app/" },
+    { id: 21, title: "Zenote", description: "Minimal note-taking workspace with nested folders", image: "/images/portfolio/zenote.jpg", category: "Productivity", link: "https://zenote-live.netlify.app/" },
+    { id: 22, title: "Project Board", description: "Kanban-style task management workspace", image: "/images/portfolio/proj-manage.jpg", category: "Productivity", link: "https://proj-manage.netlify.app/" },
+    { id: 23, title: "DFRE Unipoles", description: "Media campaigns tracking with analytics", image: "/images/portfolio/dfre-report.jpg", category: "Business Tools", link: "https://dfre-report.netlify.app/" },
+    { id: 24, title: "Layouts Dashboard", description: "Digital display format management system", image: "/images/portfolio/layouts-dashboard.jpg", category: "Business Tools", link: "https://layouts-dashboard.netlify.app/" },
+    { id: 25, title: "DM Gallery", description: "Airport digital media screen management", image: "/images/portfolio/dm-gallery.jpg", category: "Business Tools", link: "https://digital-media-gallery.netlify.app/" },
+    { id: 26, title: "Vendor Gallery", description: "Digital signage screens for luxury brands", image: "/images/portfolio/vendor-lib.jpg", category: "Business Tools", link: "https://vendor-lib.netlify.app/" },
+    { id: 27, title: "DDF Promo", description: "Real-time promo scheduling dashboard", image: "/images/portfolio/ddf-promo.jpg", category: "Business Tools", link: "https://ddf-promo-schedule.netlify.app/" },
+    { id: 28, title: "Solarization", description: "Interactive 3D Solar System explorer", image: "/images/portfolio/solarization.jpg", category: "Education", link: "https://solarization.netlify.app/" },
+    { id: 29, title: "Al-Qari", description: "Quran recitation and memorization app", image: "/images/portfolio/al-qari.jpg", category: "Education", link: "https://recitation-alqari.netlify.app/" },
+    { id: 30, title: "Playback & Learn", description: "Video player with A/B loop and speed control", image: "/images/portfolio/playback-learn.jpg", category: "Education", link: "https://playbacks.netlify.app/" },
+    { id: 31, title: "Track My Workout", description: "AI workout tracker with pose detection", image: "/images/portfolio/track-my-workout.jpg", category: "Health & Fitness", link: "https://track-my-workout.netlify.app/" },
+    { id: 32, title: "UAE Gratuity", description: "End-of-service gratuity calculator for UAE", image: "/images/portfolio/uae-gratuity.jpg", category: "Finance", link: "https://my-gratuity.netlify.app/" },
+    { id: 33, title: "StockPulse", description: "Global stock terminal with live market data", image: "/images/portfolio/stock-pulse.jpg", category: "Finance", link: "https://stock-pulse-app.netlify.app/" },
+    { id: 34, title: "FalconCity", description: "Community service charges payment guide", image: "/images/portfolio/falconcity.jpg", category: "Real Estate", link: "https://falconcity.netlify.app/" },
+    { id: 35, title: "Personality360", description: "Big Five personality assessment platform", image: "/images/portfolio/personality-app.jpg", category: "Psychology", link: "https://personalityapp.netlify.app/" },
+    { id: 36, title: "Pacman", description: "Classic arcade game with ghost AI", image: "/images/portfolio/pacman.jpg", category: "Games", link: "https://pacmans.netlify.app/" },
+    { id: 37, title: "Tic Tac Toe", description: "Multi-mode game with adaptive AI opponent", image: "/images/portfolio/tic-tac-toe.jpg", category: "Games", link: "https://khurram-tic-tac-toe.netlify.app/" },
+    { id: 38, title: "N-Place", description: "Name, Place, Animal, Thing word game", image: "/images/portfolio/n-place.jpg", category: "Games", link: "https://n-place.netlify.app/" },
+    { id: 39, title: "Flappy Bird", description: "Tap-to-fly clone with score tracking", image: "/images/portfolio/flappy-bird.jpg", category: "Games", link: "https://flappy-birrd.netlify.app/" },
+    { id: 40, title: "FolderVault", description: "Browser-based local file backup tool", image: "/images/portfolio/foldervault.jpg", category: "Utilities", link: "https://drive-archive.netlify.app/" },
+    { id: 41, title: "3D Chess", description: "Three.js chess with engine mode and camera views", image: "/images/portfolio/chess-3d.jpg", category: "Games", link: "https://chess-3d-chess.netlify.app/" },
+    { id: 42, title: "KS Portfolio", description: "Creative Manager and Digital Strategist portfolio", image: "/images/portfolio/portfolio-khurram.jpg", category: "Design Agency", link: "https://portfolio-test-me1.netlify.app/" },
+    { id: 43, title: "BBC FM Radio", description: "Interactive radio UI with multiple BBC channels", image: "/images/portfolio/bbc-fm.jpg", category: "Entertainment", link: "https://bbc-fm.netlify.app/" },
+    { id: 44, title: "Discovery Monitor", description: "Healthcare market intelligence dashboard", image: "/images/portfolio/discovery-monitor.jpg", category: "Finance", link: "https://discovery-monitor.netlify.app/" },
+    { id: 45, title: "Tarteel Hifz", description: "Quran memorization companion with progress tracking", image: "/images/portfolio/tarteel-hifz.jpg", category: "Education", link: "https://tarteel-hifz.netlify.app/" },
+    { id: 46, title: "Rocket Web", description: "Conversion-focused web agency template", image: "/images/portfolio/rocketweb.jpg", category: "Templates", link: "https://rocketweb-vscode-cline-glm53free.netlify.app/" },
+    { id: 47, title: "KH Estate", description: "Luxury real estate agency template", image: "/images/portfolio/estate-website.jpg", category: "Templates", link: "https://vscode-cline-test-estate-website.netlify.app/" },
+    { id: 48, title: "Formula 1 Race", description: "3D Three.js car racing experience", image: "/images/portfolio/formula1.jpg", category: "Games", link: "https://formula1race.netlify.app/" },
+    { id: 49, title: "Grand Prix", description: "Browser-based 3D racing with lap timing", image: "/images/portfolio/grandprix.jpg", category: "Games", link: "https://grandprix-race.netlify.app/" },
+    { id: 50, title: "Snake AI", description: "Terminal snake with AI mode and hacker aesthetic", image: "/images/portfolio/snake-ai.jpg", category: "Games", link: "https://snake-z-dot-ai.netlify.app/" },
+    { id: 51, title: "IronLog AI", description: "AI gym workout logger with Google AI Studio", image: "/images/portfolio/ironlog.jpg", category: "Health & Fitness", link: "https://ironlog-ai-studio.netlify.app/" },
+    { id: 52, title: "DumbbellHome", description: "Home dumbbell workout dashboard", image: "/images/portfolio/dumbbell.jpg", category: "Health & Fitness", link: "https://dumbbell-home.netlify.app/" },
+    { id: 53, title: "Playland", description: "Kids arcade with 15 fun browser games", image: "/images/portfolio/playland.jpg", category: "Games", link: "https://baba-games.netlify.app/" },
+    { id: 54, title: "Solitaire", description: "Classic card solitaire with Draw 1 and Draw 3", image: "/images/portfolio/solitaire.jpg", category: "Games", link: "https://baba-solitaire.netlify.app/" },
+    { id: 55, title: "AppSphere", description: "Modern SaaS landing page template", image: "/images/portfolio/appsphere.jpg", category: "Templates", link: "https://app-sphere-app.netlify.app/" },
+    { id: 56, title: "Utility Tools", description: "50+ free browser-based dev and productivity tools", image: "/images/portfolio/utility-tools.jpg", category: "Utilities", link: "https://utility-tools-free.netlify.app/" },
+    { id: 57, title: "Dubi Developers", description: "Dubai property developer with 15 live projects", image: "/images/portfolio/dubi-developers.jpg", category: "Real Estate", link: "https://dubi-developers.netlify.app/" },
+    { id: 58, title: "Pomodoro", description: "Focus timer with task queue and daily goals", image: "/images/portfolio/pomodoro.jpg", category: "Productivity", link: "https://po-modoro.netlify.app/" },
+    { id: 59, title: "PomoFlow", description: "Minimal Pomodoro with Focus and Break modes", image: "/images/portfolio/pomoflow.jpg", category: "Productivity", link: "https://pomoflow-ticking.netlify.app/" },
   ];
 
-  const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
-  const filteredProjects = filter === "All" ? projects : projects.filter(p => p.category === filter);
+  /* imagesLoaded is always true (skeleton removed to avoid set-state-in-effect) */
+  const imagesLoaded = true;
 
-  // Pagination logic
-  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+
+  /* Search filter */
+  const searchFiltered = search.trim()
+    ? projects.filter(
+        (p) =>
+          p.title.toLowerCase().includes(search.toLowerCase()) ||
+          p.description.toLowerCase().includes(search.toLowerCase()) ||
+          p.category.toLowerCase().includes(search.toLowerCase())
+      )
+    : projects;
+
+  /* Category filter */
+  const categoryFiltered = filter === "All" ? searchFiltered : searchFiltered.filter((p) => p.category === filter);
+
+  /* Sort */
+  const sorted = [...categoryFiltered].sort((a, b) => {
+    if (sort === "az") return a.title.localeCompare(b.title);
+    if (sort === "category") return a.category.localeCompare(b.category) || a.title.localeCompare(b.title);
+    return b.id - a.id; // newest first (highest ID)
+  });
+
+  const totalPages = Math.ceil(sorted.length / projectsPerPage);
   const startIndex = (currentPage - 1) * projectsPerPage;
   const endIndex = startIndex + projectsPerPage;
-  const currentProjects = filteredProjects.slice(startIndex, endIndex);
+  const currentProjects = sorted.slice(startIndex, endIndex);
 
-  // Reset to page 1 when filter changes
   const handleFilterChange = (newFilter: string) => {
     setFilter(newFilter);
     setCurrentPage(1);
@@ -510,222 +165,203 @@ const Portfolio = () => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    // Scroll to top of portfolio section
-    document.getElementById('portfolio-grid')?.scrollIntoView({ behavior: 'smooth' });
+    gridRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="min-h-screen">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="pt-16 pb-12 relative overflow-hidden min-h-[280px]">
-        <Image
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop&crop=center"
-          alt=""
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 z-[1]"
-          aria-hidden
-        />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-[2]">
+
+      {/* Hero - mesh gradient */}
+      <section className="pt-16 pb-8 relative overflow-hidden min-h-[260px]">
+        <div className="absolute inset-0 bg-gray-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.15),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_50%,rgba(78,78,96,0.12),transparent)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+          <div className="mb-4">
+            <Breadcrumbs />
+          </div>
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Our Portfolio
-            </h1>
-            <p className="text-lg text-gray-100 max-w-3xl mx-auto mb-8">
-              Explore our diverse collection of successful projects across various industries. 
-              Each project represents our commitment to excellence and innovation in web development.
+            <p className="text-sm font-medium text-gray-400 uppercase tracking-widest mb-3">
+              {sorted.length} Projects
             </p>
-            
-            {/* Filter Buttons */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={filter === category ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => handleFilterChange(category)}
-                  className="btn-hover-effect"
-                >
-                  {category}
-                </Button>
-              ))}
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Work</h1>
+            <p className="text-base text-gray-400 max-w-2xl mx-auto mb-6">
+              Real projects across {categories.length - 1} industries. Every card links to a live site.
+            </p>
+
+            {/* Search bar */}
+            <div className="max-w-md mx-auto mb-6">
+              <div className="relative">
+                <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search projects..."
+                  value={search}
+                  onChange={(e) => { setSearch(e.target.value); setCurrentPage(1); }}
+                  className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent transition-all"
+                  aria-label="Search portfolio projects"
+                />
+                {search && (
+                  <button
+                    type="button"
+                    onClick={() => { setSearch(""); setCurrentPage(1); }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+                    aria-label="Clear search"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Filter pills */}
+            <div className="flex flex-wrap justify-center gap-2 mb-4">
+              {categories.map((category) => {
+                const count = category === "All" ? projects.length : projects.filter((p) => p.category === category).length;
+                return (
+                  <button
+                    key={category}
+                    onClick={() => handleFilterChange(category)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                      filter === category
+                        ? "bg-white text-gray-900 shadow-sm"
+                        : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
+                    }`}
+                  >
+                    {category}
+                    <span className={`ml-1.5 ${filter === category ? "text-gray-500" : "text-gray-600"}`}>{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Sort */}
+            <div className="flex justify-center">
+              <select
+                value={sort}
+                onChange={(e) => { setSort(e.target.value as SortOption); setCurrentPage(1); }}
+                className="bg-white/5 border border-white/10 rounded-full text-xs text-gray-400 px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-white/30 cursor-pointer"
+                aria-label="Sort projects"
+              >
+                <option value="newest">Newest First</option>
+                <option value="az">A - Z</option>
+                <option value="category">By Category</option>
+              </select>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Portfolio Grid */}
-      <section className="py-16 bg-white dark:bg-slate-900">
+      {/* Grid */}
+      <section id="main-content" className="py-10 bg-gray-50 dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Results Info */}
-          <div className="mb-8 text-center">
-            <p className="text-gray-600 dark:text-gray-400">
-              Showing {startIndex + 1}-{Math.min(endIndex, filteredProjects.length)} of {filteredProjects.length} projects
+          <div className="mb-6 text-center">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Showing {sorted.length === 0 ? 0 : startIndex + 1}-{Math.min(endIndex, sorted.length)} of {sorted.length}
               {filter !== "All" && ` in ${filter}`}
+              {search && ` matching "${search}"`}
             </p>
           </div>
 
-          <div id="portfolio-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                        {currentProjects.map((project, index) => (
-              <Card key={project.id} className="card-hover-effect overflow-hidden group">
-                {project.link ? (
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
-                    <div className="relative h-[300px] overflow-hidden rounded-t-xl">
-                      {/* Conditional Image Display */}
+          {/* Skeleton or real grid */}
+          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-10">
+            {!imagesLoaded
+              ? Array.from({ length: Math.min(projectsPerPage, sorted.length) }).map((_, i) => <SkeletonCard key={i} />)
+              : currentProjects.map((project, index) => (
+                  <a
+                    key={project.id}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block rounded-xl overflow-hidden bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-700 hover:-translate-y-0.5"
+                    aria-label={`${project.title} - ${project.description}. Opens in new tab.`}
+                  >
+                    {/* Image - ~80% of card */}
+                    <div className="relative aspect-[4/3] overflow-hidden">
                       {project.image ? (
-                        <PortfolioCoverImage
-                          src={project.image}
-                          alt={project.title}
-                          title={project.title}
-                          category={project.category}
-                          index={index}
-                        />
+                        <PortfolioCoverImage src={project.image} alt={project.title} title={project.title} index={index} />
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                          <div className="text-center text-white p-4">
-                            <div className="text-2xl font-bold mb-2">{project.title}</div>
-                            <div className="text-sm opacity-90">{project.category}</div>
-                          </div>
+                        <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                          <span className="text-sm text-white font-medium">{project.title}</span>
                         </div>
                       )}
-                      
-                    </div>
-                    
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">
-                            {project.title}
-                          </h3>
-                          <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
-                            {project.description}
-                          </p>
-                        </div>
-                        <div className="flex flex-col items-end space-y-2">
-                          <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
-                            {project.category}
-                          </span>
-                          <svg 
-                            className="w-6 h-6 text-gray-600 dark:text-gray-400 transition-transform group-hover:translate-x-1" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+
+                      {/* Category pill on image */}
+                      <div className="absolute bottom-2 left-2">
+                        <span className="inline-block px-2.5 py-1 bg-gray-900/80 backdrop-blur-sm text-white text-[10px] font-medium rounded-full tracking-wide uppercase">
+                          {project.category}
+                        </span>
+                      </div>
+
+                      {/* Hover overlay with "View Live Site" tooltip */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+                          <svg className="w-3.5 h-3.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
+                          <span className="text-xs font-medium text-gray-900">View Live Site</span>
                         </div>
                       </div>
-                    </CardContent>
+                    </div>
+
+                    {/* Slim footer */}
+                    <div className="px-3 py-2.5">
+                      <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{project.title}</h3>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 truncate mt-0.5">{project.description}</p>
+                    </div>
                   </a>
-                ) : (
-                  <>
-                    <div className="relative h-[300px] overflow-hidden rounded-t-xl">
-                      {/* Conditional Image Display */}
-                      {project.image ? (
-                        <PortfolioCoverImage
-                          src={project.image}
-                          alt={project.title}
-                          title={project.title}
-                          category={project.category}
-                          index={index}
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                          <div className="text-center text-white p-4">
-                            <div className="text-2xl font-bold mb-2">{project.title}</div>
-                            <div className="text-sm opacity-90">{project.category}</div>
-                          </div>
-                        </div>
-                      )}
-                      
-                    </div>
-                    
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">
-                            {project.title}
-                          </h3>
-                          <p className="text-gray-400 text-sm line-clamp-2">
-                            {project.description}
-                          </p>
-                        </div>
-                        <div className="flex flex-col items-end space-y-2">
-                          <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
-                            {project.category}
-                          </span>
-                          <svg 
-                            className="w-6 h-6 text-gray-600 dark:text-gray-400 transition-transform group-hover:translate-x-1" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </>
-                )}
-              </Card>
-            ))}
+                ))}
           </div>
+
+          {/* No results */}
+          {sorted.length === 0 && imagesLoaded && (
+            <div className="text-center py-16">
+              <p className="text-gray-500 dark:text-gray-400 mb-2">No projects found</p>
+              <button
+                type="button"
+                onClick={() => { setSearch(""); setFilter("All"); setCurrentPage(1); }}
+                className="text-sm text-gray-700 dark:text-gray-300 underline hover:no-underline"
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex justify-center items-center space-x-2">
-              {/* Previous Button */}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="btn-hover-effect"
-              >
-                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                <span className="hidden md:inline">Previous</span>
+            <div className="flex justify-center items-center gap-2">
+              <Button variant="outline" size="sm" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="h-8 px-3 text-xs">
+                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                <span className="hidden sm:inline">Prev</span>
               </Button>
-
-              {/* Page Numbers - Hidden on mobile, visible on tablet/desktop */}
-              <div className="hidden sm:flex items-center space-x-2">
+              <div className="hidden sm:flex items-center gap-1">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                  <Button
+                  <button
                     key={page}
-                    variant={currentPage === page ? "default" : "outline"}
-                    size="sm"
                     onClick={() => handlePageChange(page)}
-                    className="btn-hover-effect min-w-[40px]"
+                    className={`h-8 w-8 rounded-lg text-xs font-medium transition-colors ${
+                      currentPage === page
+                        ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+                        : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    }`}
+                    aria-label={`Page ${page}`}
+                    aria-current={currentPage === page ? "page" : undefined}
                   >
                     {page}
-                  </Button>
+                  </button>
                 ))}
               </div>
-
-              {/* Mobile Page Indicator - Simple text showing current page */}
-              <div className="sm:hidden text-sm text-gray-600 dark:text-gray-400 px-3 py-2">
-                Page {currentPage} of {totalPages}
-              </div>
-
-              {/* Next Button */}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="btn-hover-effect"
-              >
-                <span className="hidden md:inline">Next</span>
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+              <div className="sm:hidden text-xs text-gray-500 px-3">{currentPage} / {totalPages}</div>
+              <Button variant="outline" size="sm" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="h-8 px-3 text-xs">
+                <span className="hidden sm:inline">Next</span>
+                <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </Button>
             </div>
           )}

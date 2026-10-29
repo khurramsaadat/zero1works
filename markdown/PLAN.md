@@ -111,29 +111,34 @@
 
 ## Current Status: ALL PHASES COMPLETED ✅
 
-### Latest Update (2026-07-26)
-- **13 dependencies updated** to latest safe minor/patch versions
-- **Full Playwright test** - all 11 routes HTTP 200, 0 console errors
-- **Build verified** - 15 pages prerendered, ESLint clean
+### Latest Update (2026-10-29)
+- **Major technology upgrade** - Next.js 16.4.3, TypeScript 6.0.3, React 19.3.1
+- **7 new portfolio projects** added (59 total)
+- **0 npm vulnerabilities**
+- **Full Playwright test** - all 11 routes HTTP 200
+- **Build verified** - 14 pages prerendered, ESLint clean
 - **Mobile responsive** verified at 375x812 viewport
 
-### Portfolio Showcase (39 Projects)
+### Portfolio Showcase (59 Projects)
+- **Games (10)**: Pacman, Tic Tac Toe, N-Place, Flappy Bird, 3D Chess, Formula 1, Grand Prix, Snake AI, Playland, Solitaire
 - **Hospitality (6)**: Grind Me Fine, Roastery Station, UNO Espresso, TumaCafe, Lunar Beauty, Black Beared
+- **Utilities (6)**: SnapFormat, Files & Folders, FavOG, Image Resizer, Map Explorer, Utility Tools
 - **Business Tools (5)**: DFRE Unipoles, Layouts Dashboard, DM Gallery, Vendor Gallery, DDF Promo
-- **Utilities (5)**: SnapFormat, Files & Folders, FavOG, Image Resizer, Map Explorer
-- **Games (4)**: Pacman, Tic Tac Toe, N-Place, Flappy Bird
-- **Education (3)**: Solarization, Al-Qari, Playback & Learn
+- **Productivity (4)**: Zenote, Project Management Board, Pomodoro, PomoFlow
+- **Education (4)**: Solarization, Al-Qari, Playback & Learn, Tarteel Hifz
+- **Health & Fitness (3)**: Track My Workout, IronLog AI, DumbbellHome
+- **Finance (3)**: UAE Gratuity Calculator, StockPulse, Discovery Monitor
+- **Templates (3)**: Rocket Web Agency, Khurram Estate, AppSphere
+- **Real Estate (2)**: FalconCity Guide, Dubi Developers
+- **Design Agency (2)**: Ibex Design, Khurram Saadat Portfolio
 - **PDF Tools (2)**: PDF Tools Platform, PDF & Image Merger
 - **Video Tools (2)**: VidEnc, VidCon
 - **Creative Tools (2)**: BatchMark, Memories in Motion
-- **Productivity (2)**: Zenote, Project Management Board
-- **Finance (2)**: UAE Gratuity Calculator, StockPulse
+- **FolderVault (1)**: FolderVault (Utilities)
 - **Travel (1)**: Take My Trip
 - **Automotive (1)**: Dubai Bikes
-- **Design Agency (1)**: Ibex Design
-- **Health & Fitness (1)**: Track My Workout
 - **Psychology (1)**: Personality360
-- **Real Estate (1)**: FalconCity Guide
+- **Entertainment (1)**: BBC FM Radio
 
 ## Phase 13: Portfolio Expansion - 11 New Projects (2026-09-15) ✅ COMPLETED
 - [x] Added 11 new portfolio cards (IDs 42-52, total: 52 projects)
@@ -146,6 +151,22 @@
 - [x] Playwright E2E: all routes HTTP 200, 0 console errors
 - [x] Mobile responsiveness verified at 375x812
 
+## Phase 14: Major Technology Upgrade + 7 New Projects (2026-10-29) ✅ COMPLETED
+- [x] Major dependency upgrades: Next.js 16.4.3, TypeScript 6.0.3, React 19.3.1, lucide-react 1.64.0, @types/node 26.6.6
+- [x] Migrated ESLint config to native flat config (removed FlatCompat/@eslint/eslintrc)
+- [x] Refactored ThemeToggle to useSyncExternalStore (new react-hooks rule compliance)
+- [x] Added 7 new portfolio cards (IDs 53-59, total: 59 projects)
+- [x] New projects: Playland, Solitaire, AppSphere, Utility Tools, Dubi Developers, Pomodoro, PomoFlow
+- [x] Expanded: Games (+2), Templates (+1), Utilities (+1), Real Estate (+1), Productivity (+2)
+- [x] Captured hero screenshots via Playwright for all 7 sites
+- [x] Optimized images to 800x520 JPEG (sharp/mozjpeg)
+- [x] Updated FeaturesCarousel with AppSphere and Utility Tools (now 8 featured)
+- [x] Updated PartnerScroll with 7 new brands (total: 59)
+- [x] npm audit: 0 vulnerabilities
+- [x] ESLint clean, production build verified (14 pages)
+- [x] Playwright E2E: all 11 routes HTTP 200
+- [x] Mobile responsiveness verified at 375x812
+
 ### Next Steps (Optional Enhancements)
 - [ ] Add project detail pages with full case studies
 - [ ] Implement search functionality across portfolio
@@ -154,18 +175,19 @@
 - [ ] Add Google Analytics integration
 
 ## Technical Specifications
-- **Framework**: Next.js 15.5.22 with App Router
+- **Framework**: Next.js 16.4.3 with App Router
 - **Styling**: Tailwind CSS v4.3.3
-- **Runtime**: React 19.2.8, TypeScript 5.9.3
-- **Testing**: Playwright 1.62.0
+- **Runtime**: React 19.3.1, TypeScript 6.0.3
+- **Testing**: Playwright 1.64.1
 - **Deployment**: Static export for Hostinger/Netlify
 - **Image Handling**: Local optimized JPEGs (800x520, sharp/mozjpeg) + next/image
-- **Build Process**: Turbopack, 15 prerendered static pages
-- **Security**: CSP configured, upstream transitive dep vulns (brace-expansion, postcss, sharp) not fixable without breaking changes
+- **Build Process**: Turbopack, 14 prerendered static pages
+- **Security**: 0 npm vulnerabilities
 - **Performance**: All images optimized, lazy loading, responsive srcset
 - **Branding**: Zero One Works Ltd logo and identity system
 - **Navigation**: Active state detection, theme toggle, back-to-top button
-- **Portfolio**: 52 projects across 17 categories with paginated grid (9 per page, 6 pages)
+- **Portfolio**: 59 projects across 18 categories with paginated grid (9 per page, 7 pages)
+- **Featured Carousel**: 8 projects on homepage
 
 ### Latest Update
-- **2026-09-15**: Added 11 new portfolio projects (52 total), 2 new categories (Templates, Entertainment)
+- **2026-10-29**: Major tech upgrade (Next.js 16, TS 6, React 19.3), 7 new portfolio projects (59 total), 0 vulnerabilities

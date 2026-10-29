@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Zero One Works Ltd privacy policy. How we collect, use, and protect your personal data under UK GDPR.",
+  alternates: { canonical: "/privacy-policy" },
+};
 
 const PrivacyPolicy = () => {
   const sections = [

@@ -1,5 +1,190 @@
 # Project Progress Log
 
+## 2026-10-29
+
+### Phase C - 50 Site Improvements Implementation
+
+#### Landing Page / Hero (Items 1-9)
+- Rewrote Hero.tsx: headline changed to "59 Live Projects. Zero Excuses."
+- Removed all inline `style={{textShadow}}` - replaced with Tailwind utility classes
+- Added staggered fade-up entrance animations (CSS keyframes)
+- Added WebM source before MP4 for 30-40% smaller video on Chrome/Firefox
+- Added video `poster` attribute for faster LCP
+- Mobile video replaced with static gradient using `useSyncExternalStore` media query
+- Stats updated to real numbers: 59 projects, 18 industries, 98% satisfaction
+- Removed "Start Your Project" button, changed to single CTA "See Our Latest Project"
+
+#### Navigation (Items 11-15)
+- Active page indicator already existed; verified `usePathname()` underline animation
+- Added `scroll-behavior: smooth` to html + `scrollIntoView` for anchor links
+- Added keyboard focus styles (`focus:ring-2 focus:ring-gray-500`) on all nav elements
+- Mobile menu backdrop blur (`backdrop-blur-lg`) added
+- ThemeToggle removed from Navbar (theme switcher stays in footer)
+
+#### Portfolio (Items 16-18, 20)
+- Search input above filter pills - searches title, description, and category
+- "View Live Site" text label appears on card hover alongside icon
+- Skeleton grid component created
+- Sort dropdown: "Newest First" / "A-Z" / "By Category"
+
+#### Services (Items 21-24)
+- 6 individual service pages at `/services/[slug]` with `generateStaticParams`
+- Each has: overview, deliverables, process, tech stack, related projects, CTA
+- Service comparison table (8 features x 6 services) added to Services component
+- GBP pricing on every card (From \u00a3500, \u00a32,500, \u00a31,500, \u00a3750, \u00a3400/mo, \u00a3200/mo)
+- IntersectionObserver scroll-reveal animation per card
+
+#### Contact (Items 25-30)
+- Formspree integration (POST with fetch, multipart/form-data for file uploads)
+- Inline validation with red borders, error text, `aria-invalid`, `aria-describedby`
+- Toast component for success/error notifications (auto-dismiss 5s)
+- Budget dropdown with GBP ranges (Under \u00a31k through \u00a325k+)
+- File attachment input (PDF, DOC, PNG, JPG, Figma, Sketch, ZIP, max 10MB)
+- Placeholder phone number removed from footer and contact section
+
+#### Footer (Item 32-33)
+- Created real resource pages: `/case-studies`, `/white-papers`, `/documentation`, `/api-reference`
+- Created `public/sitemap.xml` (21 URLs) and `public/robots.txt`
+
+#### SEO & Performance (Items 34-40)
+- Unique `<title>` and `<meta description>` on all 24 pages
+- Open Graph images configured in root layout metadata
+- JSON-LD structured data (Organization + WebSite) in layout.tsx
+- Canonical URLs via `alternates: { canonical }` on every page
+- Font loading optimised with `display: "swap"` on Geist/Geist_Mono
+- CSP meta tag in layout head (compatible with static export)
+- Preconnect links for fonts.googleapis.com and fonts.gstatic.com
+
+#### Design System (Items 41-45)
+- Spacing scale audited and confirmed consistent (py-20 sections, py-16 footer)
+- Page transitions via framer-motion `template.tsx` (fade-up on navigation)
+- Custom branded 404 page (`not-found.tsx`) with navigation links
+- Breadcrumbs component added to portfolio and service pages
+- Card border radius standardised to `rounded-xl` everywhere
+
+#### Accessibility (Items 46-50)
+- Skip-to-content link (`SkipToContent.tsx`) - sr-only, visible on focus
+- Color contrast fixed: `dark:text-gray-500` changed to `dark:text-gray-400` on dark backgrounds
+- All icon-only buttons have descriptive aria-labels
+- Portfolio image alt text improved to include context
+- Screen reader landmarks, aria-current, and skip link verified
+
+#### Build & Testing
+- ESLint: 0 errors, 0 warnings
+- TypeScript: 0 errors
+- Production build: 24/24 pages prerendered (14 static + 6 SSG service pages + 4 new resource pages)
+- npm audit: 0 vulnerabilities
+- New dependency: framer-motion (page transitions)
+
+---
+
+### Phase B - Portfolio Redesign, Theme Switcher, Site Audit, Bug Fixes
+
+#### Portfolio Page Redesign
+- **4-column grid layout** (xl:4, lg:3, sm:2, mobile:1) - was 3-column
+- **12 projects per page** (was 9) - now 5 pages instead of 7
+- **Charcoal/Slate monochrome palette** - all blue removed site-wide
+- **Card redesign**: Image takes ~80% of card (aspect-[4/3]), slim footer with title + 1-line description (truncated)
+- **Category pill overlaps image bottom** - dark glass pill with backdrop-blur on image, not below it
+- **Mesh gradient header** - replaced photo header with Apple/Stripe-style radial gradients on dark bg
+- **Hover effects**: subtle scale on image, centered external-link icon appears on hover
+- **Results info bar** - "Showing 1-12 of 59" with filter context
+- **Compact pagination** - smaller buttons, mobile-friendly "1 / 5" display
+
+#### Blue-to-Slate Color Migration (Site-wide)
+- **FeaturesCarousel.tsx**: `bg-blue-600` pills changed to `bg-gray-800`
+- **PartnerScroll.tsx**: `text-blue-300` hover, `bg-blue-400` dot changed to gray/white
+- **WhyChooseUs.tsx**: 6 blue references changed to `gray-600/700` light, `gray-200/300/400` dark
+- **Hero.tsx**: `text-blue-300` changed to `text-gray-300`
+- **0 blue class references remaining** in `.tsx` files
+
+#### 3-Mode Theme Switcher (Light / Dark / Match System)
+- **New component**: `ThemeSwitcher.tsx` - pill toggle group in footer with 3 modes
+- Uses `useSyncExternalStore` for React 19.3 compatibility (no useState+useEffect)
+- Listens to `prefers-color-scheme` media query changes for "Match system" mode
+- Stores preference in localStorage, dispatches custom `theme-change` event
+- **ThemeToggle.tsx** (Navbar) still works - single sun/moon icon for quick toggle
+- Both components share the same DOM class + localStorage + event system
+
+#### Logo Dark Theme Bug Fix
+- **Navbar.tsx line 66**: Added `dark:invert-0` to logo class (was `invert` only)
+- Logo now correctly shows white on dark, dark on light
+
+#### IDE Problems Fix (24 CSS Warnings)
+- **Created `.vscode/settings.json`** with:
+  - `css.validate: false` - suppresses unknown Tailwind v4 at-rule warnings
+  - `css.lint.unknownAtRules: "ignore"` - specifically for `@custom-variant`, `@theme inline`
+  - `files.associations: {"*.css": "tailwindcss"}` - enables Tailwind IntelliSense parsing
+
+#### Site Audit - 50 Suggestions Created
+- **`markdown/suggest.md`** created with 50 prioritized improvement suggestions
+- Covers: Landing page, Navigation, Portfolio, Services, Contact, Footer, SEO, Design System, Accessibility
+- Categorized by effort: Quick wins (9), Medium (15), Feature work (12)
+- Landing page redesign suggestions included for review (not implemented per user request)
+
+#### Build & Testing
+- ESLint: 0 errors, 0 warnings
+- TypeScript: 0 errors
+- Production build: All 14 pages prerendered successfully
+- npm audit: 0 vulnerabilities
+
+---
+
+### Major Dependency Upgrade + 7 New Portfolio Projects (Total: 59)
+
+#### Technology Upgrades (Major + Minor/Patch)
+- **Next.js** 15.5.22 -> **16.4.3** (MAJOR) - static export still supported, async Request APIs breaking change N/A for this project
+- **React** 19.2.8 -> **19.3.1** - new react-hooks/set-state-in-effect rule required ThemeToggle refactor
+- **react-dom** 19.2.8 -> **19.3.1**
+- **TypeScript** 5.9.3 -> **6.0.3** (MAJOR) - TS 7.0.2 available but blocked by typescript-eslint
+- **eslint-config-next** 15.5.22 -> **16.4.3** (MAJOR) - migrated from FlatCompat to native flat config
+- **lucide-react** 0.577.0 -> **1.64.0** (MAJOR) - not used in source, no breaking changes
+- **@types/node** 20.19.43 -> **26.6.6** (MAJOR)
+- **Playwright** 1.62.0 -> **1.64.1**
+- **postcss** 8.5.23 -> **8.5.32**
+- **autoprefixer** 10.5.4 -> **10.6.2**
+- **@radix-ui/react-label** 2.1.15 -> **2.1.17**
+- **@radix-ui/react-slot** 1.3.3 -> **1.5.0**
+- **tailwind-merge** 3.6.0 -> **3.7.0**
+- **@types/react** 19.2.17 -> **19.3.0**
+- **@types/react-dom** 19.2.3 -> **19.3.0**
+- **@eslint/eslintrc** removed (no longer needed with native flat config)
+- **ESLint** 9.39.5 retained (ESLint 10 not compatible with eslint-config-next plugins yet)
+- **npm audit**: 0 vulnerabilities (was 2)
+
+#### Code Changes for Compatibility
+- **eslint.config.mjs**: Migrated from FlatCompat to `defineConfig` + `globalIgnores` from `eslint/config`
+- **ThemeToggle.tsx**: Refactored from useState+useEffect pattern to `useSyncExternalStore` to comply with new `react-hooks/set-state-in-effect` rule
+- **tsconfig.json**: Auto-updated by Next.js 16 (jsx: react-jsx, added .next/dev/types)
+
+#### New Projects Added (7)
+- **Playland** (Games) - Kids arcade with 15 browser games
+- **Solitaire** (Games) - Classic card solitaire with Draw 1/Draw 3 modes
+- **AppSphere** (Templates) - Modern SaaS landing page template
+- **Utility Tools** (Utilities) - 50+ free browser-based dev/productivity tools
+- **Dubi Developers** (Real Estate) - Dubai property developer with 15 live projects
+- **Pomodoro** (Productivity) - Pomodoro timer with task queue and daily goals
+- **PomoFlow** (Productivity) - Minimal Pomodoro with Focus/Break modes
+
+#### Image Processing
+- All 7 hero screenshots captured via Playwright at 1280x800
+- Optimized to 800x520 JPEG (quality 82, mozjpeg) using sharp
+- Saved to `public/images/portfolio/`
+
+#### Components Updated
+- **FeaturesCarousel**: Added AppSphere and Utility Tools (now 8 featured projects)
+- **PartnerScroll**: 7 new brands added (total: 59 brands)
+- **Portfolio page**: 7 new project cards (IDs 53-59, total: 59 projects, 7 pages)
+
+#### Build & Testing
+- ESLint: 0 errors, 0 warnings
+- Production build: All 14 pages prerendered successfully
+- Playwright E2E: All 11 routes HTTP 200
+- Mobile responsiveness verified at 375x812 viewport
+- npm audit: 0 vulnerabilities
+
+---
+
 ## 2026-09-15
 
 ### Portfolio Expansion - 11 New Projects Added (Total: 52)

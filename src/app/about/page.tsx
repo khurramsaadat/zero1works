@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Zero One Works Ltd is a Manchester-based web design agency. Meet our team and learn about our mission to deliver premium digital experiences.",
+  alternates: { canonical: "/about" },
+};
 import { Card, CardContent } from "@/components/ui/card";
 import CounterAnimation from "@/components/CounterAnimation";
 import Link from "next/link";

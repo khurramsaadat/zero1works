@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description: "Web development, mobile apps, e-commerce, UI/UX design, digital marketing, and maintenance services. Starting from \u00a3500.",
+  alternates: { canonical: "/services" },
+};
 
 const Services = () => {
   const services = [
