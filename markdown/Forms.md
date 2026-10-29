@@ -17,17 +17,13 @@ The site uses [Formspree](https://formspree.io) for contact form submissions. Fo
 
 ### 2. Update the Form Endpoint
 
-Open `src/components/ContactUs.tsx` and replace the placeholder:
+The endpoint is configured in `src/components/ContactUs.tsx`:
 
 ```typescript
-const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_URL = "https://formspree.io/f/xppplodd";
 ```
 
-Replace `YOUR_FORM_ID` with your actual Formspree form ID:
-
-```typescript
-const FORMSPREE_URL = "https://formspree.io/f/xyzabcde";
-```
+This is already set. No changes needed unless you create a new form.
 
 ### 3. Configure Formspree Dashboard
 

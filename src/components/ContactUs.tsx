@@ -7,8 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Toast from "@/components/Toast";
 
-/* Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io */
-const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID";
+/* Formspree endpoint - https://formspree.io dashboard */
+const FORMSPREE_URL = "https://formspree.io/f/xppplodd";
 
 interface FormErrors {
   name?: string;
