@@ -3,7 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import Image from "next/image";
+import { ProcessHeroSvg, ProcessStepSvg } from "@/components/illustrations/HeroIllustrations";
+
 
 export const metadata: Metadata = {
   title: "Our Process",
@@ -20,7 +21,7 @@ const Process = () => {
       storyTitle: "🔍 The Detective Phase",
       storyDescription: "Like a detective solving a mystery, we dive deep into your digital world to uncover hidden insights, user pain points, and untapped opportunities.",
       description: "We endeavor to outline the reasons, understand the metrics, reveal user pains and business goals to plan and conduct the redesign process wisely & systematically.",
-      illustration: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center",
+      illustration: "",
       phases: [
         {
           name: "🔎 Product Audit",
@@ -38,8 +39,8 @@ const Process = () => {
           icon: "🧠"
         }
       ],
-      bgColor: "bg-gradient-to-br from-blue-50 to-indigo-100",
-      textColor: "text-gray-900"
+      bgColor: "bg-gradient-to-br from-slate-100 to-gray-200 dark:from-slate-800 dark:to-gray-900",
+      textColor: "text-gray-900 dark:text-gray-100"
     },
     {
       id: 2,
@@ -48,7 +49,7 @@ const Process = () => {
       storyTitle: "🏗️ The Architect Phase",
       storyDescription: "Like architects designing a beautiful building, we create the blueprint for your digital experience, ensuring every interaction feels natural and delightful.",
       description: "We aim to design user-friendly digital products that create seamless interactions and improve user satisfaction. Our user-centered approach involves extensive research to understand user needs and preferences.",
-      illustration: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop&crop=center",
+      illustration: "",
       phases: [
         {
           name: "🎨 Prototyping",
@@ -66,7 +67,7 @@ const Process = () => {
           icon: "📋"
         }
       ],
-      bgColor: "bg-gradient-to-br from-purple-600 to-blue-700",
+      bgColor: "bg-gradient-to-br from-gray-700 to-slate-800",
       textColor: "text-white"
     },
     {
@@ -76,7 +77,7 @@ const Process = () => {
       storyTitle: "🎨 The Artist Phase",
       storyDescription: "Like a master painter bringing a canvas to life, we transform wireframes into stunning visual experiences that captivate and inspire your users.",
       description: "We create visually appealing and intuitive interfaces that align with your brand identity while ensuring optimal user experience across all devices and platforms.",
-      illustration: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&crop=center",
+      illustration: "",
       phases: [
         {
           name: "🎭 Moodboards",
@@ -104,7 +105,7 @@ const Process = () => {
       storyTitle: "🚀 The Launch Phase",
       storyDescription: "Like mission control launching a rocket to the stars, we carefully orchestrate your project's journey from code to live website, ensuring a perfect launch and smooth flight.",
       description: "We ensure smooth transition from design to development with comprehensive documentation, assets, and ongoing support to bring your vision to life.",
-      illustration: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&h=400&fit=crop&crop=center",
+      illustration: "",
       phases: [
         {
           name: "⚙️ Development",
@@ -122,7 +123,7 @@ const Process = () => {
           icon: "🚀"
         }
       ],
-      bgColor: "bg-gradient-to-br from-green-600 to-emerald-700",
+      bgColor: "bg-gradient-to-br from-slate-700 to-gray-800",
       textColor: "text-white"
     }
   ];
@@ -132,21 +133,15 @@ const Process = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section 
-        className="pt-16 pb-12 relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&crop=center')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section className="pt-16 pb-12 bg-gray-950 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.1),transparent)]" />
+        <ProcessHeroSvg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Our Process
             </h1>
-            <p className="text-lg text-gray-100 max-w-3xl mx-auto mb-12">
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-12">
               We engage disruptive innovation in the space where business goals meet customer delight.
               Our systematic approach ensures every project delivers exceptional results.
             </p>
@@ -170,7 +165,7 @@ const Process = () => {
       {/* Process Steps */}
       <section className="py-0 relative">
         {/* Connecting Line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 via-gray-500 to-green-500 transform -translate-x-1/2 z-10 hidden lg:block" />
+        <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-400 via-gray-500 to-slate-600 transform -translate-x-1/2 z-10 hidden lg:block" />
 
         {processSteps.map((step, index) => (
           <div key={step.id} className={`${step.bgColor} ${step.textColor} py-20 relative overflow-hidden`}>
@@ -218,16 +213,9 @@ const Process = () => {
                 <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   {/* Illustration */}
                   <div className="mb-8">
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                      <Image
-                        src={step.illustration}
-                        alt={`${step.title} illustration`}
-                        width={800}
-                        height={320}
-                        className="w-full h-64 object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 bg-gradient-to-br from-slate-700 to-gray-900">
+                      <ProcessStepSvg step={step.id} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
                         <div className="text-white text-lg font-semibold">
                           {step.storyTitle}

@@ -1,5 +1,21 @@
 # User Input Log
 
+## 2026-10-29 - 22:00 UTC+4
+
+### Phase D - Blog Expansion, Page Fixes, Deployment Fix, SEO Update
+- **User Input**: "add one blog per month starting from JAN 2025 till date and add these to blog pages. use similar topics. Update the whole 'about' page (why does it says 200+ Projects Completed) prices in 'services' page are still in USD not GBP the site is hosted here https://zerooneworks.com/ update all SEO's and OG pleases. have deployment errors in hostinger. Once completed please check again the site for issues and fix them then push all code to my repo"
+- **Actions Taken**:
+  - Fixed Hostinger deployment: removed --turbopack from build script
+  - Added 22 blog posts (Jan 2025 - Oct 2026), removed Unsplash images and fake authors
+  - Rewrote About page: corrected stats to 59 projects, removed blue/purple gradients
+  - Fixed Services page pricing from USD to GBP
+  - Updated SEO domain from www.zerooneworks.com to zerooneworks.com across layout, sitemap, robots.txt
+  - Removed all external Unsplash images site-wide (10+ pages)
+  - Fixed blue/purple/green gradients in process page and FeaturesCarousel
+  - ESLint: 0 errors, 0 warnings; Build: 24/24 pages successful
+
+---
+
 ## 2026-10-29 - 18:30 UTC+4
 
 ### Phase C - Implement All 50 Site Improvements

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://www.zerooneworks.com";
+const siteUrl = "https://zerooneworks.com";
 
 export const metadata: Metadata = {
   title: {

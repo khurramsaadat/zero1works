@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ServicesHeroSvg } from "@/components/illustrations/HeroIllustrations";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -23,7 +24,7 @@ const Services = () => {
       ),
       features: ["Responsive Design", "SEO Optimized", "Fast Loading", "Cross-browser Compatible"],
       technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-      pricing: "Starting from $2,500"
+      pricing: "From \u00a3500"
     },
     {
       title: "Mobile App Development",
@@ -35,7 +36,7 @@ const Services = () => {
       ),
       features: ["React Native", "Flutter", "Native iOS/Android", "App Store Deployment"],
       technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
-      pricing: "Starting from $5,000"
+      pricing: "From \u00a32,500"
     },
     {
       title: "E-Commerce Solutions",
@@ -47,7 +48,7 @@ const Services = () => {
       ),
       features: ["Payment Gateway", "Inventory Management", "Order Tracking", "Admin Dashboard"],
       technologies: ["Shopify", "WooCommerce", "Stripe", "PayPal"],
-      pricing: "Starting from $3,500"
+      pricing: "From \u00a31,500"
     },
     {
       title: "UI/UX Design",
@@ -59,7 +60,7 @@ const Services = () => {
       ),
       features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
       technologies: ["Figma", "Adobe XD", "Sketch", "InVision"],
-      pricing: "Starting from $1,500"
+      pricing: "From \u00a3750"
     },
     {
       title: "Digital Marketing",
@@ -71,7 +72,7 @@ const Services = () => {
       ),
       features: ["SEO Optimization", "Social Media Marketing", "Content Strategy", "Analytics & Reporting"],
       technologies: ["Google Analytics", "Google Ads", "Facebook Ads", "Mailchimp"],
-      pricing: "Starting from $1,000/month"
+      pricing: "From \u00a3400/mo"
     },
     {
       title: "Maintenance & Support",
@@ -84,7 +85,7 @@ const Services = () => {
       ),
       features: ["24/7 Monitoring", "Security Updates", "Performance Optimization", "Bug Fixes"],
       technologies: ["AWS", "Cloudflare", "New Relic", "Sentry"],
-      pricing: "Starting from $500/month"
+      pricing: "From \u00a3200/mo"
     }
   ];
 
@@ -116,23 +117,17 @@ const Services = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section
-        className="pt-16 pb-12 relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop&crop=center')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section className="pt-16 pb-12 bg-gray-950 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.1),transparent)]" />
+        <ServicesHeroSvg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Our Services
             </h1>
-            <p className="text-lg text-gray-100 max-w-3xl mx-auto mb-8">
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
               We offer comprehensive digital solutions to help your business thrive in the digital world. 
-              From web development to digital marketing, we&apos;ve got you covered.
+              From web development to digital marketing, we have got you covered.
             </p>
           </div>
         </div>

@@ -180,7 +180,7 @@ const FeaturesCarousel = () => {
                                   sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                               ) : (
-                                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                                <div className="w-full h-full bg-gradient-to-br from-slate-700 to-gray-900 flex items-center justify-center">
                                   <div className="text-center text-white p-4">
                                     <div className="text-xl font-bold mb-1">{project.title}</div>
                                     <div className="text-xs opacity-90">{project.category}</div>
@@ -231,7 +231,7 @@ const FeaturesCarousel = () => {
                                   sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                               ) : (
-                                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                                <div className="w-full h-full bg-gradient-to-br from-slate-700 to-gray-900 flex items-center justify-center">
                                   <div className="text-center text-white p-4">
                                     <div className="text-xl font-bold mb-1">{project.title}</div>
                                     <div className="text-xs opacity-90">{project.category}</div>

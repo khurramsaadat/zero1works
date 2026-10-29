@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { WhyChooseUsSvg } from "@/components/illustrations/HeroIllustrations";
 
 const WhyChooseUs = () => {
   return (
@@ -33,14 +33,10 @@ const WhyChooseUs = () => {
           {/* Right Illustration */}
           <div className="relative">
             <div className="relative z-10">
-              <Image
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&crop=center"
-                alt="Team collaboration"
-                width={600}
-                height={400}
-                className="rounded-xl shadow-2xl h-auto w-full max-w-[600px]"
-              />
-              {/* Floating Elements - Using your theme colors */}
+              <div className="rounded-xl shadow-2xl w-full max-w-[600px] h-[400px] bg-gradient-to-br from-slate-700 to-gray-900 overflow-hidden" role="img" aria-label="Team collaboration and partnership">
+                <WhyChooseUsSvg className="w-full h-full" />
+              </div>
+              {/* Floating accent circles */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-gray-700 dark:bg-gray-400 rounded-full opacity-80"></div>
               <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gray-400 dark:bg-gray-300 rounded-full opacity-60"></div>
               <div className="absolute top-1/2 -right-8 w-12 h-12 bg-gray-600 dark:bg-white rounded-full opacity-70"></div>

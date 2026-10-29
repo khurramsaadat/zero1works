@@ -2,6 +2,67 @@
 
 ## 2026-10-29
 
+### Phase D - Blog Expansion, Page Fixes, Deployment Fix, SEO Update
+
+#### Hostinger Deployment Fix
+- Removed `--turbopack` from `build` script in package.json (kept for dev only)
+- Turbopack + PostCSS workers were causing build panic on Hostinger
+- Build now uses standard Webpack-based Next.js build for production
+- All 24 pages compile successfully with 0 errors
+
+#### Blog Page - 22 New Monthly Posts (Total: 31)
+- Added one blog post per month from January 2025 to October 2026
+- Topics: Static Site Generation, Cloud Providers, Cross-Platform Mobile, Technical SEO, AI in Web Design, API Security, React 19 Migration, Design Systems, Web Fonts, E-Commerce Checkout, CI/CD Pipelines, Year in Review, Serverless Hosting, Zero Trust Security, Local SEO, PWAs, Dark Mode Design, Mobile Commerce, AI Customer Support, Performance Metrics, Server Components, Accessible Websites
+- Removed all external Unsplash images - replaced with CSS gradient placeholders
+- Removed fake author names - all posts attributed to "Zero One Works"
+- Added "Load More" pagination (12 per page)
+- Category filter with post count
+
+#### About Page - Complete Rewrite
+- Stats corrected: "59 Live Projects", "18 Industries Served", "2+ Years Experience", "98% Client Satisfaction"
+- Removed all blue/purple gradients - replaced with gray-600/gray-800 charcoal/slate palette
+- Removed all external Unsplash images
+- Added breadcrumbs, consistent dark hero header
+- Restructured sections: Company Description, Capabilities, Stats, Vision/Mission, Values, Team, CTA
+
+#### Services Page - USD to GBP Pricing Fix
+- `$2,500` changed to `From £500`
+- `$5,000` changed to `From £2,500`
+- `$3,500` changed to `From £1,500`
+- `$1,500` changed to `From £750`
+- `$1,000/month` changed to `From £400/mo`
+- `$500/month` changed to `From £200/mo`
+- Replaced Unsplash hero with consistent dark gradient header
+
+#### SEO & OG Domain Update
+- Updated siteUrl from `https://www.zerooneworks.com` to `https://zerooneworks.com` in layout.tsx
+- Updated all 21 URLs in sitemap.xml
+- Updated robots.txt Sitemap URL
+- JSON-LD structured data now uses correct domain
+
+#### External Image Removal (Site-wide)
+- Removed all Unsplash background images from: services, process, careers, privacy-policy, terms-of-service, cookie-policy, sitemap-page, WhyChooseUs
+- Replaced with consistent `bg-gray-950` + radial gradient overlay hero sections
+- Process page: illustration images replaced with gradient placeholders
+- WhyChooseUs: team collaboration image replaced with branded gradient
+
+#### Blue/Purple Gradient Cleanup
+- Process page timeline: blue-500/purple-500/green-500 gradient changed to slate-400/gray-500/slate-600
+- FeaturesCarousel: blue-600/blue-800 gradients changed to slate-700/gray-900
+- Process page step backgrounds: blue-50/indigo-100 and purple-600/blue-700 and green-600/emerald-700 all changed to slate palette
+
+#### ESLint Config
+- Added `scripts/**` to globalIgnores (test scripts use require())
+- ESLint: 0 errors, 0 warnings
+
+#### Build Results
+- 24/24 pages prerendered successfully
+- TypeScript: 0 errors
+- ESLint: 0 errors, 0 warnings
+- No external image dependencies remaining in source
+
+---
+
 ### Phase C - 50 Site Improvements Implementation
 
 #### Landing Page / Hero (Items 1-9)
