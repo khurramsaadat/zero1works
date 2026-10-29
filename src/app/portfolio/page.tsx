@@ -183,7 +183,7 @@ const Portfolio = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="mb-4">
-            <Breadcrumbs />
+            <Breadcrumbs variant="hero" />
           </div>
           <div className="text-center">
             <p className="text-sm font-medium text-gray-400 uppercase tracking-widest mb-3">

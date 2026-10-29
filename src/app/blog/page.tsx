@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { heroImages, blogCategoryImages } from "@/components/illustrations/HeroIllustrations";
+import { heroImages, getPostImage, slugify } from "@/components/illustrations/HeroIllustrations";
 
 const POSTS_PER_PAGE = 12;
 
@@ -285,7 +285,7 @@ const Blog = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.1),transparent)]" />
         <div className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style={{ backgroundImage: `url('${heroImages.blog}')` }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <Breadcrumbs />
+          <Breadcrumbs variant="hero" />
           <div className="text-center mt-6">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Blog</h1>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
@@ -315,13 +315,13 @@ const Blog = () => {
         <section id="main-content" className="py-16 bg-white dark:bg-slate-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-8">Latest Post</h2>
-            <Link href={`/blog/${visible[0].id}`}>
+            <Link href={`/blog/${slugify(visible[0].title)}`}>
               <Card className="card-hover-effect overflow-hidden cursor-pointer">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                   <div className="relative h-64 lg:min-h-[320px]">
                     <Image
-                      src={blogCategoryImages[visible[0].category] || "/images/blog/web-development.jpg"}
-                      alt={visible[0].category}
+                      src={getPostImage(visible[0].id)}
+                      alt={visible[0].title}
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -360,12 +360,12 @@ const Blog = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {visible.slice(1).map((post) => (
-              <Link key={post.id} href={`/blog/${post.id}`}>
+              <Link key={post.id} href={`/blog/${slugify(post.title)}`}>
                 <Card className="card-hover-effect overflow-hidden cursor-pointer h-full">
                   <div className="relative h-48">
                     <Image
-                      src={blogCategoryImages[post.category] || "/images/blog/web-development.jpg"}
-                      alt={post.category}
+                      src={getPostImage(post.id)}
+                      alt={post.title}
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
-import { blogCategoryImages } from "@/components/illustrations/HeroIllustrations";
+import { getPostImage, slugify } from "@/components/illustrations/HeroIllustrations";
 
 /* Shared blog data - keep in sync with /blog/page.tsx */
 const blogPosts = [
@@ -72,28 +72,28 @@ const blogPosts = [
     body: "Cloud computing levels the playing field for small businesses. Services that once required significant capital investment in servers and IT staff are now available on a pay-as-you-go basis.\n\nStart with the basics: cloud email (Google Workspace or Microsoft 365), cloud storage (Google Drive, Dropbox, or OneDrive), and cloud-based productivity tools. These eliminate the need for on-premises servers and enable remote work.\n\nFor your website, cloud hosting through platforms like Vercel, Netlify, or AWS Amplify provides global CDN delivery, automatic scaling, and near-zero maintenance. Static sites can be hosted for free or nearly free.\n\nSecurity in the cloud is often better than on-premises for small businesses. Cloud providers invest heavily in security infrastructure, automated patching, and monitoring that most small businesses could never afford independently." },
 ];
 
-function getPost(id: number) {
-  return blogPosts.find((p) => p.id === id);
+function getPostBySlug(slug: string) {
+  return blogPosts.find((p) => slugify(p.title) === slug);
 }
 
-/* Generate static pages for all 31 posts */
+/* Generate static pages for all 31 posts using slugs */
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ id: String(post.id) }));
+  return blogPosts.map((post) => ({ slug: slugify(post.title) }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await params;
-  const post = getPost(Number(id));
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   return {
     title: post?.title || "Blog Post",
     description: post?.excerpt || "",
-    alternates: { canonical: `/blog/${id}` },
+    alternates: { canonical: `/blog/${slug}` },
   };
 }
 
-export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const post = getPost(Number(id));
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return (
@@ -123,15 +123,15 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
       {/* Hero with category image */}
       <section className="pt-16 pb-12 relative overflow-hidden bg-gray-900">
         <Image
-          src={blogCategoryImages[post.category] || "/images/blog/web-development.jpg"}
-          alt={post.category}
+          src={getPostImage(post.id)}
+          alt={post.title}
           fill
           className="object-cover opacity-40"
           sizes="100vw"
           priority
         />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <Breadcrumbs />
+          <Breadcrumbs variant="hero" lastLabel={post.title} />
           <div className="mt-6">
             <span className="inline-block bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
               {post.category}
@@ -169,7 +169,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-start gap-8">
             {prevPost ? (
-              <Link href={`/blog/${prevPost.id}`} className="group flex-1">
+              <Link href={`/blog/${slugify(prevPost.title)}`} className="group flex-1">
                 <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Previous</span>
                 <p className="text-gray-800 dark:text-gray-200 font-medium group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors line-clamp-2 mt-1">
                   {prevPost.title}
@@ -177,7 +177,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
               </Link>
             ) : <div className="flex-1" />}
             {nextPost ? (
-              <Link href={`/blog/${nextPost.id}`} className="group flex-1 text-right">
+              <Link href={`/blog/${slugify(nextPost.title)}`} className="group flex-1 text-right">
                 <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Next</span>
                 <p className="text-gray-800 dark:text-gray-200 font-medium group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors line-clamp-2 mt-1">
                   {nextPost.title}
@@ -195,12 +195,12 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
             <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-8">Related Posts</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {related.map((r) => (
-                <Link key={r.id} href={`/blog/${r.id}`}>
+                <Link key={r.id} href={`/blog/${slugify(r.title)}`}>
                   <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer h-full">
                     <div className="relative h-40">
                       <Image
-                        src={blogCategoryImages[r.category] || "/images/blog/web-development.jpg"}
-                        alt={r.category}
+                        src={getPostImage(r.id)}
+                        alt={r.title}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 33vw"

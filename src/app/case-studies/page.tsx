@@ -26,7 +26,7 @@ export default function CaseStudiesPage() {
       <main id="main-content">
         <section className="pt-20 pb-12 bg-gray-950">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <Breadcrumbs />
+            <Breadcrumbs variant="hero" />
             <h1 className="text-3xl md:text-4xl font-bold text-white mt-6 mb-4">Case Studies</h1>
             <p className="text-gray-400 max-w-2xl">Deep dives into real projects - the challenges, solutions, and results.</p>
           </div>

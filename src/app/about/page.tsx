@@ -30,7 +30,7 @@ export default function About() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.1),transparent)]" />
         <div className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style={{ backgroundImage: `url('${heroImages.about}')` }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <Breadcrumbs />
+          <Breadcrumbs variant="hero" />
           <div className="text-center mt-6">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">About Us</h1>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">

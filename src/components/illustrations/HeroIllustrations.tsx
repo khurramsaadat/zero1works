@@ -36,3 +36,17 @@ export const processStepImages = [
 
 /* WhyChooseUs image */
 export const whyChooseUsImage = "/images/pages/why-choose-us.jpg";
+
+/* Per-post image - cycles through all category images so related posts look different */
+const allBlogImages = Object.values(blogCategoryImages);
+export function getPostImage(postIndex: number): string {
+  return allBlogImages[postIndex % allBlogImages.length];
+}
+
+/* Generate a URL-friendly slug from a title */
+export function slugify(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
