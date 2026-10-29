@@ -81,17 +81,19 @@ export function generateStaticParams() {
   return blogPosts.map((post) => ({ id: String(post.id) }));
 }
 
-export function generateMetadata({ params }: { params: { id: string } }): Metadata {
-  const post = getPost(Number(params.id));
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const post = getPost(Number(id));
   return {
     title: post?.title || "Blog Post",
     description: post?.excerpt || "",
-    alternates: { canonical: `/blog/${params.id}` },
+    alternates: { canonical: `/blog/${id}` },
   };
 }
 
-export default function BlogPost({ params }: { params: { id: string } }) {
-  const post = getPost(Number(params.id));
+export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = getPost(Number(id));
 
   if (!post) {
     return (
