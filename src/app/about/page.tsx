@@ -5,7 +5,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Card, CardContent } from "@/components/ui/card";
 import CounterAnimation from "@/components/CounterAnimation";
 import Link from "next/link";
-import { AboutHeroSvg } from "@/components/illustrations/HeroIllustrations";
+import { heroImages } from "@/components/illustrations/HeroIllustrations";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -28,7 +28,7 @@ export default function About() {
       {/* Hero */}
       <section className="pt-16 pb-12 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.1),transparent)]" />
-        <AboutHeroSvg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style={{ backgroundImage: `url('${heroImages.about}')` }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <Breadcrumbs />
           <div className="text-center mt-6">

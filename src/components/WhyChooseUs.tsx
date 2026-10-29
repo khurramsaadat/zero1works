@@ -1,6 +1,7 @@
 "use client";
 
-import { WhyChooseUsSvg } from "@/components/illustrations/HeroIllustrations";
+import Image from "next/image";
+import { whyChooseUsImage } from "@/components/illustrations/HeroIllustrations";
 
 const WhyChooseUs = () => {
   return (
@@ -33,8 +34,14 @@ const WhyChooseUs = () => {
           {/* Right Illustration */}
           <div className="relative">
             <div className="relative z-10">
-              <div className="rounded-xl shadow-2xl w-full max-w-[600px] h-[400px] bg-gradient-to-br from-slate-700 to-gray-900 overflow-hidden" role="img" aria-label="Team collaboration and partnership">
-                <WhyChooseUsSvg className="w-full h-full" />
+              <div className="rounded-xl shadow-2xl w-full max-w-[600px] h-[400px] overflow-hidden relative" role="img" aria-label="Team collaboration and partnership">
+                <Image
+                  src={whyChooseUsImage}
+                  alt="Team collaboration and partnership"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
               {/* Floating accent circles */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-gray-700 dark:bg-gray-400 rounded-full opacity-80"></div>

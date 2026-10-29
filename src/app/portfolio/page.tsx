@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
-import { PortfolioHeroSvg } from "@/components/illustrations/HeroIllustrations";
+import { heroImages } from "@/components/illustrations/HeroIllustrations";
 
 /* Skeleton card shown while images are loading */
 function SkeletonCard() {
@@ -178,7 +178,7 @@ const Portfolio = () => {
         <div className="absolute inset-0 bg-gray-950" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.15),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_50%,rgba(78,78,96,0.12),transparent)]" />
-        <PortfolioHeroSvg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style={{ backgroundImage: `url('${heroImages.portfolio}')` }} />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">

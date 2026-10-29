@@ -3,7 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
-import { BlogCardSvg } from "@/components/illustrations/HeroIllustrations";
+import Image from "next/image";
+import { blogCategoryImages } from "@/components/illustrations/HeroIllustrations";
 
 /* Shared blog data - keep in sync with /blog/page.tsx */
 const blogPosts = [
@@ -113,30 +114,20 @@ export default function BlogPost({ params }: { params: { id: string } }) {
   /* Related posts - same category, excluding current */
   const related = blogPosts.filter((p) => p.category === post.category && p.id !== post.id).slice(0, 3);
 
-  const categoryGradients: Record<string, string> = {
-    "Web Development": "from-slate-700 to-gray-900",
-    "E-Commerce": "from-gray-800 to-slate-600",
-    "Design": "from-slate-600 to-gray-800",
-    "Mobile Development": "from-gray-700 to-slate-900",
-    "SEO": "from-slate-800 to-gray-700",
-    "AI & Technology": "from-gray-900 to-slate-700",
-    "Performance": "from-slate-700 to-gray-800",
-    "Security": "from-gray-800 to-slate-800",
-    "Cloud Computing": "from-slate-900 to-gray-700",
-    "Business": "from-gray-700 to-slate-800",
-    "Accessibility": "from-slate-600 to-gray-700",
-    "DevOps": "from-gray-800 to-slate-700",
-  };
-
   return (
     <div className="min-h-screen">
       <Navbar />
 
-      {/* Hero with category SVG */}
-      <section className={`pt-16 pb-12 relative overflow-hidden bg-gradient-to-br ${categoryGradients[post.category] || "from-gray-700 to-slate-900"}`}>
-        <div className="absolute inset-0 opacity-60">
-          <BlogCardSvg category={post.category} />
-        </div>
+      {/* Hero with category image */}
+      <section className="pt-16 pb-12 relative overflow-hidden bg-gray-900">
+        <Image
+          src={blogCategoryImages[post.category] || "/images/blog/web-development.jpg"}
+          alt={post.category}
+          fill
+          className="object-cover opacity-40"
+          sizes="100vw"
+          priority
+        />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <Breadcrumbs />
           <div className="mt-6">
@@ -204,8 +195,15 @@ export default function BlogPost({ params }: { params: { id: string } }) {
               {related.map((r) => (
                 <Link key={r.id} href={`/blog/${r.id}`}>
                   <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer h-full">
-                    <div className={`relative h-40 bg-gradient-to-br ${categoryGradients[r.category] || "from-gray-700 to-slate-900"}`}>
-                      <BlogCardSvg category={r.category} />
+                    <div className="relative h-40">
+                      <Image
+                        src={blogCategoryImages[r.category] || "/images/blog/web-development.jpg"}
+                        alt={r.category}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        loading="lazy"
+                      />
                     </div>
                     <div className="p-5">
                       <h3 className="font-bold text-gray-800 dark:text-gray-200 mb-2 line-clamp-2">{r.title}</h3>

@@ -3,7 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { ProcessHeroSvg, ProcessStepSvg } from "@/components/illustrations/HeroIllustrations";
+import Image from "next/image";
+import { heroImages, processStepImages } from "@/components/illustrations/HeroIllustrations";
 
 
 export const metadata: Metadata = {
@@ -18,25 +19,25 @@ const Process = () => {
       id: 1,
       title: "UX Audit",
       subtitle: "Discovery & Understanding",
-      storyTitle: "🔍 The Detective Phase",
+      storyTitle: "The Detective Phase",
       storyDescription: "Like a detective solving a mystery, we dive deep into your digital world to uncover hidden insights, user pain points, and untapped opportunities.",
       description: "We endeavor to outline the reasons, understand the metrics, reveal user pains and business goals to plan and conduct the redesign process wisely & systematically.",
       illustration: "",
       phases: [
         {
-          name: "🔎 Product Audit",
+          name: "Product Audit",
           description: "Like examining evidence at a crime scene, we assess every aspect of your current digital presence to identify what's working and what needs improvement.",
-          icon: "🔍"
+          icon: "01"
         },
         {
-          name: "📊 Research & Analysis",
+          name: "Research & Analysis",
           description: "We become data detectives, gathering clues from user behavior, analytics, and feedback to build a complete picture of your users' journey.",
-          icon: "📈"
+          icon: "02"
         },
         {
-          name: "💡 Ideation",
+          name: "Ideation",
           description: "Armed with insights, we brainstorm solutions like inventors in a workshop, mapping out the perfect user experience blueprint.",
-          icon: "🧠"
+          icon: "03"
         }
       ],
       bgColor: "bg-gradient-to-br from-slate-100 to-gray-200 dark:from-slate-800 dark:to-gray-900",
@@ -46,25 +47,25 @@ const Process = () => {
       id: 2,
       title: "UX Design",
       subtitle: "Crafting the Experience",
-      storyTitle: "🏗️ The Architect Phase",
+      storyTitle: "The Architect Phase",
       storyDescription: "Like architects designing a beautiful building, we create the blueprint for your digital experience, ensuring every interaction feels natural and delightful.",
       description: "We aim to design user-friendly digital products that create seamless interactions and improve user satisfaction. Our user-centered approach involves extensive research to understand user needs and preferences.",
       illustration: "",
       phases: [
         {
-          name: "🎨 Prototyping",
+          name: "Prototyping",
           description: "Like building a scale model before constructing a skyscraper, we create interactive prototypes to test and refine ideas before development.",
-          icon: "🔧"
+          icon: "01"
         },
         {
-          name: "👥 User Testing",
+          name: "User Testing",
           description: "We invite real users to test-drive our prototypes, like letting people walk through a model home to ensure it feels just right.",
-          icon: "🧪"
+          icon: "02"
         },
         {
-          name: "📐 Wireframing",
+          name: "Wireframing",
           description: "Creating the structural blueprint of your digital experience, like an architect's floor plan that shows where everything belongs.",
-          icon: "📋"
+          icon: "03"
         }
       ],
       bgColor: "bg-gradient-to-br from-gray-700 to-slate-800",
@@ -74,25 +75,25 @@ const Process = () => {
       id: 3,
       title: "UI Design",
       subtitle: "Bringing Beauty to Life",
-      storyTitle: "🎨 The Artist Phase",
+      storyTitle: "The Artist Phase",
       storyDescription: "Like a master painter bringing a canvas to life, we transform wireframes into stunning visual experiences that captivate and inspire your users.",
       description: "We create visually appealing and intuitive interfaces that align with your brand identity while ensuring optimal user experience across all devices and platforms.",
       illustration: "",
       phases: [
         {
-          name: "🎭 Moodboards",
+          name: "Moodboards",
           description: "Like an artist's palette, we gather colors, textures, and inspiration to set the emotional tone and visual direction of your digital masterpiece.",
-          icon: "🎨"
+          icon: "01"
         },
         {
-          name: "✨ Design Concept",
+          name: "Design Concept",
           description: "We paint the first strokes on the canvas, transforming wireframes into beautiful, branded interfaces that tell your unique story.",
-          icon: "🖌️"
+          icon: "02"
         },
         {
-          name: "🏆 Final Design",
+          name: "Final Design",
           description: "The masterpiece is complete! Every pixel is perfected, every detail polished, ready to amaze your users and developers alike.",
-          icon: "💎"
+          icon: "03"
         }
       ],
       bgColor: "bg-gradient-to-br from-gray-800 to-gray-900",
@@ -102,25 +103,25 @@ const Process = () => {
       id: 4,
       title: "Hand-off",
       subtitle: "Launch & Beyond",
-      storyTitle: "🚀 The Launch Phase",
+      storyTitle: "The Launch Phase",
       storyDescription: "Like mission control launching a rocket to the stars, we carefully orchestrate your project's journey from code to live website, ensuring a perfect launch and smooth flight.",
       description: "We ensure smooth transition from design to development with comprehensive documentation, assets, and ongoing support to bring your vision to life.",
       illustration: "",
       phases: [
         {
-          name: "⚙️ Development",
+          name: "Development",
           description: "Like skilled engineers building a spacecraft, our developers transform designs into powerful, responsive digital experiences using cutting-edge technology.",
-          icon: "💻"
+          icon: "01"
         },
         {
-          name: "🔍 Quality Assurance",
+          name: "Quality Assurance",
           description: "Every system is tested like a pre-flight check, ensuring your website performs flawlessly across all devices and browsers before takeoff.",
-          icon: "✅"
+          icon: "02"
         },
         {
-          name: "🌟 Launch & Support",
+          name: "Launch & Support",
           description: "3, 2, 1... Launch! Your website soars live to the world, with our mission control team providing ongoing support for a successful journey.",
-          icon: "🚀"
+          icon: "03"
         }
       ],
       bgColor: "bg-gradient-to-br from-slate-700 to-gray-800",
@@ -135,7 +136,7 @@ const Process = () => {
       {/* Hero Section */}
       <section className="pt-16 pb-12 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.1),transparent)]" />
-        <ProcessHeroSvg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style={{ backgroundImage: `url('${heroImages.process}')` }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -213,9 +214,16 @@ const Process = () => {
                 <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   {/* Illustration */}
                   <div className="mb-8">
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 bg-gradient-to-br from-slate-700 to-gray-900">
-                      <ProcessStepSvg step={step.id} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64">
+                      <Image
+                        src={processStepImages[step.id - 1]}
+                        alt={`${step.title} - ${step.subtitle}`}
+                        width={800}
+                        height={520}
+                        className="w-full h-full object-cover"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
                         <div className="text-white text-lg font-semibold">
                           {step.storyTitle}
@@ -230,7 +238,7 @@ const Process = () => {
                       <Card key={phaseIndex} className={`${step.textColor === 'text-white' ? 'bg-white/10 border-white/20 backdrop-blur-sm hover:bg-white/15' : 'bg-white border-gray-200 hover:shadow-lg'} border transition-all duration-300 card-hover-effect`}>
                         <CardContent className="p-6">
                           <div className="flex items-start space-x-4">
-                            <div className={`text-3xl ${step.textColor === 'text-white' ? 'filter brightness-110' : ''}`}>
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${step.textColor === 'text-white' ? 'bg-white/20 text-white border border-white/30' : 'bg-gray-900 text-white'}`}>
                               {phase.icon}
                             </div>
                             <div className="flex-1">

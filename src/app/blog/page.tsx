@@ -7,23 +7,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { BlogHeroSvg, BlogCardSvg } from "@/components/illustrations/HeroIllustrations";
-
-/* Category-to-gradient map for card headers (charcoal/slate palette) */
-const categoryGradients: Record<string, string> = {
-  "Web Development": "from-slate-700 to-gray-900",
-  "E-Commerce": "from-gray-800 to-slate-600",
-  "Design": "from-slate-600 to-gray-800",
-  "Mobile Development": "from-gray-700 to-slate-900",
-  "SEO": "from-slate-800 to-gray-700",
-  "AI & Technology": "from-gray-900 to-slate-700",
-  "Performance": "from-slate-700 to-gray-800",
-  "Security": "from-gray-800 to-slate-800",
-  "Cloud Computing": "from-slate-900 to-gray-700",
-  "Business": "from-gray-700 to-slate-800",
-  "Accessibility": "from-slate-600 to-gray-700",
-  "DevOps": "from-gray-800 to-slate-700",
-};
+import Image from "next/image";
+import { heroImages, blogCategoryImages } from "@/components/illustrations/HeroIllustrations";
 
 const POSTS_PER_PAGE = 12;
 
@@ -298,7 +283,7 @@ const Blog = () => {
       {/* Hero */}
       <section className="pt-16 pb-12 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.1),transparent)]" />
-        <BlogHeroSvg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style={{ backgroundImage: `url('${heroImages.blog}')` }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <Breadcrumbs />
           <div className="text-center mt-6">
@@ -333,8 +318,15 @@ const Blog = () => {
             <Link href={`/blog/${visible[0].id}`}>
               <Card className="card-hover-effect overflow-hidden cursor-pointer">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className={`relative h-64 lg:min-h-[320px] bg-gradient-to-br ${categoryGradients[visible[0].category] || "from-gray-700 to-slate-900"}`}>
-                    <BlogCardSvg category={visible[0].category} />
+                  <div className="relative h-64 lg:min-h-[320px]">
+                    <Image
+                      src={blogCategoryImages[visible[0].category] || "/images/blog/web-development.jpg"}
+                      alt={visible[0].category}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority
+                    />
                     <div className="absolute top-4 left-4">
                       <span className="bg-white/90 dark:bg-slate-800/90 text-gray-600 dark:text-gray-400 px-3 py-1 rounded-full text-sm font-medium">
                         {visible[0].category}
@@ -370,8 +362,15 @@ const Blog = () => {
             {visible.slice(1).map((post) => (
               <Link key={post.id} href={`/blog/${post.id}`}>
                 <Card className="card-hover-effect overflow-hidden cursor-pointer h-full">
-                  <div className={`relative h-48 bg-gradient-to-br ${categoryGradients[post.category] || "from-gray-700 to-slate-900"}`}>
-                    <BlogCardSvg category={post.category} />
+                  <div className="relative h-48">
+                    <Image
+                      src={blogCategoryImages[post.category] || "/images/blog/web-development.jpg"}
+                      alt={post.category}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
+                    />
                     <div className="absolute top-4 right-4">
                       <span className="bg-white/90 dark:bg-slate-800/90 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full text-xs font-medium">
                         {post.category}
